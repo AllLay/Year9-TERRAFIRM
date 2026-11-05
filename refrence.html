@@ -1,0 +1,640 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Refrences - TERRAFIRM</title>
+    <link rel="icon" type="image/x-icon" href="./img/Logo.png">
+    <!-- Bootstrap 5 CSS CDN -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
+    <link rel="stylesheet" href="style.css">
+    <style>
+        .reference-grid {
+            display: grid;
+            grid-template-columns: repeat(2, minmax(0, 1fr));
+            grid-auto-rows: 1fr;
+            gap: 24px;
+            align-items: stretch;
+        }
+
+        .reference-grid > .col-lg-6 {
+            width: auto;
+        }
+
+        .reference-card {
+            height: 100%;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .reference-card .card-body {
+            flex: 1;
+            display: flex;
+            flex-direction: column;
+        }
+
+        @media (max-width: 767px) {
+            .reference-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+<body class="d-flex flex-column min-vh-100">
+    <nav class="navbar navbar-expand-lg navbar-dark">
+        <div class="container">
+            <a class="navbar-brand d-flex align-items-center" href="./index.html">
+                <img src="./img/Logo.png" alt="TERRAFIRM Logo" class="logo">
+                <span class="brand-name">TERRAFIRM</span>
+            </a>
+
+            <!-- Burger -->
+            <button class="navbar-toggler border-0 shadow-none" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav ms-auto align-items-lg-center gap-lg-2">
+                    <li class="nav-item">
+                        <a class="nav-link" href="./index.html">
+                            Home
+                        </a>
+                    </li>
+
+                    <li class="nav-item">
+                        <a class="nav-link" href="./aboutUs.html">
+                            About Us
+                        </a>
+                    </li>
+
+                    <!-- Disaster Dropdown -->
+                    <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false"> Disaster List </a>
+
+                        <ul class="dropdown-menu">
+                            <li>
+                                <a class="dropdown-item" href="./flood.html">
+                                    <i class="bi bi-water me-2"></i>
+                                    Flood
+                                </a>
+                            </li>
+
+                            <li>
+                                <a class="dropdown-item" href="./earthquake.html">
+                                    <i class="bi bi-globe-americas me-2"></i>
+                                    Earthquake
+                                </a>
+                            </li>
+
+                            <li>
+                                <a class="dropdown-item" href="./landslide.html">
+                                    <i class="bi bi-tree me-2"></i>
+                                    Landslide
+                                </a>
+                            </li>
+
+                            <li>
+                                <a class="dropdown-item" href="./drought.html">
+                                    <i class="bi bi-brightness-high me-2"></i>
+                                    Drought
+                                </a>
+                            </li>
+                        </ul>
+                    </li>
+
+                    <li class="nav-item">
+                        <a class="nav-link" href="./explore.html">
+                            Explore Disaster
+                        </a>
+                    </li>
+
+                    <li class="nav-item">
+                        <a class="nav-link contact-link" href="./contactUs.html">
+                            Contact Us
+                        </a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <section class="flex-fill py-5">
+        <div class="container">
+            <div class="reference-hero mb-5">
+                <span class="badge rounded-pill text-bg-success mb-3">
+                    TERRAFIRM RESEARCH
+                </span>
+
+                <h1 class="display-5">
+                    References & Sources
+                </h1>
+
+                <p class="mt-3 mb-0">
+                    Explore the research, reports and official information
+                    used in TERRAFIRM to understand natural disasters
+                    and their impacts on Myanmar's people, environment
+                    and communities.
+                </p>
+            </div>
+
+            <!-- Reference Categories -->
+            <div class="row g-4">
+                <!-- FLOODS -->
+                <div class="col-lg-6">
+                    <div class="card reference-card">
+                        <div class="card-body">
+                            <div class="d-flex align-items-center gap-3 mb-3">
+
+                                <div class="reference-icon flood-icon">
+                                    <i class="bi bi-water"></i>
+                                </div>
+
+                                <div>
+                                    <h2 class="h4 reference-heading mb-1">
+                                        Floods
+                                    </h2>
+                                    <p class="text-secondary small mb-0">
+                                        Flood research and reports
+                                    </p>
+                                </div>
+                            </div>
+
+                            <p class="text-secondary">
+                                Research and reports about flooding,
+                                its causes, affected communities,
+                                environmental damage and flood
+                                preparedness in Myanmar.
+                            </p>
+
+                            <div class="reference-item">
+                                <span class="reference-source">
+                                    United Nations - OCHA
+                                </span>
+
+                                <div>
+                                    <a href="https://myanmar.un.org/en/278804-myanmar-flood-situation-report-16-september-2024"
+                                    target="_blank"
+                                    rel="noopener noreferrer">
+                                        Myanmar Flood Situation Report -
+                                        16 September 2024
+                                        <i class="bi bi-box-arrow-up-right small"></i>
+                                    </a>
+                                </div>
+
+                                <p>
+                                    Documents the September 2024 floods
+                                    caused by heavy monsoon rainfall
+                                    and the remnants of Typhoon Yagi.
+                                </p>
+                            </div>
+
+                            <div class="reference-item">
+                                <span class="reference-source">
+                                    World Bank
+                                </span>
+
+                                <div>
+                                    <a href="https://www.worldbank.org/en/country/myanmar/publication/myanmar-floods-and-landslides-post-disaster-needs-assessment"
+                                    target="_blank"
+                                    rel="noopener noreferrer">
+                                        Myanmar Floods and Landslides -
+                                        Post Disaster Needs Assessment
+                                        <i class="bi bi-box-arrow-up-right small"></i>
+                                    </a>
+                                </div>
+
+                                <p>
+                                    Examines the damage, economic losses
+                                    and social impacts of the 2015 floods
+                                    and landslides in Myanmar.
+                                </p>
+                            </div>
+
+                            <div class="reference-item">
+                                <span class="reference-source">
+                                    Myanmar Department of Meteorology and Hydrology
+                                </span>
+
+                                <div>
+                                    <a href="https://moezala.gov.mm/en"
+                                    target="_blank"
+                                    rel="noopener noreferrer">
+                                        Official Weather and Flood Information
+                                        <i class="bi bi-box-arrow-up-right small"></i>
+                                    </a>
+                                </div>
+
+                                <p>
+                                    Provides weather forecasts, rainfall
+                                    information, flood warnings and
+                                    other meteorological updates.
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+
+                <!-- EARTHQUAKES -->
+                <div class="col-lg-6">
+                    <div class="card reference-card">
+                        <div class="card-body">
+                            <div class="d-flex align-items-center gap-3 mb-3">
+
+                                <div class="reference-icon earthquake-icon">
+                                    <i class="bi bi-globe-americas"></i>
+                                </div>
+
+                                <div>
+                                    <h2 class="h4 reference-heading mb-1">
+                                        Earthquakes
+                                    </h2>
+                                    <p class="text-secondary small mb-0">
+                                        Seismic activity and earthquake research
+                                    </p>
+                                </div>
+                            </div>
+
+                            <p class="text-secondary">
+                                Research about earthquake causes,
+                                tectonic activity, seismic hazards,
+                                historical earthquakes and their
+                                impacts on Myanmar.
+                            </p>
+
+                            <div class="reference-item">
+                                <span class="reference-source">
+                                    United States Geological Survey (USGS)
+                                </span>
+
+                                <div>
+                                    <a href="https://www.usgs.gov/publications/ultralong-supershear-rupture-2025-mw-77-mandalay-earthquake-reveals-unaccounted-risk"
+                                    target="_blank"
+                                    rel="noopener noreferrer">
+                                        2025 Magnitude 7.7 Mandalay Earthquake
+                                        Research
+                                        <i class="bi bi-box-arrow-up-right small"></i>
+                                    </a>
+                                </div>
+
+                                <p>
+                                    Scientific research explaining the
+                                    2025 Mandalay earthquake, its rupture
+                                    along the Sagaing Fault and its
+                                    geological characteristics.
+                                </p>
+                            </div>
+
+                            <div class="reference-item">
+                                <span class="reference-source">
+                                    United Nations - UN Myanmar
+                                </span>
+
+                                <div>
+                                    <a href="https://myanmar.un.org/en/291866-initial-situation-report-earthquake-central-myanmar-28-march-2025"
+                                    target="_blank"
+                                    rel="noopener noreferrer">
+                                        Initial Situation Report:
+                                        Central Myanmar Earthquake
+                                        <i class="bi bi-box-arrow-up-right small"></i>
+                                    </a>
+                                </div>
+
+                                <p>
+                                    Reports the impacts of the
+                                    28 March 2025 earthquake,
+                                    including casualties, building
+                                    collapses and infrastructure damage.
+                                </p>
+                            </div>
+
+                            <div class="reference-item">
+                                <span class="reference-source">
+                                    Myanmar Department of Meteorology and Hydrology
+                                </span>
+
+                                <div>
+                                    <a href="https://moezala.gov.mm/en"
+                                    target="_blank"
+                                    rel="noopener noreferrer">
+                                        Official Earthquake Information
+                                        <i class="bi bi-box-arrow-up-right small"></i>
+                                    </a>
+                                </div>
+
+                                <p>
+                                    Provides official earthquake
+                                    information, seismic updates
+                                    and related monitoring services.
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+
+                <!-- LANDSLIDES -->
+                <div class="col-lg-6">
+                    <div class="card reference-card">
+                        <div class="card-body">
+                            <div class="d-flex align-items-center gap-3 mb-3">
+
+                                <div class="reference-icon landslide-icon">
+                                    <i class="bi bi-mountains"></i>
+                                </div>
+
+                                <div>
+                                    <h2 class="h4 reference-heading mb-1">
+                                        Landslides
+                                    </h2>
+                                    <p class="text-secondary small mb-0">
+                                        Landslide hazards and research
+                                    </p>
+                                </div>
+                            </div>
+
+                            <p class="text-secondary">
+                                Research about landslide causes,
+                                rainfall-triggered slope failures,
+                                environmental impacts and landslide
+                                risks in mountainous areas of Myanmar.
+                            </p>
+
+                            <div class="reference-item">
+                                <span class="reference-source">
+                                    World Bank
+                                </span>
+
+                                <div>
+                                    <a href="https://www.worldbank.org/en/country/myanmar/publication/myanmar-floods-and-landslides-post-disaster-needs-assessment"
+                                    target="_blank"
+                                    rel="noopener noreferrer">
+                                        Myanmar Floods and Landslides -
+                                        Post Disaster Needs Assessment
+                                        <i class="bi bi-box-arrow-up-right small"></i>
+                                    </a>
+                                </div>
+
+                                <p>
+                                    Examines the impacts of the 2015
+                                    floods and landslides, including
+                                    damage to homes, agriculture
+                                    and infrastructure.
+                                </p>
+                            </div>
+
+                            <div class="reference-item">
+                                <span class="reference-source">
+                                    United Nations - UN Myanmar
+                                </span>
+
+                                <div>
+                                    <a href="https://myanmar.un.org/en/51771-expression-condolences-united-nations-myanmar-following-tragic-landslide-hpakant-kachin-state"
+                                    target="_blank"
+                                    rel="noopener noreferrer">
+                                        Hpakant Landslide - 2 July 2020
+                                        <i class="bi bi-box-arrow-up-right small"></i>
+                                    </a>
+                                </div>
+
+                                <p>
+                                    Reports on the deadly landslide
+                                    at a jade mining site in Hpakant,
+                                    Kachin State, and its human impacts.
+                                </p>
+                            </div>
+
+                            <div class="reference-item">
+                                <span class="reference-source">
+                                    Myanmar Information Management Unit (MIMU)
+                                </span>
+
+                                <div>
+                                    <a href="https://www.themimu.info/node/61640"
+                                    target="_blank"
+                                    rel="noopener noreferrer">
+                                        Chin State Floods and Landslides:
+                                        Community-led Response and Assessment
+                                        <i class="bi bi-box-arrow-up-right small"></i>
+                                    </a>
+                                </div>
+
+                                <p>
+                                    Provides an assessment of flood
+                                    and landslide impacts in several
+                                    Chin State townships during 2015.
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+
+                <!-- DROUGHTS -->
+                <div class="col-lg-6">
+                    <div class="card reference-card">
+                        <div class="card-body">
+                            <div class="d-flex align-items-center gap-3 mb-3">
+
+                                <div class="reference-icon drought-icon">
+                                    <i class="bi bi-brightness-high"></i>
+                                </div>
+
+                                <div>
+                                    <h2 class="h4 reference-heading mb-1">
+                                        Droughts
+                                    </h2>
+                                    <p class="text-secondary small mb-0">
+                                        Drought research and water scarcity
+                                    </p>
+                                </div>
+                            </div>
+
+                            <p class="text-secondary">
+                                Research about drought causes,
+                                water shortages, agricultural impacts,
+                                climate conditions and sustainable
+                                water management in Myanmar.
+                            </p>
+
+                            <div class="reference-item">
+                                <span class="reference-source">
+                                    United Nations - UN ESCAP
+                                </span>
+
+                                <div>
+                                    <a href="https://digitallibrary.un.org/record/3837376"
+                                    target="_blank"
+                                    rel="noopener noreferrer">
+                                        Ready for the Dry Years:
+                                        Building Resilience to Drought
+                                        in Asia and the Pacific
+                                        <i class="bi bi-box-arrow-up-right small"></i>
+                                    </a>
+                                </div>
+
+                                <p>
+                                    Examines drought conditions in
+                                    Myanmar's Central Dry Zone,
+                                    including the severe dry spells
+                                    during 2014 and 2015.
+                                </p>
+                            </div>
+
+                            <div class="reference-item">
+                                <span class="reference-source">
+                                    United Nations Development Programme (UNDP)
+                                </span>
+
+                                <div>
+                                    <a href="https://www.undp.org/myanmar/publications/inception-report-addressing-climate-change-risks-water-resources-and-food-security-dry-zone-myanmar"
+                                    target="_blank"
+                                    rel="noopener noreferrer">
+                                        Addressing Climate Change Risks
+                                        on Water Resources and Food Security
+                                        in Myanmar's Dry Zone
+                                        <i class="bi bi-box-arrow-up-right small"></i>
+                                    </a>
+                                </div>
+
+                                <p>
+                                    Explores climate risks, water
+                                    resource management and food
+                                    security in Myanmar's Central
+                                    Dry Zone.
+                                </p>
+                            </div>
+
+                            <div class="reference-item">
+                                <span class="reference-source">
+                                    Food and Agriculture Organization (FAO)
+                                </span>
+
+                                <div>
+                                    <a href="https://mdis-fao.adpc.net/"
+                                    target="_blank"
+                                    rel="noopener noreferrer">
+                                        Myanmar Drought Information System
+                                        <i class="bi bi-box-arrow-up-right small"></i>
+                                    </a>
+                                </div>
+
+                                <p>
+                                    Provides drought monitoring maps,
+                                    drought indicators and information
+                                    about drought conditions throughout
+                                    Myanmar.
+                                </p>
+                            </div>
+
+                            <div class="reference-item">
+                                <span class="reference-source">
+                                    Food and Agriculture Organization (FAO)
+                                </span>
+
+                                <div>
+                                    <a href="https://www.fao.org/giews/earthobservation/country/index.jsp?code=MMR&type=24"
+                                    target="_blank"
+                                    rel="noopener noreferrer">
+                                        Myanmar Agricultural Drought
+                                        Monitoring and Historical Frequency
+                                        <i class="bi bi-box-arrow-up-right small"></i>
+                                    </a>
+                                </div>
+
+                                <p>
+                                    Provides satellite-based agricultural
+                                    drought information and historical
+                                    drought-frequency maps.
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- About -->
+            <div class="reference-note mt-5">
+                <div class="d-flex align-items-start gap-3">
+                    <i class="bi bi-info-circle fs-4"></i>
+
+                    <div>
+                        <h5 class="fw-bold mb-2">
+                            About These References
+                        </h5>
+
+                        <p class="mb-0">
+                            These references include official reports,
+                            scientific research, disaster assessments
+                            and monitoring resources from international
+                            organisations and Myanmar government
+                            departments. They are used to support
+                            the information presented throughout
+                            the TERRAFIRM website.
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <footer>
+        <div class="container">
+            <div class="row g-5">
+                <div class="col-lg-6">
+                    <div class="footer-brand">
+                        <img src="./img/Logo.png" alt="TERRAFIRM Logo">
+                        <h4>TERRAFIRM</h4>
+                    </div>
+
+                    <p class="footer-text">
+                        Helping communities understand disasters,
+                        stay informed, prepare for risks and build
+                        a safer and more resilient future.
+                    </p>
+
+                    <div class="footer-slogan">
+                        Awareness today. Safety tomorrow.
+                    </div>
+                </div>
+
+                <div class="col-6 col-lg-3">
+                    <h5>Quick Links</h5>
+
+                    <a href="./index.html">Home</a>
+                    <a href="./aboutUs.html">About Us</a>
+                    <a href="./explore.html">Explore Disaster</a>
+                    <a href="./contactUs.html">Contact Us</a>
+
+                </div>
+
+                <div class="col-6 col-lg-3">
+                    <h5> <a href="./explore.html">Explore</a> </h5>
+
+                    <a href="./flood.html">Flood</a>
+                    <a href="./earthquake.html">Earthquake</a>
+                    <a href="./landslide.html">Landslide</a>
+                    <a href="./drought.html">Drought</a>
+                    <a href="./refrence.html">Refrence</a>
+                </div>
+            </div>
+
+            <hr>
+
+            <div class="footer-bottom">
+                <p>
+                    © 2026 Trinity. All rights reserved.
+                </p>
+
+                <p>
+                    Awareness • Preparedness • Safety
+                </p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Bootstrap 5 JS Bundle CDN -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>

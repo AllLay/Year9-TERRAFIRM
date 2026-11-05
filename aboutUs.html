@@ -1,0 +1,644 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>About Us - TERRAFIRM</title>
+    <link rel="icon" type="image/x-icon" href="./img/Logo.png">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
+    <link rel="stylesheet" href="style.css">
+    <style>
+        .about-hero {
+            background-color: #f7f3e8;
+        }
+
+        .section-title {
+            color: #153242;
+        }
+
+        .section-subtitle {
+            color: #64835e;
+            letter-spacing: 2px;
+            font-size: 13px;
+            font-weight: 700;
+            text-transform: uppercase;
+        }
+
+        .team-card {
+            border: none;
+            border-radius: 24px;
+            overflow: hidden;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        .team-card:hover {
+            transform: translateY(-8px);
+            box-shadow: 0 15px 30px rgba(21, 50, 66, 0.15) !important;
+        }
+
+        .team-image {
+            width: 100%;
+            height: 300px;
+            object-fit: cover;
+        }
+
+        .team-role {
+            color: #64835e;
+            font-size: 13px;
+            font-weight: 700;
+            letter-spacing: 1px;
+            text-transform: uppercase;
+        }
+
+        .story-card {
+            background-color: white;
+            border-radius: 20px;
+            padding: 30px;
+            height: 100%;
+            border: none;
+        }
+
+        .story-icon {
+            font-size: 35px;
+            color: #64835e;
+        }
+
+        .timeline {
+            position: relative;
+            max-width: 850px;
+            margin: auto;
+        }
+
+        .timeline-item {
+            position: relative;
+            padding: 0 0 35px 45px;
+            border-left: 2px solid #64835e;
+        }
+
+        .timeline-item:last-child {
+            border-left: 2px solid transparent;
+        }
+
+        .timeline-number {
+            position: absolute;
+            left: -18px;
+            top: 0;
+            width: 34px;
+            height: 34px;
+            border-radius: 50%;
+            background-color: #153242;
+            color: white;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: bold;
+        }
+
+        .vision-section {
+            background-color: #153242;
+        }
+
+        .vision-section h2 {
+            color: white;
+        }
+
+        .vision-section p {
+            color: #d5dedb;
+        }
+
+        .vision-highlight {
+            color: #e7a35b;
+        }
+
+        @media (max-width: 768px) {
+            .team-image {
+                height: 250px;
+            }
+
+            .about-hero h1 {
+                font-size: 40px;
+            }
+        }
+    </style>
+</head>
+
+<body class="d-flex flex-column min-vh-100">
+    <nav class="navbar navbar-expand-lg navbar-dark">
+        <div class="container">
+            <a class="navbar-brand d-flex align-items-center" href="./index.html">
+                <img src="./img/Logo.png" alt="TERRAFIRM Logo" class="logo">
+                <span class="brand-name">TERRAFIRM</span>
+            </a>
+
+            <!-- Burger -->
+            <button class="navbar-toggler border-0 shadow-none" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav ms-auto align-items-lg-center gap-lg-2">
+                    <li class="nav-item">
+                        <a class="nav-link" href="./index.html">
+                            Home
+                        </a>
+                    </li>
+
+                    <li class="nav-item">
+                        <a class="nav-link active" href="./aboutUs.html">
+                            About Us
+                        </a>
+                    </li>
+
+                    <!-- Disaster Dropdown -->
+                    <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false"> Disaster List </a>
+
+                        <ul class="dropdown-menu">
+                            <li>
+                                <a class="dropdown-item" href="./flood.html">
+                                    <i class="bi bi-water me-2"></i>
+                                    Flood
+                                </a>
+                            </li>
+
+                            <li>
+                                <a class="dropdown-item" href="./earthquake.html">
+                                    <i class="bi bi-globe-americas me-2"></i>
+                                    Earthquake
+                                </a>
+                            </li>
+
+                            <li>
+                                <a class="dropdown-item" href="./landslide.html">
+                                    <i class="bi bi-tree me-2"></i>
+                                    Landslide
+                                </a>
+                            </li>
+
+                            <li>
+                                <a class="dropdown-item" href="./drought.html">
+                                    <i class="bi bi-brightness-high me-2"></i>
+                                    Drought
+                                </a>
+                            </li>
+                        </ul>
+                    </li>
+
+                    <li class="nav-item">
+                        <a class="nav-link" href="./explore.html">
+                            Explore Disaster
+                        </a>
+                    </li>
+
+                    <li class="nav-item">
+                        <a class="nav-link contact-link" href="./contactUs.html">
+                            Contact Us
+                        </a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Section 1 -->
+    <section class="about-hero py-5">
+        <div class="container py-5">
+            <div class="row align-items-center g-5">
+                <div class="col-lg-6">
+                    <span class="section-subtitle">
+                        Get to Know Our Team
+                    </span>
+
+                    <h1 class="display-3 fw-bold mt-3 section-title">
+                        Meet the Team Behind TERRAFIRM.
+                    </h1>
+
+                    <p class="fs-5 mt-4 text-secondary">
+                        Three students, one shared mission.
+                        We came together to explore how natural disasters
+                        affect Myanmar and the communities living in it.
+                    </p>
+
+                    <p class="text-secondary">
+                        Through research, creativity, and teamwork,
+                        we developed TERRAFIRM to raise awareness,
+                        encourage disaster preparedness, and help
+                        promote a safer and more resilient future.
+                    </p>
+
+                    <a href="#team" class="btn rounded-pill px-4 py-3 mt-3"
+                        style="background-color: #153242; color: white;">
+                        Meet Our Team
+                        <i class="bi bi-arrow-down ms-2"></i>
+                    </a>
+                </div>
+
+                <div class="col-lg-6">
+                    <img src="./img/Logo.png"
+                        alt="TERRAFIRM Logo"
+                        class="img-fluid rounded-5 shadow"
+                        style="width: 100%; max-height: 430px; object-fit: contain;">
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Section 2 -->
+    <section class="py-5" style="background-color: #e9edde;">
+        <div class="container py-5">
+            <div class="text-center mb-5">
+                <span class="section-subtitle">Our Background</span>
+                <h2 class="fw-bold section-title mt-2">
+                    Our Story
+                </h2>
+
+                <p class="text-secondary mx-auto mt-3"
+                    style="max-width: 700px;">
+
+                    Every project begins with an idea.
+                    TERRAFIRM began as a shared effort to
+                    create something informative, useful and meaningful.
+
+                </p>
+            </div>
+
+            <div class="row g-4">
+                <div class="col-md-4">
+                    <div class="story-card shadow-sm">
+
+                        <i class="bi bi-lightbulb story-icon"></i>
+
+                        <h4 class="fw-bold mt-4 section-title">
+                            The Idea
+                        </h4>
+
+                        <p class="text-secondary mb-0">
+                            We wanted to create a project that
+                            goes beyond a normal school assignment
+                            and communicates information in a
+                            meaningful way.
+                        </p>
+                    </div>
+                </div>
+
+                <div class="col-md-4">
+                    <div class="story-card shadow-sm">
+                        <i class="bi bi-people story-icon"></i>
+
+                        <h4 class="fw-bold mt-4 section-title">
+                            The Team
+                        </h4>
+
+                        <p class="text-secondary mb-0">
+                            By combining our ideas, skills and
+                            efforts, we worked together to plan
+                            and develop the TERRAFIRM project.
+                        </p>
+                    </div>
+                </div>
+
+                <div class="col-md-4">
+                    <div class="story-card shadow-sm">
+                        <i class="bi bi-laptop story-icon"></i>
+
+                        <h4 class="fw-bold mt-4 section-title">
+                            The Result
+                        </h4>
+
+                        <p class="text-secondary mb-0">
+                            Our ideas developed into a website
+                            that brings together research,
+                            information and educational resources.
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Section 3 -->
+    <section id="team" class="py-5" style="background-color: #f7f3e8;">
+        <div class="container py-5">
+            <div class="text-center mb-5">
+                <span class="section-subtitle">The People Behind the Project</span>
+
+                <h2 class="fw-bold section-title mt-2">
+                    Meet Our Team
+                </h2>
+
+                <p class="text-secondary mx-auto mt-3"
+                    style="max-width: 650px;">
+
+                    Get to know the individuals who contributed
+                    their time, skills and ideas to TERRAFIRM.
+
+                </p>
+            </div>
+
+            <div class="row g-4">
+                <!-- MEMBER 1 -->
+                <div class="col-md-6 col-lg-4">
+                    <div class="card team-card shadow-sm h-100">
+
+                        <img src="./img/Logo.png"
+                            class="team-image"
+                            alt="Yay Chang Maung">
+
+                        <div class="card-body p-4">
+
+                            <span class="team-role">
+                                Team Member
+                            </span>
+
+                            <h4 class="fw-bold mt-2 section-title">
+                                Yay Chang Maung
+                            </h4>
+
+                            <p class="text-secondary">
+                                Develops the 
+                            </p>
+
+                        </div>
+                    </div>
+                </div>
+
+                <!-- MEMBER 2 -->
+                <div class="col-md-6 col-lg-4">
+                    <div class="card team-card shadow-sm h-100">
+                        <img src="./img/Logo.png" class="team-image"alt="Zwin Hte Wah">
+
+                        <div class="card-body p-4">
+                            <span class="team-role">
+                                Team Member
+                            </span>
+
+                            <h4 class="fw-bold mt-2 section-title">
+                                Zwin Hte Wah
+                            </h4>
+
+                            <p class="text-secondary">
+                                Develops the 
+                            </p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- MEMBER 3 -->
+                <div class="col-md-6 col-lg-4">
+                    <div class="card team-card shadow-sm h-100">
+                        <img src="./img/Logo.png" class="team-image" alt="Sai Kyaut Zet Hseng">
+
+                        <div class="card-body p-4">
+                            <span class="team-role">
+                                Team Member
+                            </span>
+
+                            <h4 class="fw-bold mt-2 section-title">
+                                Sai Kyaut Zet Hseng
+                            </h4>
+
+                            <p class="text-secondary">
+                                Develops the 
+                            </p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Section 4 -->
+    <section class="py-5" style="background-color: #e9edde;">
+        <div class="container py-5">
+            <div class="text-center mb-5">
+                <span class="section-subtitle">Our Teamwork</span>
+
+                <h2 class="fw-bold section-title mt-2">
+                    How We Work Together
+                </h2>
+
+                <p class="text-secondary mx-auto mt-3"
+                    style="max-width: 650px;">
+
+                    Every contribution matters.
+                    We combine different skills and ideas
+                    to bring our project together.
+
+                </p>
+            </div>
+            <div class="row g-4">
+                <div class="col-6 col-lg-3">
+                    <div class="text-center p-4 bg-white rounded-4 h-100 shadow-sm">
+                        <i class="bi bi-search fs-1"
+                            style="color: #64835e;"></i>
+
+                        <h5 class="fw-bold mt-3">Research</h5>
+
+                        <p class="small text-secondary mb-0">
+                            Gathering information and exploring ideas.
+                        </p>
+                    </div>
+                </div>
+
+                <div class="col-6 col-lg-3">
+                    <div class="text-center p-4 bg-white rounded-4 h-100 shadow-sm">
+                        <i class="bi bi-people fs-1" style="color: #64835e;"></i>
+
+                        <h5 class="fw-bold mt-3">Teamwork</h5>
+
+                        <p class="small text-secondary mb-0">
+                            Sharing responsibilities and supporting each other.
+                        </p>
+                    </div>
+                </div>
+
+                <div class="col-6 col-lg-3">
+                    <div class="text-center p-4 bg-white rounded-4 h-100 shadow-sm">
+                        <i class="bi bi-code-slash fs-1"
+                            style="color: #64835e;"></i>
+
+                        <h5 class="fw-bold mt-3">Development</h5>
+
+                        <p class="small text-secondary mb-0">
+                            Building and improving our website.
+                        </p>
+                    </div>
+                </div>
+
+                <div class="col-6 col-lg-3">
+                    <div class="text-center p-4 bg-white rounded-4 h-100 shadow-sm">
+                        <i class="bi bi-chat-dots fs-1"
+                            style="color: #64835e;"></i>
+
+                        <h5 class="fw-bold mt-3">Communication</h5>
+
+                        <p class="small text-secondary mb-0">
+                            Exchanging ideas and solving problems together.
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Section 5 -->
+    <section class="py-5" style="background-color: #f7f3e8;">
+        <div class="container py-5">
+            <div class="text-center mb-5">
+                <span class="section-subtitle">Behind the Scenes</span>
+
+                <h2 class="fw-bold section-title mt-2">
+                    Our Project Journey
+                </h2>
+
+                <p class="text-secondary mx-auto mt-3" style="max-width: 650px;">
+
+                    From the first idea to the finished website,
+                    every stage has been part of our learning experience.
+                </p>
+            </div>
+
+            <div class="timeline">
+                <div class="timeline-item">
+                    <div class="timeline-number">1</div>
+
+                    <h5 class="fw-bold section-title">
+                        Planning & Brainstorming
+                    </h5>
+
+                    <p class="text-secondary">
+                        Developing our initial ideas, setting objectives
+                        and deciding how to approach the project.
+                    </p>
+                </div>
+
+                <div class="timeline-item">
+                    <div class="timeline-number">2</div>
+
+                    <h5 class="fw-bold section-title">
+                        Research & Information Gathering
+                    </h5>
+
+                    <p class="text-secondary">
+                        Collecting information, reviewing sources
+                        and organising our research.
+                    </p>
+                </div>
+
+                <div class="timeline-item">
+                    <div class="timeline-number">3</div>
+
+                    <h5 class="fw-bold section-title">
+                        Website Design & Development
+                    </h5>
+
+                    <p class="text-secondary">
+                        Creating the website structure, designing
+                        its appearance and developing its pages.
+                    </p>
+                </div>
+
+                <div class="timeline-item">
+                    <div class="timeline-number">4</div>
+
+                    <h5 class="fw-bold section-title">
+                        Reviewing & Improving
+                    </h5>
+
+                    <p class="text-secondary">
+                        Testing our work, correcting mistakes
+                        and improving the final website.
+                    </p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Final Section -->
+    <section class="vision-section py-5">
+        <div class="container py-5 text-center">
+            <i class="bi bi-people-fill display-2 vision-highlight"></i>
+
+            <h2 class="display-5 fw-bold mt-4 mb-3">
+                Three Members. One Shared Vision.
+            </h2>
+
+            <p class="mx-auto mb-4" style="max-width: 700px;">
+                TERRAFIRM represents our shared efforts,
+                creativity and dedication. Through this journey,
+                we have learned that great ideas become possible
+                when people work together.
+            </p>
+
+            <h5 class="vision-highlight fw-semibold">
+                Awareness today. Safety tomorrow.
+            </h5>
+
+            <a href="./explore.html" class="btn rounded-pill px-4 py-3 mt-4" style="background-color: #e7a35b; color: #153242;">
+                Explore TERRAFIRM
+                <i class="bi bi-arrow-right ms-2"></i>
+            </a>
+        </div>
+    </section>
+
+    <!-- FOOTER -->
+    <footer>
+        <div class="container">
+            <div class="row g-5">
+                <div class="col-lg-6">
+                    <div class="footer-brand">
+                        <img src="./img/Logo.png" alt="TERRAFIRM Logo">
+                        <h4>TERRAFIRM</h4>
+                    </div>
+
+                    <p class="footer-text">
+                        Helping communities understand disasters,
+                        stay informed, prepare for risks and build
+                        a safer and more resilient future.
+                    </p>
+
+                    <div class="footer-slogan">
+                        Awareness today. Safety tomorrow.
+                    </div>
+                </div>
+
+                <div class="col-6 col-lg-3">
+                    <h5>Quick Links</h5>
+
+                    <a href="./index.html">Home</a>
+                    <a href="./aboutUs.html">About Us</a>
+                    <a href="./explore.html">Explore Disaster</a>
+                    <a href="./contactUs.html">Contact Us</a>
+
+                </div>
+
+                <div class="col-6 col-lg-3">
+                    <h5> <a href="./explore.html">Explore</a> </h5>
+
+                    <a href="./flood.html">Flood</a>
+                    <a href="./earthquake.html">Earthquake</a>
+                    <a href="./landslide.html">Landslide</a>
+                    <a href="./drought.html">Drought</a>
+                    <a href="./refrence.html">Refrence</a>
+                </div>
+            </div>
+
+            <hr>
+
+            <div class="footer-bottom">
+                <p>
+                    © 2026 Trinity. All rights reserved.
+                </p>
+
+                <p>
+                    Awareness • Preparedness • Safety
+                </p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>

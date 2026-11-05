@@ -1,0 +1,382 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Home - TERRAFIRM</title>
+    <link rel="icon" type="image/x-icon" href="./img/Logo.png">
+    <!-- Bootstrap 5 CSS CDN -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body class="d-flex flex-column min-vh-100">
+    <nav class="navbar navbar-expand-lg navbar-dark">
+        <div class="container">
+            <a class="navbar-brand d-flex align-items-center" href="./index.html">
+                <img src="./img/Logo.png" alt="TERRAFIRM Logo" class="logo">
+                <span class="brand-name">TERRAFIRM</span>
+            </a>
+
+            <!-- Burger -->
+            <button class="navbar-toggler border-0 shadow-none" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav ms-auto align-items-lg-center gap-lg-2">
+                    <li class="nav-item">
+                        <a class="nav-link active" href="./index.html">
+                            Home
+                        </a>
+                    </li>
+
+                    <li class="nav-item">
+                        <a class="nav-link" href="./aboutUs.html">
+                            About Us
+                        </a>
+                    </li>
+
+                    <!-- Disaster Dropdown -->
+                    <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false"> Disaster List </a>
+
+                        <ul class="dropdown-menu">
+                            <li>
+                                <a class="dropdown-item" href="./flood.html">
+                                    <i class="bi bi-water me-2"></i>
+                                    Flood
+                                </a>
+                            </li>
+
+                            <li>
+                                <a class="dropdown-item" href="./earthquake.html">
+                                    <i class="bi bi-globe-americas me-2"></i>
+                                    Earthquake
+                                </a>
+                            </li>
+
+                            <li>
+                                <a class="dropdown-item" href="./landslide.html">
+                                    <i class="bi bi-tree me-2"></i>
+                                    Landslide
+                                </a>
+                            </li>
+
+                            <li>
+                                <a class="dropdown-item" href="./drought.html">
+                                    <i class="bi bi-brightness-high me-2"></i>
+                                    Drought
+                                </a>
+                            </li>
+                        </ul>
+                    </li>
+
+                    <li class="nav-item">
+                        <a class="nav-link" href="./explore.html">
+                            Explore Disaster
+                        </a>
+                    </li>
+
+                    <li class="nav-item">
+                        <a class="nav-link contact-link" href="./contactUs.html">
+                            Contact Us
+                        </a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Top -->
+    <section class="bg-success-subtle py-5">
+        <div class="container py-5 text-center">
+            <span class="badge rounded-pill px-3 py-2 text-bg-dark">
+                <i class="bi bi-chat-dots-fill me-2"></i>
+                GET IN TOUCH
+            </span>
+
+            <h1 class="display-2 fw-bold mt-3">
+                Let's start a
+                <span class="text-success d-block">conversation.</span>
+            </h1>
+
+            <p class="text-secondary mx-auto mt-3 fs-5 lh-lg" style="max-width: 650px;">
+                Have a question, suggestion or feedback about TERRAFIRM?
+                We would love to hear from you. Get in touch with us
+                and help us make disaster awareness better for everyone.
+            </p>
+        </div>
+    </section>
+
+    <!-- Contant Section -->
+    <section class="bg-body-tertiary py-5">
+        <div class="container py-lg-4">
+
+            <div class="row g-4 align-items-stretch">
+                <div class="col-lg-5">
+                    <div class="bg-dark text-white rounded-4 p-4 p-md-5 h-100">
+                        <span class="text-warning small fw-bold">
+                            CONTACT INFORMATION
+                        </span>
+
+                        <h2 class="fw-bold mt-3 display-6">
+                            We'd love to hear from you.
+                        </h2>
+
+                        <p class="text-white-50 mt-3 mb-5 lh-lg">
+                            Whether you have questions about our project,
+                            want to share your thoughts or simply want
+                            to learn more, feel free to reach out.
+                        </p>
+
+                        <!-- Email -->
+                        <div class="d-flex gap-3 align-items-start mb-4">
+                            <div class="bg-secondary bg-opacity-25 text-warning rounded-3 d-flex align-items-center justify-content-center flex-shrink-0" style="width:48px;height:48px;">
+                                <i class="bi bi-envelope fs-4"></i>
+                            </div>
+
+                            <div>
+                                <h5 class="fw-bold">Email Us</h5>
+                                <a class="text-decoration-none text-white-50 small mb-0 text-break" href="mailto:terrafirm@gmail.com">terrafirm@gmail.com</a>
+                            </div>
+                        </div>
+
+                        <!-- Phone -->
+                        <div class="d-flex gap-3 align-items-start mb-4">
+                            <div class="bg-secondary bg-opacity-25 text-warning rounded-3 d-flex align-items-center justify-content-center flex-shrink-0" style="width:48px;height:48px;">
+                                <i class="bi bi-telephone"></i>
+                            </div>
+
+                            <div>
+                                <h5 class="fw-bold">Phone Us</h5>
+                                <p class="text-white-50 small mb-0 text-break">
+                                    097874811834
+                                </p>
+                            </div>
+                        </div>
+
+                        <!-- Location -->
+                        <div class="d-flex gap-3 align-items-start mb-4">
+                            <div class="bg-secondary bg-opacity-25 text-warning rounded-3 d-flex align-items-center justify-content-center flex-shrink-0" style="width:48px;height:48px;">
+                                <i class="bi bi-geo-alt fs-4"></i>
+                            </div>
+
+                            <div>
+                                <h5 class="fw-bold">Our Location</h5>
+                                <a class="text-decoration-none text-white-50 small mb-0" href="https://www.google.com/maps?q=16.823839,96.125701&ll=16.823839,96.125701&z=16m" target="_blank">
+                                    View our location on Google Maps
+                                </a>
+                            </div>
+                        </div>
+
+                        <!-- Project -->
+                        <div class="d-flex gap-3 align-items-start mb-4">
+
+                            <div class="bg-secondary bg-opacity-25 text-warning rounded-3 d-flex align-items-center justify-content-center flex-shrink-0" style="width:48px;height:48px;">
+                                <i class="bi bi-globe fs-4"></i>
+                            </div>
+
+                            <div>
+                                <h5 class="fw-bold">Our Project</h5>
+                                <p class="text-white-50 small mb-0">
+                                    TERRAFIRM – Disaster Awareness
+                                    and Preparedness.
+                                </p>
+                            </div>
+                        </div>
+
+                        <!-- SOCIAL MEDIA -->
+                        <div class="border-top border-secondary pt-4 mt-5">
+                            <h6 class="fw-bold mb-3">
+                                Connect With Us
+                            </h6>
+
+                            <div class="d-flex gap-2">
+                                <a href="facebook.com" class="btn btn-secondary rounded-circle d-flex align-items-center justify-content-center" style="width:42px;height:42px;">
+                                    <i class="bi bi-facebook"></i>
+                                </a>
+
+                                <a href="instagram.com" class="btn btn-secondary rounded-circle d-flex align-items-center justify-content-center" style="width:42px;height:42px;">
+                                    <i class="bi bi-instagram"></i>
+                                </a>
+
+                                <a href="mailto:terrafirm@gmail.com" class="btn btn-secondary rounded-circle d-flex align-items-center justify-content-center" style="width:42px;height:42px;">
+                                    <i class="bi bi-envelope"></i>
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-lg-7">
+                    <div class="bg-white rounded-4 shadow-sm p-4 p-md-5 h-100">
+                        <span class="text-warning small fw-bold">
+                            SEND US A MESSAGE
+                        </span>
+
+                        <h2 class="fw-bold mt-3 display-6 text-dark">
+                            Get in touch
+                        </h2>
+
+                        <p class="text-secondary mb-4 lh-lg">
+                            Fill out the form below and let us know
+                            how we can help you.
+                        </p>
+
+                        <form action="#" method="POST">
+                            <div class="row g-3">
+
+                                <!-- Name -->
+                                <div class="col-md-6">
+
+                                    <label for="fullName" class="form-label fw-semibold">
+                                        Full Name
+                                    </label>
+
+                                    <input type="text" class="form-control form-control-lg" id="fullName" name="fullName" placeholder="Enter your name" required>
+                                </div>
+
+                                <!-- Email -->
+                                <div class="col-md-6">
+                                    <label for="email" class="form-label fw-semibold">
+                                        Email Address
+                                    </label>
+
+                                    <input type="email" class="form-control form-control-lg" id="email" name="email" placeholder="Enter your email" required>
+                                </div>
+
+                                <!-- Option -->
+                                <div class="col-12">
+                                    <label for="subject" class="form-label fw-semibold">
+                                        Subject
+                                    </label>
+
+                                    <select class="form-select form-select-lg" id="subject" name="subject" required>
+                                        <option value="" selected disabled>
+                                            Select a subject
+                                        </option>
+
+                                        <option value="general">
+                                            General Inquiry
+                                        </option>
+
+                                        <option value="feedback">
+                                            Feedback & Suggestions
+                                        </option>
+
+                                        <option value="disaster">
+                                            Disaster Information
+                                        </option>
+
+                                        <option value="other">
+                                            Other
+                                        </option>
+                                    </select>
+                                </div>
+
+                                <!-- Message -->
+                                <div class="col-12">
+                                    <label for="message" class="form-label fw-semibold">
+                                        Your Message
+                                    </label>
+
+                                    <textarea class="form-control" id="message" name="message" rows="6" placeholder="Write your message here..."required></textarea>
+                                </div>
+
+                                <!-- Submit -->
+                                <div class="col-12 mt-4">
+                                    <button type="submit" class="btn btn-dark btn-lg rounded-pill px-4 fw-bold">
+                                        Send Message
+                                        <i class="bi bi-arrow-right ms-2"></i>
+                                    </button>
+                                </div>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Bottom -->
+    <section class="bg-success-subtle py-5">
+        <div class="container py-4 text-center">
+            <span class="text-warning small fw-bold">
+                TERRAFIRM
+            </span>
+
+            <h2 class="fw-bold mt-3 display-6">
+                Awareness today.
+                <span class="text-success">
+                    Resilience tomorrow.
+                </span>
+            </h2>
+
+            <p class="text-secondary mx-auto mt-3 lh-lg" style="max-width:650px;">
+                Together, we can build a better understanding of natural
+                disasters, encourage preparedness and create safer,
+                more resilient communities.
+            </p>
+        </div>
+    </section>
+
+    <footer>
+        <div class="container">
+            <div class="row g-5">
+                <div class="col-lg-6">
+                    <div class="footer-brand">
+                        <img src="./img/Logo.png" alt="TERRAFIRM Logo">
+                        <h4>TERRAFIRM</h4>
+                    </div>
+
+                    <p class="footer-text">
+                        Helping communities understand disasters,
+                        stay informed, prepare for risks and build
+                        a safer and more resilient future.
+                    </p>
+
+                    <div class="footer-slogan">
+                        Awareness today. Safety tomorrow.
+                    </div>
+                </div>
+
+                <div class="col-6 col-lg-3">
+                    <h5>Quick Links</h5>
+
+                    <a href="./index.html">Home</a>
+                    <a href="./aboutUs.html">About Us</a>
+                    <a href="./explore.html">Explore Disaster</a>
+                    <a href="./contactUs.html">Contact Us</a>
+
+                </div>
+
+                <div class="col-6 col-lg-3">
+                    <h5> <a href="./explore.html">Explore</a> </h5>
+
+                    <a href="./flood.html">Flood</a>
+                    <a href="./earthquake.html">Earthquake</a>
+                    <a href="./landslide.html">Landslide</a>
+                    <a href="./drought.html">Drought</a>
+                    <a href="./refrence.html">Refrence</a>
+                </div>
+            </div>
+
+            <hr>
+
+            <div class="footer-bottom">
+                <p>
+                    © 2026 Trinity. All rights reserved.
+                </p>
+
+                <p>
+                    Awareness • Preparedness • Safety
+                </p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Bootstrap 5 JS Bundle CDN -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>

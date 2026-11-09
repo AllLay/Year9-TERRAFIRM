@@ -1929,13 +1929,6 @@
                 return;
             }
 
-            const matchedRegion = regions.find(r => r.includes(term));
-            if (matchedRegion) {
-                showRegion(matchedRegion);
-                filterCardsInActiveRegion(term);
-                return;
-            }
-
             for (let regionName of regions) {
                 const regionEl = document.getElementById(regionName);
                 if (!regionEl) continue;

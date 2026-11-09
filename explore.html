@@ -96,38 +96,137 @@
         }
 
         /* Dots color */
-        .mandalay-dot, .mandalay-color { background-color: red; }
-        .sagaing-dot, .sagaing-color { background-color: blue; }
-        .magway-dot, .magway-color { background-color: brown; }
-        .bago-dot, .bago-color { background-color: green; }
-        .shan-dot, .shan-color { background-color: black; }
-        .ayeyarwady-dot, .ayeyarwady-color { background-color: purple; }
-        .chin-dot, .chin-color { background-color: teal; }
-        .kachin-dot, .kachin-color { background-color: orange; }
-        .kayah-dot, .kayah-color { background-color: pink; }
-        .kayin-dot, .kayin-color { background-color: navy; }
-        .mon-dot, .mon-color { background-color: maroon; }
-        .rakhine-dot, .rakhine-color { background-color: cyan; }
-        .tanintharyi-dot, .tanintharyi-color { background-color: indigo; }
-        .yangon-dot, .yangon-color { background-color: gold; }
-        .naypyidaw-dot, .naypyidaw-color { background-color: gray; }
+        .mandalay-dot, .mandalay-color { 
+            background-color: red; 
+        }
+
+        .sagaing-dot, .sagaing-color { 
+            background-color: blue; 
+        }
+
+        .magway-dot, .magway-color { 
+            background-color: brown; 
+        }
+        
+        .bago-dot, .bago-color { 
+            background-color: green; 
+        }
+        
+        .shan-dot, .shan-color { 
+            background-color: black; 
+        }
+
+        .ayeyarwady-dot, .ayeyarwady-color { 
+            background-color: purple; 
+        }
+
+        .chin-dot, .chin-color { 
+            background-color: teal; 
+        }
+        
+        .kachin-dot, .kachin-color { 
+            background-color: orange; 
+        }
+        
+        .kayah-dot, .kayah-color { 
+            background-color: pink; 
+        }
+        
+        .kayin-dot, .kayin-color { 
+            background-color: navy; 
+        }
+        
+        .mon-dot, .mon-color { 
+            background-color: maroon; 
+        }
+        
+        .rakhine-dot, .rakhine-color { 
+            background-color: cyan; 
+        }
+        
+        .tanintharyi-dot, .tanintharyi-color { 
+            background-color: indigo; 
+        }
+        
+        .yangon-dot, .yangon-color { 
+            background-color: gold; 
+        }
+        
+        .naypyidaw-dot, .naypyidaw-color { 
+            background-color: gray; 
+        }
 
         /* Dot Positions */
-        .sagaing-dot { top: 30%; left: 40%; }
-        .mandalay-dot { top: 40%; left: 46%; }
-        .magway-dot { top: 46%; left: 37%; }
-        .bago-dot { top: 55%; left: 48%; }
-        .shan-dot { top: 38%; left: 63%; }
-        .ayeyarwady-dot { top: 57%; left: 38%; }
-        .chin-dot { top: 38%; left: 27%; }
-        .kachin-dot { top: 18%; left: 49%; }
-        .kayah-dot { top: 50%; left: 55%; }
-        .kayin-dot { top: 57%; left: 57%; }
-        .mon-dot { top: 66%; left: 57%; }
-        .rakhine-dot { top: 48%; left: 33%; }
-        .tanintharyi-dot { top: 80%; left: 66%; }
-        .yangon-dot { top: 58%; left: 45%; }
-        .naypyidaw-dot { top: 44%; left: 46%; }
+        .sagaing-dot { 
+            top: 30%;
+            left: 40%; 
+        }
+        
+        .mandalay-dot { 
+            top: 40%;
+            left: 46%; 
+        }
+        
+        .magway-dot { 
+            top: 46%;
+            left: 37%; 
+        }
+
+        .bago-dot { 
+            top: 55%;
+            left: 48%; 
+        }
+        
+        .shan-dot { 
+            top: 38%;
+            left: 63%; 
+        }
+        .ayeyarwady-dot { 
+            top: 57%; left: 38%; 
+        }
+        
+        .chin-dot { 
+            top: 38%;
+            left: 27%; 
+        }
+        
+        .kachin-dot { 
+            top: 18%;
+            left: 49%; 
+        }
+        
+        .kayah-dot { 
+            top: 50%;
+            left: 55%; 
+        }
+        
+        .kayin-dot { 
+            top: 57%;
+            left: 57%; 
+        }
+        
+        .mon-dot { 
+            top: 66%;
+            left: 57%; 
+        }
+        .rakhine-dot { 
+            top: 48%; left: 33%; 
+        }
+        
+        .tanintharyi-dot { 
+            top: 80%;
+            left: 66%; 
+        }
+
+        .yangon-dot { 
+            top: 58%;
+            left: 45%; 
+        }
+        
+        .naypyidaw-dot { 
+            top: 44%;
+            left: 46%; 
+        }
 
         /* Region content */
         .region-content {
@@ -259,7 +358,7 @@
             </div>
         </div>
     </nav>
-    
+
     <section class="py-5 flex-fill">
         <div class="container-fluid px-4">
             <div class="row mb-4">
@@ -1935,7 +2034,7 @@
             }
         });
 
-        // Show/Hide cards
+        // Show hide cards
         function filterCardsInActiveRegion(term) {
             const activeContent = document.querySelector('.region-content.active');
             if (!activeContent) return;

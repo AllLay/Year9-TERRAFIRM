@@ -96,125 +96,38 @@
         }
 
         /* Dots color */
-        .mandalay-dot, .mandalay-color { 
-            background-color: red; 
-        }
-
-        .sagaing-dot, .sagaing-color { 
-            background-color: blue; 
-        }
-        
-        .magway-dot, .magway-color { 
-            background-color: brown; 
-        }
-
-        .bago-dot, .bago-color { 
-            background-color: green; 
-        }
-
-        .shan-dot, .shan-color { 
-            background-color: black; 
-        }
-
-        .ayeyarwady-dot, .ayeyarwady-color { 
-            background-color: purple; 
-        }
-
-        .chin-dot, .chin-color { 
-            background-color: teal; 
-        }
-
-        .kachin-dot, .kachin-color {
-             background-color: orange; 
-            }
-        .kayah-dot, .kayah-color { 
-            background-color: pink; 
-        }
-
-        .kayin-dot, .kayin-color { 
-            background-color: navy; 
-        }
-
-        .mon-dot, .mon-color { 
-            background-color: maroon; 
-        }
-
-        .rakhine-dot, .rakhine-color { 
-            background-color: cyan; 
-        }
-
-        .tanintharyi-dot, .tanintharyi-color { 
-            background-color: indigo; 
-        }
-
-        .yangon-dot, .yangon-color { 
-            background-color: gold; 
-        }
-
-        .naypyidaw-dot, .naypyidaw-color { 
-            background-color: gray; 
-        }
+        .mandalay-dot, .mandalay-color { background-color: red; }
+        .sagaing-dot, .sagaing-color { background-color: blue; }
+        .magway-dot, .magway-color { background-color: brown; }
+        .bago-dot, .bago-color { background-color: green; }
+        .shan-dot, .shan-color { background-color: black; }
+        .ayeyarwady-dot, .ayeyarwady-color { background-color: purple; }
+        .chin-dot, .chin-color { background-color: teal; }
+        .kachin-dot, .kachin-color { background-color: orange; }
+        .kayah-dot, .kayah-color { background-color: pink; }
+        .kayin-dot, .kayin-color { background-color: navy; }
+        .mon-dot, .mon-color { background-color: maroon; }
+        .rakhine-dot, .rakhine-color { background-color: cyan; }
+        .tanintharyi-dot, .tanintharyi-color { background-color: indigo; }
+        .yangon-dot, .yangon-color { background-color: gold; }
+        .naypyidaw-dot, .naypyidaw-color { background-color: gray; }
 
         /* Dot Positions */
-        .sagaing-dot { 
-            top: 30%; left: 40%; 
-        }
-
-        .mandalay-dot { 
-            top: 40%; left: 46%; 
-        }
-
-        .magway-dot { 
-            top: 46%; left: 37%; 
-        }
-
-        .bago-dot { 
-            top: 55%; left: 48%; 
-        }
-
-        .shan-dot { 
-            top: 38%; left: 63%; 
-        }
-
-        .ayeyarwady-dot { 
-            top: 57%; left: 38%; 
-        }
-
-        .chin-dot { 
-            top: 38%; left: 27%; 
-        }
-
-        .kachin-dot { 
-            top: 18%; left: 49%; 
-        }
-
-        .kayah-dot { 
-            top: 50%; left: 55%; 
-        }
-
-        .kayin-dot { 
-            top: 57%; left: 57%; 
-        }
-
-        .mon-dot { 
-            top: 66%; left: 57%;
-        }
-
-        .rakhine-dot { 
-            top: 48%; left: 33%; 
-        }
-
-        .tanintharyi-dot { 
-            top: 80%; left: 66%; 
-        }
-
-        .yangon-dot { 
-            top: 58%; left: 45%; 
-        }
-
-        .naypyidaw-dot { 
-            top: 44%; left: 46%; 
-        }
+        .sagaing-dot { top: 30%; left: 40%; }
+        .mandalay-dot { top: 40%; left: 46%; }
+        .magway-dot { top: 46%; left: 37%; }
+        .bago-dot { top: 55%; left: 48%; }
+        .shan-dot { top: 38%; left: 63%; }
+        .ayeyarwady-dot { top: 57%; left: 38%; }
+        .chin-dot { top: 38%; left: 27%; }
+        .kachin-dot { top: 18%; left: 49%; }
+        .kayah-dot { top: 50%; left: 55%; }
+        .kayin-dot { top: 57%; left: 57%; }
+        .mon-dot { top: 66%; left: 57%; }
+        .rakhine-dot { top: 48%; left: 33%; }
+        .tanintharyi-dot { top: 80%; left: 66%; }
+        .yangon-dot { top: 58%; left: 45%; }
+        .naypyidaw-dot { top: 44%; left: 46%; }
 
         /* Region content */
         .region-content {
@@ -224,17 +137,6 @@
 
         .region-content.active {
             display: block;
-        }
-
-        @keyframes regionFade {
-            from {
-                opacity: 0;
-                transform: translateY(8px);
-            }
-            to {
-                opacity: 1;
-                transform: translateY(0);
-            }
         }
 
         .region-image {
@@ -247,6 +149,50 @@
         .region-content .region-description {
             color: #60736b;
             line-height: 1.7;
+        }
+
+        /* Enhanced Event List & Cards */
+        .region-events-list {
+            max-height: 420px;
+            overflow-y: auto;
+            padding-right: 4px;
+        }
+
+        .region-events-list::-webkit-scrollbar {
+            width: 6px;
+        }
+
+        .region-events-list::-webkit-scrollbar-track {
+            background: #f1f1f1;
+            border-radius: 4px;
+        }
+
+        .region-events-list::-webkit-scrollbar-thumb {
+            background: #ccc;
+            border-radius: 4px;
+        }
+
+        .region-events-list::-webkit-scrollbar-thumb:hover {
+            background: #aaa;
+        }
+
+        .disaster-event-card {
+            background-color: #f8f9fa;
+            border: 1px solid #e9ecef;
+            border-radius: 10px;
+            padding: 12px 16px;
+            transition: all 0.2s ease;
+            display: block;
+            text-decoration: none;
+            color: inherit;
+        }
+
+        .disaster-event-card:hover {
+            background-color: #ffffff;
+            border-color: #ced4da;
+            transform: translateY(-2px);
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
+            color: inherit;
         }
 
         @media (max-width: 991.98px) {
@@ -276,7 +222,6 @@
     <!-- Navbar -->
     <nav class="navbar navbar-expand-lg navbar-dark">
         <div class="container">
-
             <a class="navbar-brand d-flex align-items-center" href="./index.html">
                 <img src="./img/Logo.png" alt="TERRAFIRM Logo" class="logo">
                 <span class="brand-name">TERRAFIRM</span>
@@ -311,45 +256,20 @@
                             aria-expanded="false">
                             Disaster List
                         </a>
-
                         <ul class="dropdown-menu">
-                            <li>
-                                <a class="dropdown-item" href="./flood.html">
-                                    <i class="bi bi-water me-2"></i>
-                                    Flood
-                                </a>
-                            </li>
-                            <li>
-                                <a class="dropdown-item" href="./earthquake.html">
-                                    <i class="bi bi-globe-americas me-2"></i>
-                                    Earthquake
-                                </a>
-                            </li>
-                            <li>
-                                <a class="dropdown-item" href="./landslide.html">
-                                    <i class="bi bi-tree me-2"></i>
-                                    Landslide
-                                </a>
-                            </li>
-                            <li>
-                                <a class="dropdown-item" href="./drought.html">
-                                    <i class="bi bi-brightness-high me-2"></i>
-                                    Drought
-                                </a>
-                            </li>
+                            <li><a class="dropdown-item" href="./flood.html"><i class="bi bi-water me-2"></i>Flood</a></li>
+                            <li><a class="dropdown-item" href="./earthquake.html"><i class="bi bi-globe-americas me-2"></i>Earthquake</a></li>
+                            <li><a class="dropdown-item" href="./landslide.html"><i class="bi bi-tree me-2"></i>Landslide</a></li>
+                            <li><a class="dropdown-item" href="./drought.html"><i class="bi bi-brightness-high me-2"></i>Drought</a></li>
                         </ul>
                     </li>
 
                     <li class="nav-item">
-                        <a class="nav-link active" href="./explore.html">
-                            Explore Disaster
-                        </a>
+                        <a class="nav-link active" href="./explore.html">Explore Disaster</a>
                     </li>
 
                     <li class="nav-item">
-                        <a class="nav-link contact-link" href="./contactUs.html">
-                            Contact Us
-                        </a>
+                        <a class="nav-link contact-link" href="./contactUs.html">Contact Us</a>
                     </li>
                 </ul>
             </div>
@@ -422,7 +342,7 @@
                     </div>
                 </div>
 
-                <!-- Right -->
+                <!-- Right Carousel -->
                 <div class="col-lg-6">
                     <div id="disasterCarousel" class="carousel slide h-100" data-bs-ride="false">
                         <div class="carousel-indicators">
@@ -502,7 +422,6 @@
                             <span class="carousel-control-prev-icon" aria-hidden="true"></span>
                             <span class="visually-hidden">Previous</span>
                         </button>
-                        
                         <button class="carousel-control-next" type="button" data-bs-target="#disasterCarousel" data-bs-slide="next">
                             <span class="carousel-control-next-icon" aria-hidden="true"></span>
                             <span class="visually-hidden">Next</span>
@@ -513,582 +432,1405 @@
         </div>
     </section>
 
-        <!-- 2nd Section -->
-        <section class="py-5">
-            <div class="container-fluid px-4">
-                <div class="row g-4 align-items-stretch">
-                    <!-- Left Column -->
-                    <div class="col-lg-5 col-xl-4">
-                        <div class="p-3 shadow-sm border rounded-4 d-flex flex-column h-100 bg-white">
-                            <h1 class="h4 fw-bold text-dark mb-1">
-                                Explore Natural Disasters
-                            </h1>
+    <!-- 2nd Section -->
+    <section class="py-5">
+        <div class="container-fluid px-4">
+            <div class="row g-4 align-items-stretch">
+                <!-- Left Column -->
+                <div class="col-lg-5 col-xl-4">
+                    <div class="p-3 shadow-sm border rounded-4 d-flex flex-column h-100 bg-white">
+                        <h1 class="h4 fw-bold text-dark mb-1">
+                            Explore Natural Disasters
+                        </h1>
 
-                            <p class="small text-muted mb-3">
-                                The Environmental and Human Impacts of Natural Disasters in Myanmar
-                                <br>
-                                <span class="fw-semibold">
-                                    Floods, Landslides, Earthquakes, and Droughts
-                                </span>
-                            </p>
+                        <p class="small text-muted mb-3">
+                            The Environmental and Human Impacts of Natural Disasters in Myanmar
+                            <br>
+                            <span class="fw-semibold">
+                                Floods, Landslides, Earthquakes, and Droughts
+                            </span>
+                        </p>
 
-                            <!-- Search -->
-                            <div class="input-group mb-3">
-                                <span class="input-group-text bg-white border-end-0">
-                                    <i class="bi bi-search text-muted"></i>
-                                </span>
-
-                                <input type="text" class="form-control border-start-0 border-end-0" placeholder="Search location in Myanmar">
-                                
-                                <span class="input-group-text bg-white border-start-0">
-                                    <i class="bi bi-geo-alt text-muted"></i>
-                                </span>
-                            </div>
-
-                            <!-- Myanmar Map -->
-                            <div class="map-container flex-fill bg-light rounded border mb-3">
-                                <img src="./img/explore/MyanmarStateMap.png" alt="Map of Myanmar" class="myanmar-map">
-
-                                <button type="button" class="map-dot mandalay-dot active" onclick="showRegion('mandalay')" aria-label="Select Mandalay" aria-pressed="true"></button>
-                                <button type="button" class="map-dot sagaing-dot" onclick="showRegion('sagaing')" aria-label="Select Sagaing" aria-pressed="false"></button>
-                                <button type="button" class="map-dot magway-dot" onclick="showRegion('magway')" aria-label="Select Magway" aria-pressed="false"></button>
-                                <button type="button" class="map-dot bago-dot" onclick="showRegion('bago')" aria-label="Select Bago" aria-pressed="false"></button>
-                                <button type="button" class="map-dot shan-dot" onclick="showRegion('shan')" aria-label="Select Shan State" aria-pressed="false"></button>
-                                <button type="button" class="map-dot ayeyarwady-dot" onclick="showRegion('ayeyarwady')" aria-label="Select Ayeyarwady Region" aria-pressed="false"></button>
-                                <button type="button" class="map-dot chin-dot" onclick="showRegion('chin')" aria-label="Select Chin State" aria-pressed="false"></button>
-                                <button type="button" class="map-dot kachin-dot" onclick="showRegion('kachin')" aria-label="Select Kachin State" aria-pressed="false"></button>
-                                <button type="button" class="map-dot kayah-dot" onclick="showRegion('kayah')" aria-label="Select Kayah State" aria-pressed="false"></button>
-                                <button type="button" class="map-dot kayin-dot" onclick="showRegion('kayin')" aria-label="Select Kayin State" aria-pressed="false"></button>
-                                <button type="button" class="map-dot mon-dot" onclick="showRegion('mon')" aria-label="Select Mon State" aria-pressed="false"></button>
-                                <button type="button" class="map-dot rakhine-dot" onclick="showRegion('rakhine')" aria-label="Select Rakhine State" aria-pressed="false"></button>
-                                <button type="button" class="map-dot tanintharyi-dot" onclick="showRegion('tanintharyi')" aria-label="Select Tanintharyi Region" aria-pressed="false"></button>
-                                <button type="button" class="map-dot yangon-dot" onclick="showRegion('yangon')" aria-label="Select Yangon Region" aria-pressed="false"></button>
-                                <button type="button" class="map-dot naypyidaw-dot" onclick="showRegion('naypyidaw')" aria-label="Select Naypyidaw Union Territory" aria-pressed="false"></button>
-                            </div>
-
-                            <p class="extra-small text-muted mb-0 text-center">
-                                <i class="bi bi-cursor-fill me-1"></i>
-                                Click a colored dot to explore a region.
-                            </p>
-
+                        <!-- Search -->
+                        <div class="input-group mb-3">
+                            <span class="input-group-text bg-white border-end-0">
+                                <i class="bi bi-search text-muted"></i>
+                            </span>
+                            <input type="text" id="regionSearchInput" class="form-control border-start-0 border-end-0" placeholder="Search disaster in specific region (e.g Flood)">
+                            <span class="input-group-text bg-white border-start-0">
+                                <i class="bi bi-geo-alt text-muted"></i>
+                            </span>
                         </div>
+
+                        <!-- Myanmar Map -->
+                        <div class="map-container flex-fill bg-light rounded border mb-3">
+                            <img src="./img/explore/MyanmarStateMap.png" alt="Map of Myanmar" class="myanmar-map">
+
+                            <button type="button" class="map-dot mandalay-dot active" onclick="showRegion('mandalay')" aria-label="Select Mandalay" aria-pressed="true"></button>
+                            <button type="button" class="map-dot sagaing-dot" onclick="showRegion('sagaing')" aria-label="Select Sagaing" aria-pressed="false"></button>
+                            <button type="button" class="map-dot magway-dot" onclick="showRegion('magway')" aria-label="Select Magway" aria-pressed="false"></button>
+                            <button type="button" class="map-dot bago-dot" onclick="showRegion('bago')" aria-label="Select Bago" aria-pressed="false"></button>
+                            <button type="button" class="map-dot shan-dot" onclick="showRegion('shan')" aria-label="Select Shan State" aria-pressed="false"></button>
+                            <button type="button" class="map-dot ayeyarwady-dot" onclick="showRegion('ayeyarwady')" aria-label="Select Ayeyarwady Region" aria-pressed="false"></button>
+                            <button type="button" class="map-dot chin-dot" onclick="showRegion('chin')" aria-label="Select Chin State" aria-pressed="false"></button>
+                            <button type="button" class="map-dot kachin-dot" onclick="showRegion('kachin')" aria-label="Select Kachin State" aria-pressed="false"></button>
+                            <button type="button" class="map-dot kayah-dot" onclick="showRegion('kayah')" aria-label="Select Kayah State" aria-pressed="false"></button>
+                            <button type="button" class="map-dot kayin-dot" onclick="showRegion('kayin')" aria-label="Select Kayin State" aria-pressed="false"></button>
+                            <button type="button" class="map-dot mon-dot" onclick="showRegion('mon')" aria-label="Select Mon State" aria-pressed="false"></button>
+                            <button type="button" class="map-dot rakhine-dot" onclick="showRegion('rakhine')" aria-label="Select Rakhine State" aria-pressed="false"></button>
+                            <button type="button" class="map-dot tanintharyi-dot" onclick="showRegion('tanintharyi')" aria-label="Select Tanintharyi Region" aria-pressed="false"></button>
+                            <button type="button" class="map-dot yangon-dot" onclick="showRegion('yangon')" aria-label="Select Yangon Region" aria-pressed="false"></button>
+                            <button type="button" class="map-dot naypyidaw-dot" onclick="showRegion('naypyidaw')" aria-label="Select Naypyidaw Union Territory" aria-pressed="false"></button>
+                        </div>
+
+                        <p class="extra-small text-muted mb-0 text-center">
+                            <i class="bi bi-cursor-fill me-1"></i>
+                            Click a colored dot to explore a region.
+                        </p>
                     </div>
+                </div>
 
-                    <!-- Right Column -->
-                    <div class="col-lg-7 col-xl-8">
-                        <div class="p-3 p-md-4 shadow-sm border rounded-4 h-100 bg-white">
+                <!-- Right Column -->
+                <div class="col-lg-7 col-xl-8">
+                    <div class="p-3 p-md-4 shadow-sm border rounded-4 h-100 bg-white">
+                        <div class="d-flex justify-content-between align-items-center flex-wrap gap-2 mb-3">
+                            <h2 class="h5 fw-bold mb-0">
+                                Regional Examples
+                            </h2>
+                        </div>
 
-                            <div class="d-flex justify-content-between align-items-center flex-wrap gap-2 mb-3">
-                                <h2 class="h5 fw-bold mb-0">
-                                    Regional Examples
-                                </h2>
-                            </div>
-
-                            <!-- Kachin -->
-                            <div class="region-content" id="kachin">
-                                <div class="row align-items-center g-4">
-                                    <div class="col-md-5">
-                                        <img src="./img/explore/Kachin.jpg" alt="Kachin State" class="region-image">
-                                    </div>
-
-                                    <div class="col-md-7">
-                                        <h3 class="h5 fw-bold text-danger">Kachin</h3>
-
-                                        <p class="region-description">
-                                            Kachin State has experienced several natural disasters,
-                                            particularly floods and landslides, affecting communities,
-                                            infrastructure and mining areas. Some major recorded
-                                            events include:
-                                        </p>
-
-                                        <div class="d-flex flex-column gap-2">
-
-                                            <a class="mb-0 text-decoration-none"
-                                                href="https://www.adrc.asia/view_disaster_en.php?Key=2345&Lang=en"
-                                                target="_blank">
-                                                <strong>13 July 2019 Kachin Monsoon Floods:</strong>
-                                                Heavy monsoon rainfall caused rivers to overflow,
-                                                resulting in flooding across Myitkyina, Bhamo and
-                                                Shwegu townships. More than 6,200 people were evacuated
-                                                to temporary shelters.
-                                            </a>
-
-                                            <a class="mb-0 text-decoration-none"
-                                                href="https://www.rfa.org/english/news/myanmar/jade-12212021173345.html"
-                                                target="_blank">
-                                                <strong>22 December 2021 Hpakant Landslide:</strong>
-                                                A massive landslide at a jade mining site near
-                                                Tharyargone village in Hpakant Township buried miners
-                                                and swept people into a nearby lake. At least one
-                                                person was confirmed dead, while around 80 people
-                                                were reported missing.
-                                            </a>
-
-                                            <a class="mb-0 text-decoration-none"
-                                                href="https://www.irrawaddy.com/news/burma/at-least-seven-dead-10-missing-as-landslide-hits-mine-in-myanmars-kachin.html"
-                                                target="_blank">
-                                                <strong>4 June 2024 Pang War Landslide:</strong>
-                                                Heavy rainfall triggered a landslide at a rare-earth
-                                                mining site in Pang War, Chipwi Township. At least
-                                                seven people were killed and at least 10 others
-                                                were reported missing.
-                                            </a>
-
-                                            <a class="mb-0 text-decoration-none"
-                                                href="https://www.rfa.org/english/news/myanmar/myanmar-mine-collapse-06212024072910.html"
-                                                target="_blank">
-                                                <strong>19 June 2024 Pang War Mine Landslide:</strong>
-                                                A landslide at a rare-earth mining site in Pang War
-                                                caused a major collapse, burying approximately
-                                                30 workers. At least 15 bodies were recovered,
-                                                while others remained missing.
-                                            </a>
-
-                                            <a class="mb-0 text-decoration-none"
-                                                href="https://www.acaps.org/en/countries/archives/detail/myanmar-flooding-in-kachin"
-                                                target="_blank">
-                                                <strong>July 2024 Kachin State Floods:</strong>
-                                                Heavy monsoon rainfall caused the Ayeyarwady,
-                                                Malikha and N'Mai rivers to overflow, flooding
-                                                several townships including Myitkyina, Bhamo,
-                                                Hpakant, Mogaung and Waingmaw. At least 31,000
-                                                people were evacuated and approximately 26,400
-                                                people were reported affected.
-                                            </a>
-
-                                        </div>
+                        <!-- Kachin -->
+                        <div class="region-content" id="kachin">
+                            <div class="row align-items-center g-4 mb-4">
+                                <div class="col-md-5">
+                                    <img src="./img/explore/Kachin.jpg" alt="Kachin State" class="region-image img-fluid rounded">
+                                </div>
+                                <div class="col-md-7">
+                                    <h3 class="h5 fw-bold mb-2">Kachin State</h3>
+                                    <p class="region-description mb-3">
+                                        Kachin State has experienced several natural disasters, particularly floods and landslides, affecting communities, infrastructure and mining areas. Some major recorded events include:
+                                    </p>
+                                    <div class="region-events-list d-flex flex-column gap-2">
+                                        <a class="disaster-event-card" href="https://www.adrc.asia/view_disaster_en.php?Key=2345&Lang=en" target="_blank">
+                                            <div class="d-flex justify-content-between align-items-start gap-2">
+                                                <div>
+                                                    <strong class="text-dark d-block mb-1">13 July 2019 Kachin Monsoon Floods</strong>
+                                                    <p class="extra-small text-muted mb-0">Heavy monsoon rainfall caused rivers to overflow, resulting in flooding across Myitkyina, Bhamo and Shwegu townships. More than 6,200 people were evacuated.</p>
+                                                </div>
+                                                <i class="bi bi-box-arrow-up-right text-muted fs-6 flex-shrink-0 mt-1"></i>
+                                            </div>
+                                        </a>
+                                        <a class="disaster-event-card" href="https://www.rfa.org/english/news/myanmar/jade-12212021173345.html" target="_blank">
+                                            <div class="d-flex justify-content-between align-items-start gap-2">
+                                                <div>
+                                                    <strong class="text-dark d-block mb-1">22 December 2021 Hpakant Landslide</strong>
+                                                    <p class="extra-small text-muted mb-0">A massive landslide at a jade mining site near Tharyargone village buried miners and swept people into a nearby lake. At least one person died and ~80 were missing.</p>
+                                                </div>
+                                                <i class="bi bi-box-arrow-up-right text-muted fs-6 flex-shrink-0 mt-1"></i>
+                                            </div>
+                                        </a>
+                                        <a class="disaster-event-card" href="https://www.irrawaddy.com/news/burma/at-least-seven-dead-10-missing-as-landslide-hits-mine-in-myanmars-kachin.html" target="_blank">
+                                            <div class="d-flex justify-content-between align-items-start gap-2">
+                                                <div>
+                                                    <strong class="text-dark d-block mb-1">4 June 2024 Pang War Landslide</strong>
+                                                    <p class="extra-small text-muted mb-0">Heavy rainfall triggered a landslide at a rare-earth mining site in Pang War, Chipwi Township, killing at least 7 people with 10 others missing.</p>
+                                                </div>
+                                                <i class="bi bi-box-arrow-up-right text-muted fs-6 flex-shrink-0 mt-1"></i>
+                                            </div>
+                                        </a>
+                                        <a class="disaster-event-card" href="https://www.rfa.org/english/news/myanmar/myanmar-mine-collapse-06212024072910.html" target="_blank">
+                                            <div class="d-flex justify-content-between align-items-start gap-2">
+                                                <div>
+                                                    <strong class="text-dark d-block mb-1">19 June 2024 Pang War Mine Landslide</strong>
+                                                    <p class="extra-small text-muted mb-0">A major collapse at a rare-earth mining site buried ~30 workers. At least 15 bodies were recovered.</p>
+                                                </div>
+                                                <i class="bi bi-box-arrow-up-right text-muted fs-6 flex-shrink-0 mt-1"></i>
+                                            </div>
+                                        </a>
+                                        <a class="disaster-event-card" href="https://www.acaps.org/en/countries/archives/detail/myanmar-flooding-in-kachin" target="_blank">
+                                            <div class="d-flex justify-content-between align-items-start gap-2">
+                                                <div>
+                                                    <strong class="text-dark d-block mb-1">July 2024 Kachin State Floods</strong>
+                                                    <p class="extra-small text-muted mb-0">Monsoon rains caused the Ayeyarwady, Malikha and N'Mai rivers to overflow across Myitkyina, Bhamo and Hpakant. At least 31,000 people were evacuated.</p>
+                                                </div>
+                                                <i class="bi bi-box-arrow-up-right text-muted fs-6 flex-shrink-0 mt-1"></i>
+                                            </div>
+                                        </a>
                                     </div>
                                 </div>
                             </div>
 
-                            <!-- Mandalay -->
-                            <div class="region-content active" id="mandalay">
-                                <div class="row align-items-center g-4">
-                                    <div class="col-md-5">
-                                        <img src="./img/explore/Mandalay.jpg" alt="Mandalay" class="region-image">
-                                    </div>
-                                    <div class="col-md-7">
-                                        <h3 class="h5 fw-bold text-danger">Mandalay</h3>
-                                        <p class="region-description">
-                                            Mandalay has experienced several natural disasters that have affected its communities, infrastructure and environment. Some major recorded events include:
-                                        </p>
-                                        <div class="d-flex flex-column gap-2">
-                                            <a class="mb-0 text-decoration-none" href="https://myanmar.un.org/en/291866-initial-situation-report-earthquake-central-myanmar-28-march-2025">
-                                                <strong>28 March 2025 Central Myanmar Earthquake:</strong> A powerful magnitude 7.7 earthquake struck central Myanmar, with its epicentre approximately 19 km northwest of Mandalay. It caused widespread building collapses, infrastructure damage and loss of life.
-                                            </a>
-                                            <a class="mb-0 text-decoration-none" href="https://www.moi.gov.mm/nlm/sites/default/files/newspaper-pdf/2021-01/18_Jan_21_gnlm.pdf">
-                                                <strong>24 August 2016 Bagan Earthquake:</strong> A magnitude 6.8 earthquake struck central Myanmar, damaging almost 400 of Bagan's 3,252 pagodas and affecting important historical structures in Mandalay Region.
-                                            </a>
-                                            <a class="mb-0 text-decoration-none" href="https://myanmar.un.org/en/278804-myanmar-flood-situation-report-16-september-2024">
-                                                <strong>September 2024 Mandalay Floods:</strong> Heavy monsoon rainfall and the remnants of Typhoon Yagi caused severe flooding across Mandalay Region, affecting communities, homes, farmland and transportation infrastructure.
-                                            </a>
-                                            <a class="mb-0 text-decoration-none" href="https://www.moi.gov.mm/moi:eng/news/15678">
-                                                <strong>1 October 2024 Myittha Floods:</strong> Heavy rainfall caused the Panlaung River to overflow in Myittha Township, flooding 15 villages and six wards. Approximately 19,845 people were affected.
-                                            </a>
-                                            <a class="mb-0 text-decoration-none" href="https://api.erat.ahacentre.org/report/myanmar-landslide-in-mandalay-region-20210824">
-                                                <strong>24 August 2021 Mogok Landslide:</strong> Heavy rainfall triggered a landslide in Aung Thit Lwin Ward, Mogok Township, burying four houses, killing 11 people and injuring three.
-                                            </a>
-                                            <a class="mb-0 text-decoration-none" href="https://digitallibrary.un.org/record/3837376">
-                                                <strong>2014–2015 El Niño-Related Drought:</strong> Mandalay Region experienced severe drought conditions and prolonged dry spells during the El Niño period, affecting vegetation, agricultural production and water availability.
-                                            </a>
+                            <div class="row justify-content-center">
+                                <div class="col-12 col-md-10 col-lg-8">
+                                    <div class="region-stats-card p-4 rounded-3 bg-light border shadow-sm">
+                                        <h4 class="h5 fw-bold mb-4 text-dark d-flex align-items-center justify-content-center gap-2">
+                                            Region Risk Profile
+                                        </h4>
+                                        <div class="row g-3 text-center">
+                                            <div class="col-4">
+                                                <div class="p-3 rounded bg-white border">
+                                                    <span class="d-block small text-muted mb-1">Major Events</span>
+                                                    <strong class="fs-4 text-dark d-block">5 Recorded</strong>
+                                                </div>
+                                            </div>
+                                            <div class="col-4">
+                                                <div class="p-3 rounded bg-white border">
+                                                    <span class="d-block small text-muted mb-1">Main Threat</span>
+                                                    <strong class="fs-4 text-danger d-block">Landslide</strong>
+                                                </div>
+                                            </div>
+                                            <div class="col-4">
+                                                <div class="p-3 rounded bg-white border">
+                                                    <span class="d-block small text-muted mb-1">Latest Event</span>
+                                                    <strong class="fs-4 text-primary d-block">Jul 2024</strong>
+                                                </div>
+                                            </div>
                                         </div>
                                     </div>
                                 </div>
                             </div>
+                        </div>
 
-                            <!-- Sagaing -->
-                            <div class="region-content" id="sagaing">
-                                <div class="row align-items-center g-4">
-                                    <div class="col-md-5">
-                                        <img src="./img/explore/Sagaing.jpg" alt="Sagaing" class="region-image">
-                                    </div>
-                                    <div class="col-md-7">
-                                        <h3 class="h5 fw-bold text-primary">Sagaing</h3>
-                                        <p class="region-description">
-                                            Sagaing has experienced several natural disasters that have affected its communities, infrastructure and environment. Some major recorded events include:
-                                        </p>
-                                        <div class="d-flex flex-column gap-2">
-                                            <a class="mb-0 text-decoration-none" href="https://myanmar.un.org/en/291866-initial-situation-report-earthquake-central-myanmar-28-march-2025">
-                                                <strong>28 March 2025 Central Myanmar Earthquake:</strong> A powerful magnitude 7.7 earthquake struck approximately 16 km northwest of Sagaing City, causing widespread building collapses, infrastructure damage and loss of life.
-                                            </a>
-                                            <a class="mb-0 text-decoration-none" href="https://themimu.info/sites/themimu.info/files/documents/Flash_Update_No_2_Myanmar_Floods_Emergency_OCHA_03Aug2015.pdf">
-                                                <strong>July–August 2015 Kale Floods:</strong> Heavy monsoon rainfall associated with Cyclone Komen caused severe flooding in Kale Township. Around 70,000 people were affected, with homes and villages submerged in floodwater.
-                                            </a>
-                                            <a class="mb-0 text-decoration-none" href="https://www.moi.gov.mm/moi:eng/news/14579">
-                                                <strong>3 July 2024 Hkamti Floods:</strong> Heavy rainfall caused the Chindwin River to exceed its danger level, flooding several wards and villages in Hkamti Township and forcing hundreds of residents to evacuate.
-                                            </a>
-                                            <a class="mb-0 text-decoration-none" href="https://myanmar.un.org/en/279207-myanmar-flood-situation-report-2-20-september-2024">
-                                                <strong>September 2024 Sagaing Region Floods:</strong> Heavy rainfall caused flooding in Chaung-U, Myaung and Myinmu townships, submerging agricultural land and damaging crops.
-                                            </a>
-                                            <a class="mb-0 text-decoration-none" href="https://mdn.gov.mm/my/node/175500">
-                                                <strong>20 August 2024 Paungbyin Landslide:</strong> Heavy rainfall triggered a landslide in Paungbyin Township, destroying buildings, damaging a bridge over Nanmakhuin Creek and disrupting transportation.
-                                            </a>
-                                            <a class="mb-0 text-decoration-none" href="https://www.adaptation-undp.org/projects/addressing-climate-change-risks-water-resources-and-food-security-dry-zone-myanmar">
-                                                <strong>Recurring Dry-Zone Droughts in Shwebo and Monywa:</strong> Prolonged dry spells and recurring droughts caused water shortages in the Central Dry Zone, threatening agricultural production and the livelihoods of rural communities.
-                                            </a>
-                                        </div>
+                        <!-- Mandalay -->
+                        <div class="region-content active" id="mandalay">
+                            <div class="row align-items-center g-4 mb-4">
+                                <div class="col-md-5">
+                                    <img src="./img/explore/Mandalay.jpg" alt="Mandalay" class="region-image img-fluid rounded">
+                                </div>
+                                <div class="col-md-7">
+                                    <h3 class="h5 fw-bold mb-2">Mandalay Region</h3>
+                                    <p class="region-description mb-3">
+                                        Mandalay has experienced several natural disasters that have affected its communities, infrastructure and environment. Some major recorded events include:
+                                    </p>
+                                    <div class="region-events-list d-flex flex-column gap-2">
+                                        <a class="disaster-event-card" href="https://myanmar.un.org/en/291866-initial-situation-report-earthquake-central-myanmar-28-march-2025" target="_blank">
+                                            <div class="d-flex justify-content-between align-items-start gap-2">
+                                                <div>
+                                                    <strong class="text-dark d-block mb-1">28 March 2025 Central Myanmar Earthquake</strong>
+                                                    <p class="extra-small text-muted mb-0">A powerful magnitude 7.7 earthquake struck central Myanmar, with its epicentre ~19 km northwest of Mandalay, causing widespread building collapses.</p>
+                                                </div>
+                                                <i class="bi bi-box-arrow-up-right text-muted fs-6 flex-shrink-0 mt-1"></i>
+                                            </div>
+                                        </a>
+                                        <a class="disaster-event-card" href="https://www.moi.gov.mm/nlm/sites/default/files/newspaper-pdf/2021-01/18_Jan_21_gnlm.pdf" target="_blank">
+                                            <div class="d-flex justify-content-between align-items-start gap-2">
+                                                <div>
+                                                    <strong class="text-dark d-block mb-1">24 August 2016 Bagan Earthquake</strong>
+                                                    <p class="extra-small text-muted mb-0">A magnitude 6.8 earthquake struck central Myanmar, damaging almost 400 of Bagan's 3,252 pagodas and historical structures.</p>
+                                                </div>
+                                                <i class="bi bi-box-arrow-up-right text-muted fs-6 flex-shrink-0 mt-1"></i>
+                                            </div>
+                                        </a>
+                                        <a class="disaster-event-card" href="https://myanmar.un.org/en/278804-myanmar-flood-situation-report-16-september-2024" target="_blank">
+                                            <div class="d-flex justify-content-between align-items-start gap-2">
+                                                <div>
+                                                    <strong class="text-dark d-block mb-1">September 2024 Mandalay Floods</strong>
+                                                    <p class="extra-small text-muted mb-0">Heavy monsoon rainfall and remnants of Typhoon Yagi caused severe flooding across Mandalay, affecting homes, farmland, and transport.</p>
+                                                </div>
+                                                <i class="bi bi-box-arrow-up-right text-muted fs-6 flex-shrink-0 mt-1"></i>
+                                            </div>
+                                        </a>
+                                        <a class="disaster-event-card" href="https://www.moi.gov.mm/moi:eng/news/15678" target="_blank">
+                                            <div class="d-flex justify-content-between align-items-start gap-2">
+                                                <div>
+                                                    <strong class="text-dark d-block mb-1">1 October 2024 Myittha Floods</strong>
+                                                    <p class="extra-small text-muted mb-0">Heavy rainfall caused the Panlaung River to overflow in Myittha Township, flooding 15 villages and 6 wards, affecting 19,845 people.</p>
+                                                </div>
+                                                <i class="bi bi-box-arrow-up-right text-muted fs-6 flex-shrink-0 mt-1"></i>
+                                            </div>
+                                        </a>
+                                        <a class="disaster-event-card" href="https://api.erat.ahacentre.org/report/myanmar-landslide-in-mandalay-region-20210824" target="_blank">
+                                            <div class="d-flex justify-content-between align-items-start gap-2">
+                                                <div>
+                                                    <strong class="text-dark d-block mb-1">24 August 2021 Mogok Landslide</strong>
+                                                    <p class="extra-small text-muted mb-0">Heavy rainfall triggered a landslide in Mogok Township, burying 4 houses, killing 11 people and injuring 3.</p>
+                                                </div>
+                                                <i class="bi bi-box-arrow-up-right text-muted fs-6 flex-shrink-0 mt-1"></i>
+                                            </div>
+                                        </a>
+                                        <a class="disaster-event-card" href="https://digitallibrary.un.org/record/3837376" target="_blank">
+                                            <div class="d-flex justify-content-between align-items-start gap-2">
+                                                <div>
+                                                    <strong class="text-dark d-block mb-1">2014–2015 El Niño-Related Drought</strong>
+                                                    <p class="extra-small text-muted mb-0">Mandalay experienced severe drought and prolonged dry spells during El Niño, impacting agriculture and water availability.</p>
+                                                </div>
+                                                <i class="bi bi-box-arrow-up-right text-muted fs-6 flex-shrink-0 mt-1"></i>
+                                            </div>
+                                        </a>
                                     </div>
                                 </div>
                             </div>
 
-                            <!-- Magway -->
-                            <div class="region-content" id="magway">
-                                <div class="row align-items-center g-4">
-                                    <div class="col-md-5">
-                                        <img src="./img/explore/Magway.jpg" alt="Magway" class="region-image">
-                                    </div>
-                                    <div class="col-md-7">
-                                        <h3 class="h5 fw-bold text-secondary">Magway</h3>
-                                        <p class="region-description">
-                                            Magway has experienced several natural disasters due to its location in Myanmar's Central Dry Zone and its exposure to heavy monsoon rainfall. These disasters have affected communities, agriculture and infrastructure. Some major recorded events include:
-                                        </p>
-                                        <div class="d-flex flex-column gap-2">
-                                            <a class="mb-0 text-decoration-none" href="https://unosat.org/products/999">
-                                                <strong>July–August 2015 Cyclone Komen Floods:</strong> Heavy rainfall associated with Cyclone Komen caused widespread flooding in central Magway. Floodwaters affected areas including Chauk, Pwintbyu, Yenangyaung, Magway and Sagu, inundating approximately 60,000 hectares of land.
-                                            </a>
-                                            <a class="mb-0 text-decoration-none" href="https://moezala.gov.mm/en/news/4965">
-                                                <strong>24 August 2016 Chauk Earthquake:</strong> A powerful magnitude 6.8 earthquake struck approximately 12 miles west of Chauk, Magway Region, causing damage to buildings and historical structures in central Myanmar.
-                                            </a>
-                                            <a class="mb-0 text-decoration-none" href="https://www.moi.gov.mm/moi:eng/article/208">
-                                                <strong>2019 Early-Monsoon Drought:</strong> A month-long drought during the early monsoon season affected sesame and groundnut farmers in Magway, causing crop losses, shortages of cattle feed and difficulties accessing drinking water.
-                                            </a>
-                                            <a class="mb-0 text-decoration-none" href="https://myanmar.un.org/en/279207-myanmar-flood-situation-report-2-20-september-2024">
-                                                <strong>September 2024 Magway Region Floods:</strong> Heavy monsoon rainfall and the remnants of Typhoon Yagi caused severe flooding. More than 26,000 houses were damaged or washed away, while approximately 50,000 acres of agricultural land were flooded.
-                                            </a>
-                                            <a class="mb-0 text-decoration-none" href="https://myanmar.un.org/en/292274-ocha-myanmar-earthquake-response-situation-report-no-1">
-                                                <strong>28 March 2025 Central Myanmar Earthquake:</strong> Two powerful earthquakes of magnitudes 7.7 and 6.4 struck central Myanmar near Sagaing and Mandalay. Magway Region was also among the affected regions, experiencing earthquake impacts and infrastructure disruption.
-                                            </a>
-                                            <a class="mb-0 text-decoration-none" href="https://mdn.gov.mm/en/four-villages-evacuated-due-riverbank-erosion-pakokku">
-                                                <strong>15 September 2025 Pakokku Landslides:</strong> Riverbank erosion and landslides along the Irrawaddy River threatened four villages in Pakokku Township. A total of 258 people from 65 households were evacuated to safer areas.
-                                            </a>
+                            <div class="row justify-content-center">
+                                <div class="col-12 col-md-10 col-lg-8">
+                                    <div class="region-stats-card p-4 rounded-3 bg-light border shadow-sm">
+                                        <h4 class="h5 fw-bold mb-4 text-dark d-flex align-items-center justify-content-center gap-2">
+                                            Region Risk Profile
+                                        </h4>
+                                        <div class="row g-3 text-center">
+                                            <div class="col-4">
+                                                <div class="p-3 rounded bg-white border">
+                                                    <span class="d-block small text-muted mb-1">Major Events</span>
+                                                    <strong class="fs-4 text-dark d-block">6 Recorded</strong>
+                                                </div>
+                                            </div>
+                                            <div class="col-4">
+                                                <div class="p-3 rounded bg-white border">
+                                                    <span class="d-block small text-muted mb-1">Main Threat</span>
+                                                    <strong class="fs-4 text-danger d-block">Earthquake</strong>
+                                                </div>
+                                            </div>
+                                            <div class="col-4">
+                                                <div class="p-3 rounded bg-white border">
+                                                    <span class="d-block small text-muted mb-1">Latest Event</span>
+                                                    <strong class="fs-4 text-primary d-block">Mar 2025</strong>
+                                                </div>
+                                            </div>
                                         </div>
                                     </div>
                                 </div>
                             </div>
+                        </div>
 
-                            <!-- Bago -->
-                            <div class="region-content" id="bago">
-                                <div class="row align-items-center g-4">
-                                    <div class="col-md-5">
-                                        <img src="./img/explore/Bago.jpg" alt="Bago" class="region-image">
-                                    </div>
-                                    <div class="col-md-7">
-                                        <h3 class="h5 fw-bold text-success">Bago</h3>
-                                        <p class="region-description">
-                                            Bago has experienced several natural disasters that have affected its communities, agriculture, infrastructure and environment. Its location along the Sittaung River also makes many areas vulnerable to flooding. Some major recorded events include:
-                                        </p>
-                                        <div class="d-flex flex-column gap-2">
-                                            <a class="mb-0 text-decoration-none" href="https://www.moi.gov.mm/moi:eng/index.php/news/11233">
-                                                <strong>11 August 2023 Bago River Floods:</strong> Persistent heavy rainfall caused the Bago River to rise above its danger level, flooding low-lying areas of Bago Township and sections of the old Yangon–Mandalay Highway. Thirteen relief camps were established for affected residents.
-                                            </a>
-                                            <a class="mb-0 text-decoration-none" href="https://myanmar.un.org/en/280005-unhcr-flash-update-flooding-myanmar-28-september-2024">
-                                                <strong>September 2024 Bago Region Floods:</strong> Heavy rainfall associated with Typhoon Yagi caused widespread flooding, particularly in Taungoo, Kyaukkyi and Shwegyin Townships. Hundreds of villages were submerged, affecting more than 316,000 people.
-                                            </a>
-                                            <a class="mb-0 text-decoration-none" href="https://www.apterr.org/activities/455-apterr-tier-3-rice-contributed-by-korea-for-over-68%2C000-flood-and-landside-affected-people-in-bago,-myanmar">
-                                                <strong>September 2024 Bago Region Landslides:</strong> Heavy monsoon rainfall and Typhoon Yagi triggered landslides and flooding across Bago Region, damaging communities and affecting thousands of residents.
-                                            </a>
-                                            <a class="mb-0 text-decoration-none" href="https://www.rrdmyanmar.gov.mm/wp-content/uploads/2013/08/Standing-Order-on-Natural-Disaster-management-in-Myanmar.pdf">
-                                                <strong>5 May 1930 Bago Earthquake:</strong> A powerful magnitude 7.3 earthquake struck Bago, destroying houses and damaging the Shwemawdaw Pagoda. Approximately 500 people were killed in Bago and another 50 in Yangon.
-                                            </a>
-                                            <a class="mb-0 text-decoration-none" href="https://myanmar.un.org/en/291886-myanmar-earthquake-flash-update-2-31-march-2025">
-                                                <strong>28 March 2025 Central Myanmar Earthquake:</strong> A powerful magnitude 7.7 earthquake struck central Myanmar, affecting Bago Region. The disaster caused deaths, injuries and damage to homes, schools and other infrastructure.
-                                            </a>
-                                            <a class="mb-0 text-decoration-none" href="https://gwpo-gwp.org/southeast-asia/wp-content/uploads/sites/15/2026/03/Drought-Conditions-and-Interventions-in-Southeast-Asia.pdf">
-                                                <strong>Drought Vulnerability in Bago Region:</strong> Bago has medium drought vulnerability due to its dependence on irrigation and limited water resources. Prolonged dry periods can threaten agricultural production and water availability.
-                                            </a>
-                                        </div>
+                        <!-- Sagaing -->
+                        <div class="region-content" id="sagaing">
+                            <div class="row align-items-center g-4 mb-4">
+                                <div class="col-md-5">
+                                    <img src="./img/explore/Sagaing.jpg" alt="Sagaing" class="region-image img-fluid rounded">
+                                </div>
+                                <div class="col-md-7">
+                                    <h3 class="h5 fw-bold mb-2">Sagaing Region</h3>
+                                    <p class="region-description mb-3">
+                                        Sagaing has experienced several natural disasters that have affected its communities, infrastructure and environment. Some major recorded events include:
+                                    </p>
+                                    <div class="region-events-list d-flex flex-column gap-2">
+                                        <a class="disaster-event-card" href="https://myanmar.un.org/en/291866-initial-situation-report-earthquake-central-myanmar-28-march-2025" target="_blank">
+                                            <div class="d-flex justify-content-between align-items-start gap-2">
+                                                <div>
+                                                    <strong class="text-dark d-block mb-1">28 March 2025 Central Myanmar Earthquake</strong>
+                                                    <p class="extra-small text-muted mb-0">A powerful magnitude 7.7 earthquake struck ~16 km northwest of Sagaing City, causing widespread building and infrastructure damage.</p>
+                                                </div>
+                                                <i class="bi bi-box-arrow-up-right text-muted fs-6 flex-shrink-0 mt-1"></i>
+                                            </div>
+                                        </a>
+                                        <a class="disaster-event-card" href="https://themimu.info/sites/themimu.info/files/documents/Flash_Update_No_2_Myanmar_Floods_Emergency_OCHA_03Aug2015.pdf" target="_blank">
+                                            <div class="d-flex justify-content-between align-items-start gap-2">
+                                                <div>
+                                                    <strong class="text-dark d-block mb-1">July–August 2015 Kale Floods</strong>
+                                                    <p class="extra-small text-muted mb-0">Monsoon rainfall associated with Cyclone Komen caused severe flooding in Kale Township, affecting ~70,000 people.</p>
+                                                </div>
+                                                <i class="bi bi-box-arrow-up-right text-muted fs-6 flex-shrink-0 mt-1"></i>
+                                            </div>
+                                        </a>
+                                        <a class="disaster-event-card" href="https://www.moi.gov.mm/moi:eng/news/14579" target="_blank">
+                                            <div class="d-flex justify-content-between align-items-start gap-2">
+                                                <div>
+                                                    <strong class="text-dark d-block mb-1">3 July 2024 Hkamti Floods</strong>
+                                                    <p class="extra-small text-muted mb-0">Heavy rainfall caused the Chindwin River to exceed its danger level, flooding several wards and villages in Hkamti Township.</p>
+                                                </div>
+                                                <i class="bi bi-box-arrow-up-right text-muted fs-6 flex-shrink-0 mt-1"></i>
+                                            </div>
+                                        </a>
+                                        <a class="disaster-event-card" href="https://myanmar.un.org/en/279207-myanmar-flood-situation-report-2-20-september-2024" target="_blank">
+                                            <div class="d-flex justify-content-between align-items-start gap-2">
+                                                <div>
+                                                    <strong class="text-dark d-block mb-1">September 2024 Sagaing Region Floods</strong>
+                                                    <p class="extra-small text-muted mb-0">Heavy rainfall caused flooding in Chaung-U, Myaung and Myinmu townships, submerging farmland and damaging crops.</p>
+                                                </div>
+                                                <i class="bi bi-box-arrow-up-right text-muted fs-6 flex-shrink-0 mt-1"></i>
+                                            </div>
+                                        </a>
+                                        <a class="disaster-event-card" href="https://mdn.gov.mm/my/node/175500" target="_blank">
+                                            <div class="d-flex justify-content-between align-items-start gap-2">
+                                                <div>
+                                                    <strong class="text-dark d-block mb-1">20 August 2024 Paungbyin Landslide</strong>
+                                                    <p class="extra-small text-muted mb-0">Heavy rainfall triggered a landslide in Paungbyin Township, destroying buildings and damaging a bridge over Nanmakhuin Creek.</p>
+                                                </div>
+                                                <i class="bi bi-box-arrow-up-right text-muted fs-6 flex-shrink-0 mt-1"></i>
+                                            </div>
+                                        </a>
+                                        <a class="disaster-event-card" href="https://www.adaptation-undp.org/projects/addressing-climate-change-risks-water-resources-and-food-security-dry-zone-myanmar" target="_blank">
+                                            <div class="d-flex justify-content-between align-items-start gap-2">
+                                                <div>
+                                                    <strong class="text-dark d-block mb-1">Recurring Dry-Zone Droughts (Shwebo & Monywa)</strong>
+                                                    <p class="extra-small text-muted mb-0">Prolonged dry spells and recurring droughts caused water shortages in the Central Dry Zone, threatening agricultural production.</p>
+                                                </div>
+                                                <i class="bi bi-box-arrow-up-right text-muted fs-6 flex-shrink-0 mt-1"></i>
+                                            </div>
+                                        </a>
                                     </div>
                                 </div>
                             </div>
 
-                            <!-- Shan -->
-                            <div class="region-content" id="shan">
-                                <div class="row align-items-center g-4">
-                                    <div class="col-md-5">
-                                        <img src="./img/explore/Shan.jpg" alt="Shan State" class="region-image">
-                                    </div>
-                                    <div class="col-md-7">
-                                        <h3 class="h5 fw-bold text-dark">Shan State</h3>
-                                        <p class="region-description">
-                                            Shan State has experienced several natural disasters due to its mountainous terrain, heavy monsoon rainfall and exposure to seismic activity. These disasters have affected communities, agriculture and infrastructure. Some major recorded events include:
-                                        </p>
-                                        <div class="d-flex flex-column gap-2">
-                                            <a class="mb-0 text-decoration-none" href="https://unhabitatmyanmar.org/wp-content/uploads/2015/03/Shelter-Assessment-Shan-State-Earthquake-Affected-Areas.pdf">
-                                                <strong>24 March 2011 Tarlay Earthquake:</strong> A powerful magnitude 6.8 earthquake struck eastern Shan State near Tachileik Township. It affected approximately 18,000 people across 90 villages, killing 74 people and leaving more than 3,000 people homeless.
-                                            </a>
-                                            <a class="mb-0 text-decoration-none" href="https://myanmar.un.org/en/278804-myanmar-flood-situation-report-16-september-2024">
-                                                <strong>September 2024 Typhoon Yagi Floods:</strong> Heavy rainfall caused widespread flooding across eastern and southern Shan State. More than 80% of Nyaungshwe Township was submerged, affecting approximately 74,000 people.
-                                            </a>
-                                            <a class="mb-0 text-decoration-none" href="https://www.moi.gov.mm/moi:eng/news/15540">
-                                                <strong>11 September 2024 Hopong Floods:</strong> Heavy rainfall caused severe flooding in Sanphu Village, Hopong Township. The disaster destroyed 261 houses, partially damaged another 336 houses and resulted in 26 deaths.
-                                            </a>
-                                            <a class="mb-0 text-decoration-none" href="https://myanmar.un.org/en/279207-myanmar-flood-situation-report-2-20-september-2024">
-                                                <strong>September 2024 Eastern and Southern Shan Landslides:</strong> Heavy monsoon rainfall triggered landslides and flooding across eastern and southern Shan State, affecting 26 townships and damaging homes, roads and other infrastructure.
-                                            </a>
-                                            <a class="mb-0 text-decoration-none" href="https://www.moi.gov.mm/moi%3Aeng/index.php/earthquake-news/17806">
-                                                <strong>28 March 2025 Central Myanmar Earthquake:</strong> A powerful magnitude 7.7 earthquake struck central Myanmar, also affecting Shan State. Buildings and infrastructure were damaged in Aungban and Nyaungshwe townships, with people injured and requiring assistance.
-                                            </a>
-                                            <a class="mb-0 text-decoration-none" href="https://www.unescap.org/sites/default/files/publications/Ready_for_the_Dry_Years_Second_edition.pdf.pdf">
-                                                <strong>2015 and 2020 Shan State Drought Conditions:</strong> UN research identified Shan State as a recurring drought-vulnerability hotspot during 2015 and 2020. Prolonged dry conditions threatened agricultural production and the livelihoods of rural communities.
-                                            </a>
+                            <div class="row justify-content-center">
+                                <div class="col-12 col-md-10 col-lg-8">
+                                    <div class="region-stats-card p-4 rounded-3 bg-light border shadow-sm">
+                                        <h4 class="h5 fw-bold mb-4 text-dark d-flex align-items-center justify-content-center gap-2">
+                                            Region Risk Profile
+                                        </h4>
+                                        <div class="row g-3 text-center">
+                                            <div class="col-4">
+                                                <div class="p-3 rounded bg-white border">
+                                                    <span class="d-block small text-muted mb-1">Major Events</span>
+                                                    <strong class="fs-4 text-dark d-block">6 Recorded</strong>
+                                                </div>
+                                            </div>
+                                            <div class="col-4">
+                                                <div class="p-3 rounded bg-white border">
+                                                    <span class="d-block small text-muted mb-1">Main Threat</span>
+                                                    <strong class="fs-4 text-danger d-block">Flood</strong>
+                                                </div>
+                                            </div>
+                                            <div class="col-4">
+                                                <div class="p-3 rounded bg-white border">
+                                                    <span class="d-block small text-muted mb-1">Latest Event</span>
+                                                    <strong class="fs-4 text-primary d-block">Mar 2025</strong>
+                                                </div>
+                                            </div>
                                         </div>
                                     </div>
                                 </div>
                             </div>
+                        </div>
 
-                            <!-- Ayeyarwady -->
-                            <div class="region-content" id="ayeyarwady">
-                                <div class="row align-items-center g-4">
-                                    <div class="col-md-5">
-                                        <img src="./img/explore/Ayeyarwaddy.jpg" alt="Ayeyarwady Region" class="region-image">
-                                    </div>
-                                    <div class="col-md-7">
-                                        <h3 class="h5 fw-bold text-danger">Ayeyarwady Region</h3>
-                                        <p class="region-description">
-                                            Ayeyarwady Region is located in the low-lying Irrawaddy River Delta. Its coastal and riverside communities are particularly vulnerable to flooding, storm surges and drought-related water shortages. Some major recorded events include:
-                                        </p>
-                                        <div class="d-flex flex-column gap-2">
-                                            <a class="mb-0 text-decoration-none" href="https://myanmar.un.org/en/21807-statement-united-nations-resident-and-humanitarian-coordinator-myanmar-knut-ostby-ten-years">
-                                                <strong>2–3 May 2008 Cyclone Nargis Storm-Surge Flooding:</strong> Cyclone Nargis made landfall near Hainggyikyun in Ayeyarwady Region, bringing destructive winds, heavy rainfall and storm surges. Approximately 140,000 people died or went missing, while nearly 2.4 million people were affected across Ayeyarwady and Yangon.
-                                            </a>
-                                            <a class="mb-0 text-decoration-none" href="https://themimu.info/emergencies/floods-2015-ayeyarwady">
-                                                <strong>July–September 2015 Ayeyarwady Delta Floods:</strong> Heavy monsoon rainfall caused widespread flooding across the Ayeyarwady Delta. Areas including Pathein, Labutta and Kyaiklat were included in flood mapping and satellite assessments of affected communities.
-                                            </a>
-                                            <a class="mb-0 text-decoration-none" href="https://documents1.worldbank.org/curated/en/142691554202690382/pdf/9960_Myanmar.pdf">
-                                                <strong>2015–2016 El Niño-Related Drought:</strong> Prolonged dry conditions caused groundwater levels to fall across the Ayeyarwady Delta. In 2016, water shortages affected 20 villages in Tharbaung Township, reducing water availability for households and agriculture.
-                                            </a>
-                                            <a class="mb-0 text-decoration-none" href="https://www.adrc.asia/publications/disaster_report/pdf/2025/Myanmar_EQ_20250328_en_2026.pdf">
-                                                <strong>24 August 1858 Pyay Earthquake:</strong> Historical earthquake records reported collapsed houses and damaged pagoda tops in Pyay, Henzada (present-day Hinthada) and Thayetmyo. The earthquake also caused damage in other nearby areas.
-                                            </a>
-                                            <a class="mb-0 text-decoration-none" href="https://myanmar.un.org/en/320940-wfp-launches-emergency-flood-response-myanmar-monsoon-flooding-compounds-severe-humanitarian">
-                                                <strong>30 July 2026 Laymyethna Floods:</strong> Heavy rainfall and a breach in the Ngawun River embankment caused severe flooding in Laymyethna Township. More than 32,000 people across 98 villages and five wards were affected.
-                                            </a>
-                                        </div>
+                        <!-- Magway -->
+                        <div class="region-content" id="magway">
+                            <div class="row align-items-center g-4 mb-4">
+                                <div class="col-md-5">
+                                    <img src="./img/explore/Magway.jpg" alt="Magway" class="region-image img-fluid rounded">
+                                </div>
+                                <div class="col-md-7">
+                                    <h3 class="h5 fw-bold mb-2">Magway Region</h3>
+                                    <p class="region-description mb-3">
+                                        Magway has experienced natural disasters due to its location in Myanmar's Central Dry Zone and exposure to heavy monsoon rains. Some major recorded events include:
+                                    </p>
+                                    <div class="region-events-list d-flex flex-column gap-2">
+                                        <a class="disaster-event-card" href="https://unosat.org/products/999" target="_blank">
+                                            <div class="d-flex justify-content-between align-items-start gap-2">
+                                                <div>
+                                                    <strong class="text-dark d-block mb-1">July–August 2015 Cyclone Komen Floods</strong>
+                                                    <p class="extra-small text-muted mb-0">Heavy rainfall from Cyclone Komen caused widespread flooding across Chauk, Pwintbyu, Yenangyaung, Magway and Sagu, inundating 60,000 hectares.</p>
+                                                </div>
+                                                <i class="bi bi-box-arrow-up-right text-muted fs-6 flex-shrink-0 mt-1"></i>
+                                            </div>
+                                        </a>
+                                        <a class="disaster-event-card" href="https://moezala.gov.mm/en/news/4965" target="_blank">
+                                            <div class="d-flex justify-content-between align-items-start gap-2">
+                                                <div>
+                                                    <strong class="text-dark d-block mb-1">24 August 2016 Chauk Earthquake</strong>
+                                                    <p class="extra-small text-muted mb-0">A powerful magnitude 6.8 earthquake struck 12 miles west of Chauk, damaging buildings and historical structures.</p>
+                                                </div>
+                                                <i class="bi bi-box-arrow-up-right text-muted fs-6 flex-shrink-0 mt-1"></i>
+                                            </div>
+                                        </a>
+                                        <a class="disaster-event-card" href="https://www.moi.gov.mm/moi:eng/article/208" target="_blank">
+                                            <div class="d-flex justify-content-between align-items-start gap-2">
+                                                <div>
+                                                    <strong class="text-dark d-block mb-1">2019 Early-Monsoon Drought</strong>
+                                                    <p class="extra-small text-muted mb-0">A month-long dry spell affected sesame and groundnut farmers in Magway, causing crop losses and drinking water shortages.</p>
+                                                </div>
+                                                <i class="bi bi-box-arrow-up-right text-muted fs-6 flex-shrink-0 mt-1"></i>
+                                            </div>
+                                        </a>
+                                        <a class="disaster-event-card" href="https://myanmar.un.org/en/279207-myanmar-flood-situation-report-2-20-september-2024" target="_blank">
+                                            <div class="d-flex justify-content-between align-items-start gap-2">
+                                                <div>
+                                                    <strong class="text-dark d-block mb-1">September 2024 Magway Region Floods</strong>
+                                                    <p class="extra-small text-muted mb-0">Typhoon Yagi remnants caused severe flooding. Over 26,000 houses were damaged or washed away and 50,000 acres of farmland flooded.</p>
+                                                </div>
+                                                <i class="bi bi-box-arrow-up-right text-muted fs-6 flex-shrink-0 mt-1"></i>
+                                            </div>
+                                        </a>
+                                        <a class="disaster-event-card" href="https://myanmar.un.org/en/292274-ocha-myanmar-earthquake-response-situation-report-no-1" target="_blank">
+                                            <div class="d-flex justify-content-between align-items-start gap-2">
+                                                <div>
+                                                    <strong class="text-dark d-block mb-1">28 March 2025 Central Myanmar Earthquake</strong>
+                                                    <p class="extra-small text-muted mb-0">Magnitudes 7.7 and 6.4 earthquakes struck central Myanmar, impacting Magway Region with shaking and infrastructure disruption.</p>
+                                                </div>
+                                                <i class="bi bi-box-arrow-up-right text-muted fs-6 flex-shrink-0 mt-1"></i>
+                                            </div>
+                                        </a>
+                                        <a class="disaster-event-card" href="https://mdn.gov.mm/en/four-villages-evacuated-due-riverbank-erosion-pakokku" target="_blank">
+                                            <div class="d-flex justify-content-between align-items-start gap-2">
+                                                <div>
+                                                    <strong class="text-dark d-block mb-1">15 September 2025 Pakokku Landslides</strong>
+                                                    <p class="extra-small text-muted mb-0">Riverbank erosion and landslides along the Irrawaddy River threatened 4 villages in Pakokku, leading to the evacuation of 258 people.</p>
+                                                </div>
+                                                <i class="bi bi-box-arrow-up-right text-muted fs-6 flex-shrink-0 mt-1"></i>
+                                            </div>
+                                        </a>
                                     </div>
                                 </div>
                             </div>
 
-                            <!-- Chin -->
-                            <div class="region-content" id="chin">
-                                <div class="row align-items-center g-4">
-                                    <div class="col-md-5">
-                                        <img src="./img/explore/Chin.jpg" alt="Chin State" class="region-image">
-                                    </div>
-                                    <div class="col-md-7">
-                                        <h3 class="h5 fw-bold text-danger">Chin State</h3>
-                                        <p class="region-description">
-                                            Chin State has experienced several natural disasters due to its mountainous terrain and heavy monsoon rainfall. Landslides, floods and earthquakes have affected its communities, homes, agriculture and transportation infrastructure. Some major recorded events include:
-                                        </p>
-                                        <div class="d-flex flex-column gap-2">
-                                            <a class="mb-0 text-decoration-none" href="https://documents1.worldbank.org/curated/en/646661467990966084/pdf/103631-WP-P157276-PUBLIC-PFLNA-Report-2016.pdf">
-                                                <strong>July–August 2015 Chin State Monsoon Floods:</strong> Torrential monsoon rainfall and Cyclone Komen caused widespread flooding across Chin State. Nine townships were affected, damaging homes, agricultural land and infrastructure.
-                                            </a>
-                                            <a class="mb-0 text-decoration-none" href="https://www.csds-chula.org/water-security-in-hakha">
-                                                <strong>July 2015 Hakha Landslides:</strong> Exceptionally heavy rainfall triggered major landslides in Hakha Township, destroying homes, farmland and roads. Thousands of residents were displaced, and more than 4,000 people had to move from landslide-affected areas.
-                                            </a>
-                                            <a class="mb-0 text-decoration-none" href="https://lib.icimod.org/records/f7f75-v2x40">
-                                                <strong>16 July 2015 Hangken Village Landslide:</strong> Around 480 mm of heavy rainfall triggered a massive landslide near Hangken Village in Falam District. The landslide blocked the Tui Lam Lui River, creating a dangerous landslide-dammed lake with a risk of bursting.
-                                            </a>
-                                            <a class="mb-0 text-decoration-none" href="https://www.xinhuanet.com/english/2020-04/16/c_138982760.htm">
-                                                <strong>16 April 2020 Falam Earthquake:</strong> A magnitude 6.1 earthquake struck approximately 36.8 km southeast of Falam Township. The shaking was felt in Falam and Hakha, as well as several other cities in Myanmar.
-                                            </a>
-                                            <a class="mb-0 text-decoration-none" href="https://myanmar.un.org/en/231626-unicef-myanmar-humanitarian-situation-report-no-2-cyclone-mocha-15-may-2023">
-                                                <strong>14 May 2023 Cyclone Mocha-Related Flooding:</strong> Cyclone Mocha brought heavy rainfall and flooding to Chin State. Several townships experienced damage, including Paletwa, Hakha, Matupi and Tedim.
-                                            </a>
+                            <div class="row justify-content-center">
+                                <div class="col-12 col-md-10 col-lg-8">
+                                    <div class="region-stats-card p-4 rounded-3 bg-light border shadow-sm">
+                                        <h4 class="h5 fw-bold mb-4 text-dark d-flex align-items-center justify-content-center gap-2">
+                                            Region Risk Profile
+                                        </h4>
+                                        <div class="row g-3 text-center">
+                                            <div class="col-4">
+                                                <div class="p-3 rounded bg-white border h-100 d-flex flex-column justify-content-center">
+                                                    <span class="d-block small text-muted mb-1">Major Events</span>
+                                                    <strong class="fs-4 text-dark d-block">6 Recorded</strong>
+                                                </div>
+                                            </div>
+                                            <div class="col-4">
+                                                <div class="p-3 rounded bg-white border h-100 d-flex flex-column justify-content-center">
+                                                    <span class="d-block small text-muted mb-1">Main Threat</span>
+                                                    <strong class="fs-4 text-danger d-block">Drought / Flood</strong>
+                                                </div>
+                                            </div>
+                                            <div class="col-4">
+                                                <div class="p-3 rounded bg-white border h-100 d-flex flex-column justify-content-center">
+                                                    <span class="d-block small text-muted mb-1">Latest Event</span>
+                                                    <strong class="fs-4 text-primary d-block">Sep 2025</strong>
+                                                </div>
+                                            </div>
                                         </div>
                                     </div>
                                 </div>
                             </div>
+                        </div>
 
-                            <!-- Kayah -->
-                            <div class="region-content" id="kayah">
-                                <div class="row align-items-center g-4">
-                                    <div class="col-md-5">
-                                        <img src="./img/explore/Kayah.jpg" alt="Kayah State" class="region-image">
-                                    </div>
-                                    <div class="col-md-7">
-                                        <h3 class="h5 fw-bold text-danger">Kayah State</h3>
-                                        <p class="region-description">
-                                            Kayah State has experienced several natural disasters that have affected its communities, agriculture and infrastructure. Heavy monsoon rainfall and overflowing water systems have contributed to serious flooding and landslides. Some major recorded events include:
-                                        </p>
-                                        <div class="d-flex flex-column gap-2">
-                                            <a class="mb-0 text-decoration-none" href="https://myanmar.un.org/en/278804-myanmar-flood-situation-report-16-september-2024">
-                                                <strong>September 2024 Mobye Dam Floods:</strong> Excess water from Mobye Dam caused widespread flooding across four townships in Kayah State. Approximately 9,200 people were affected, while farmland, livestock and residential properties suffered significant damage.
-                                            </a>
-                                            <a class="mb-0 text-decoration-none" href="https://myanmar.un.org/en/279207-myanmar-flood-situation-report-2-20-september-2024">
-                                                <strong>September 2024 Demoso–Hpruso–Shadaw Floods and Landslides:</strong> Heavy rainfall associated with Typhoon Yagi caused flooding and landslides across these townships. More than 6,500 people were affected, and over 48,000 acres of paddy and other crops were submerged.
-                                            </a>
-                                            <a class="mb-0 text-decoration-none" href="https://www.moi.gov.mm/moi:eng/news/15702">
-                                                <strong>30 September 2024 Bilu Creek Flooding:</strong> Overflowing water from Bilu Creek flooded the No. 2 Biluchaung Hydropower Plant (Lawpita). Emergency water-removal and flood-prevention operations were carried out to protect the facility.
-                                            </a>
-                                        </div>
+                        <!-- Bago -->
+                        <div class="region-content" id="bago">
+                            <div class="row align-items-center g-4 mb-4">
+                                <div class="col-md-5">
+                                    <img src="./img/explore/Bago.jpg" alt="Bago" class="region-image img-fluid rounded">
+                                </div>
+                                <div class="col-md-7">
+                                    <h3 class="h5 fw-bold mb-2">Bago Region</h3>
+                                    <p class="region-description mb-3">
+                                        Bago has experienced natural disasters affecting its communities, agriculture, and infrastructure, with many areas vulnerable to flooding along the Sittaung River. Recorded events include:
+                                    </p>
+                                    <div class="region-events-list d-flex flex-column gap-2">
+                                        <a class="disaster-event-card" href="https://www.moi.gov.mm/moi:eng/index.php/news/11233" target="_blank">
+                                            <div class="d-flex justify-content-between align-items-start gap-2">
+                                                <div>
+                                                    <strong class="text-dark d-block mb-1">11 August 2023 Bago River Floods</strong>
+                                                    <p class="extra-small text-muted mb-0">Heavy rainfall caused the Bago River to exceed danger levels, flooding low-lying areas and sections of the Yangon-Mandalay Highway.</p>
+                                                </div>
+                                                <i class="bi bi-box-arrow-up-right text-muted fs-6 flex-shrink-0 mt-1"></i>
+                                            </div>
+                                        </a>
+                                        <a class="disaster-event-card" href="https://myanmar.un.org/en/280005-unhcr-flash-update-flooding-myanmar-28-september-2024" target="_blank">
+                                            <div class="d-flex justify-content-between align-items-start gap-2">
+                                                <div>
+                                                    <strong class="text-dark d-block mb-1">September 2024 Bago Region Floods</strong>
+                                                    <p class="extra-small text-muted mb-0">Typhoon Yagi caused widespread flooding across Taungoo, Kyaukkyi and Shwegyin, submerging hundreds of villages and affecting 316,000+ people.</p>
+                                                </div>
+                                                <i class="bi bi-box-arrow-up-right text-muted fs-6 flex-shrink-0 mt-1"></i>
+                                            </div>
+                                        </a>
+                                        <a class="disaster-event-card" href="https://www.apterr.org/activities/455-apterr-tier-3-rice-contributed-by-korea-for-over-68%2C000-flood-and-landside-affected-people-in-bago%2C-myanmar" target="_blank">
+                                            <div class="d-flex justify-content-between align-items-start gap-2">
+                                                <div>
+                                                    <strong class="text-dark d-block mb-1">September 2024 Bago Region Landslides</strong>
+                                                    <p class="extra-small text-muted mb-0">Monsoon rainfall and Typhoon Yagi triggered landslides and floods across Bago Region, affecting thousands of residents.</p>
+                                                </div>
+                                                <i class="bi bi-box-arrow-up-right text-muted fs-6 flex-shrink-0 mt-1"></i>
+                                            </div>
+                                        </a>
+                                        <a class="disaster-event-card" href="https://www.rrdmyanmar.gov.mm/wp-content/uploads/2013/08/Standing-Order-on-Natural-Disaster-management-in-Myanmar.pdf" target="_blank">
+                                            <div class="d-flex justify-content-between align-items-start gap-2">
+                                                <div>
+                                                    <strong class="text-dark d-block mb-1">5 May 1930 Bago Earthquake</strong>
+                                                    <p class="extra-small text-muted mb-0">A powerful magnitude 7.3 earthquake struck Bago, destroying houses and damaging Shwemawdaw Pagoda. ~500 people were killed.</p>
+                                                </div>
+                                                <i class="bi bi-box-arrow-up-right text-muted fs-6 flex-shrink-0 mt-1"></i>
+                                            </div>
+                                        </a>
+                                        <a class="disaster-event-card" href="https://myanmar.un.org/en/291886-myanmar-earthquake-flash-update-2-31-march-2025" target="_blank">
+                                            <div class="d-flex justify-content-between align-items-start gap-2">
+                                                <div>
+                                                    <strong class="text-dark d-block mb-1">28 March 2025 Central Myanmar Earthquake</strong>
+                                                    <p class="extra-small text-muted mb-0">A magnitude 7.7 earthquake struck central Myanmar, affecting Bago Region and causing damage to homes and schools.</p>
+                                                </div>
+                                                <i class="bi bi-box-arrow-up-right text-muted fs-6 flex-shrink-0 mt-1"></i>
+                                            </div>
+                                        </a>
+                                        <a class="disaster-event-card" href="https://gwpo-gwp.org/southeast-asia/wp-content/uploads/sites/15/2026/03/Drought-Conditions-and-Interventions-in-Southeast-Asia.pdf" target="_blank">
+                                            <div class="d-flex justify-content-between align-items-start gap-2">
+                                                <div>
+                                                    <strong class="text-dark d-block mb-1">Drought Vulnerability in Bago Region</strong>
+                                                    <p class="extra-small text-muted mb-0">Bago has medium drought vulnerability due to irrigation dependence, threatening crops during prolonged dry periods.</p>
+                                                </div>
+                                                <i class="bi bi-box-arrow-up-right text-muted fs-6 flex-shrink-0 mt-1"></i>
+                                            </div>
+                                        </a>
                                     </div>
                                 </div>
                             </div>
 
-                            <!-- Kayin -->
-                            <div class="region-content" id="kayin">
-                                <div class="row align-items-center g-4">
-                                    <div class="col-md-5">
-                                        <img src="./img/explore/Kayin.jpg" alt="Kayin State" class="region-image">
-                                    </div>
-                                    <div class="col-md-7">
-                                        <h3 class="h5 fw-bold text-danger">Kayin State</h3>
-                                        <p class="region-description">
-                                            Kayin State has experienced several natural disasters due to its heavy monsoon rainfall, river systems and mountainous terrain. Flooding and landslides have affected communities, transportation routes, homes and agricultural land. Some major recorded events include:
-                                        </p>
-                                        <div class="d-flex flex-column gap-2">
-                                            <a class="mb-0 text-decoration-none" href="https://www.moi.gov.mm/moi:eng/index.php/news/14941">
-                                                <strong>27–29 July 2024 Hpa-an Floods:</strong> The Thanlwin River rose above its critical flood level, inundating low-lying areas of Hpa-an Township. More than 5,000 residents were relocated to temporary flood relief camps.
-                                            </a>
-                                            <a class="mb-0 text-decoration-none" href="https://www.moi.gov.mm/moi:eng/news/11365">
-                                                <strong>6–7 August 2023 Kawkareik–Myawady Landslides:</strong> Torrential rainfall triggered a series of landslides near Tawnaw Waterfall along the Asian Highway in Kawkareik Township. The landslides damaged the road and disrupted transportation between Myanmar and Thailand.
-                                            </a>
-                                            <a class="mb-0 text-decoration-none" href="https://myanmar.un.org/en/278804-myanmar-flood-situation-report-16-september-2024">
-                                                <strong>11 September 2024 Thandaunggyi Floods and Landslides:</strong> Heavy rainfall caused flooding and landslides in Thandaunggyi Township. The disaster reportedly killed five people and injured another three, while temporary shelters in affected communities were also destroyed.
-                                            </a>
-                                            <a class="mb-0 text-decoration-none" href="https://myanmar.un.org/en/279207-myanmar-flood-situation-report-2-20-september-2024">
-                                                <strong>September 2024 Typhoon Yagi Floods:</strong> Heavy rainfall associated with Typhoon Yagi caused widespread flooding across Kayin State. Nearly 90,000 people across four townships were affected, with thousands of residents requiring temporary evacuation.
-                                            </a>
+                            <div class="row justify-content-center">
+                                <div class="col-12 col-md-10 col-lg-8">
+                                    <div class="region-stats-card p-4 rounded-3 bg-light border shadow-sm">
+                                        <h4 class="h5 fw-bold mb-4 text-dark d-flex align-items-center justify-content-center gap-2">
+                                            Region Risk Profile
+                                        </h4>
+                                        <div class="row g-3 text-center">
+                                            <div class="col-4">
+                                                <div class="p-3 rounded bg-white border">
+                                                    <span class="d-block small text-muted mb-1">Major Events</span>
+                                                    <strong class="fs-4 text-dark d-block">6 Recorded</strong>
+                                                </div>
+                                            </div>
+                                            <div class="col-4">
+                                                <div class="p-3 rounded bg-white border">
+                                                    <span class="d-block small text-muted mb-1">Main Threat</span>
+                                                    <strong class="fs-4 text-danger d-block">Flood</strong>
+                                                </div>
+                                            </div>
+                                            <div class="col-4">
+                                                <div class="p-3 rounded bg-white border">
+                                                    <span class="d-block small text-muted mb-1">Latest Event</span>
+                                                    <strong class="fs-4 text-primary d-block">Mar 2025</strong>
+                                                </div>
+                                            </div>
                                         </div>
                                     </div>
                                 </div>
                             </div>
+                        </div>
 
-                            <!-- Mon -->
-                            <div class="region-content" id="mon">
-                                <div class="row align-items-center g-4">
-                                    <div class="col-md-5">
-                                        <img src="./img/explore/Mon.jpg" alt="Mon State" class="region-image">
-                                    </div>
-                                    <div class="col-md-7">
-                                        <h3 class="h5 fw-bold text-danger">Mon State</h3>
-                                        <p class="region-description">
-                                            Mon State has experienced several natural disasters due to its coastal location, river systems and mountainous areas. Heavy monsoon rainfall can cause flooding along rivers and landslides in hilly areas, affecting communities, homes and transportation. Some major recorded events include:
-                                        </p>
-                                        <div class="d-flex flex-column gap-2">
-                                            <a class="mb-0 text-decoration-none" href="https://www.moi.gov.mm/moi:eng/news/4195">
-                                                <strong>July 2021 Kyaikmaraw Floods:</strong> Continuous heavy rainfall caused the Attaran River to rise and overflow, submerging 450 houses in low-lying wards of Kyaikmaraw Township. Residents, including children and elderly people, were evacuated to safer places.
-                                            </a>
-                                            <a class="mb-0 text-decoration-none" href="https://www.moi.gov.mm/moi:eng/news/11770">
-                                                <strong>8 October 2023 Kyaikto Floods:</strong> Heavy rainfall caused flooding in Kawsannaing Ward of Kyaikto Township. Rescue teams and local organisations evacuated affected residents to safer locations.
-                                            </a>
-                                            <a class="mb-0 text-decoration-none" href="https://www.moi.gov.mm/moi:eng/news/14667">
-                                                <strong>Early 2024 Kyaiktiyo Mountain Landslides:</strong> Torrential monsoon rainfall triggered two mountain collapses along the uphill road to Kyaiktiyo Pagoda in Kyaikto Township. The incidents damaged the road and required debris removal and slope-protection measures.
-                                            </a>
-                                            <a class="mb-0 text-decoration-none" href="https://myanmar.un.org/en/278804-myanmar-flood-situation-report-16-september-2024">
-                                                <strong>September 2024 Bilin–Kyaikhto Floods:</strong> Heavy rainfall caused the Bilin River to rise, flooding communities in Bilin and Kyaikhto. More than 900 people were temporarily relocated to emergency relief centres.
-                                            </a>
-                                            <a class="mb-0 text-decoration-none" href="https://myanmar.un.org/en/321949-myanmar-health-cluster-bulletin-august-2026">
-                                                <strong>August 2026 Mon State Monsoon Floods:</strong> Heavy monsoon rainfall caused severe flooding in Mon State, affecting communities and increasing the risk of water-related diseases and other public health problems.
-                                            </a>
-                                        </div>
+                        <!-- Shan -->
+                        <div class="region-content" id="shan">
+                            <div class="row align-items-center g-4 mb-4">
+                                <div class="col-md-5">
+                                    <img src="./img/explore/Shan.jpg" alt="Shan State" class="region-image img-fluid rounded">
+                                </div>
+                                <div class="col-md-7">
+                                    <h3 class="h5 fw-bold mb-2">Shan State</h3>
+                                    <p class="region-description mb-3">
+                                        Shan State experiences natural disasters due to mountainous terrain, heavy monsoon rainfall, and seismic activity. Recorded events include:
+                                    </p>
+                                    <div class="region-events-list d-flex flex-column gap-2">
+                                        <a class="disaster-event-card" href="https://unhabitatmyanmar.org/wp-content/uploads/2015/03/Shelter-Assessment-Shan-State-Earthquake-Affected-Areas.pdf" target="_blank">
+                                            <div class="d-flex justify-content-between align-items-start gap-2">
+                                                <div>
+                                                    <strong class="text-dark d-block mb-1">24 March 2011 Tarlay Earthquake</strong>
+                                                    <p class="extra-small text-muted mb-0">A magnitude 6.8 earthquake struck eastern Shan State near Tachileik, affecting ~18,000 people across 90 villages, killing 74.</p>
+                                                </div>
+                                                <i class="bi bi-box-arrow-up-right text-muted fs-6 flex-shrink-0 mt-1"></i>
+                                            </div>
+                                        </a>
+                                        <a class="disaster-event-card" href="https://myanmar.un.org/en/278804-myanmar-flood-situation-report-16-september-2024" target="_blank">
+                                            <div class="d-flex justify-content-between align-items-start gap-2">
+                                                <div>
+                                                    <strong class="text-dark d-block mb-1">September 2024 Typhoon Yagi Floods</strong>
+                                                    <p class="extra-small text-muted mb-0">Heavy rain caused severe flooding across eastern/southern Shan. Over 80% of Nyaungshwe Township was submerged (74,000 affected).</p>
+                                                </div>
+                                                <i class="bi bi-box-arrow-up-right text-muted fs-6 flex-shrink-0 mt-1"></i>
+                                            </div>
+                                        </a>
+                                        <a class="disaster-event-card" href="https://www.moi.gov.mm/moi:eng/news/15540" target="_blank">
+                                            <div class="d-flex justify-content-between align-items-start gap-2">
+                                                <div>
+                                                    <strong class="text-dark d-block mb-1">11 September 2024 Hopong Floods</strong>
+                                                    <p class="extra-small text-muted mb-0">Severe flooding in Sanphu Village, Hopong Township, destroyed 261 houses, partially damaged 336 houses, and caused 26 deaths.</p>
+                                                </div>
+                                                <i class="bi bi-box-arrow-up-right text-muted fs-6 flex-shrink-0 mt-1"></i>
+                                            </div>
+                                        </a>
+                                        <a class="disaster-event-card" href="https://myanmar.un.org/en/279207-myanmar-flood-situation-report-2-20-september-2024" target="_blank">
+                                            <div class="d-flex justify-content-between align-items-start gap-2">
+                                                <div>
+                                                    <strong class="text-dark d-block mb-1">September 2024 Eastern/Southern Shan Landslides</strong>
+                                                    <p class="extra-small text-muted mb-0">Monsoon rainfall triggered landslides and floods across 26 townships, damaging homes and roads.</p>
+                                                </div>
+                                                <i class="bi bi-box-arrow-up-right text-muted fs-6 flex-shrink-0 mt-1"></i>
+                                            </div>
+                                        </a>
+                                        <a class="disaster-event-card" href="https://www.moi.gov.mm/moi%3Aeng/index.php/earthquake-news/17806" target="_blank">
+                                            <div class="d-flex justify-content-between align-items-start gap-2">
+                                                <div>
+                                                    <strong class="text-dark d-block mb-1">28 March 2025 Central Myanmar Earthquake</strong>
+                                                    <p class="extra-small text-muted mb-0">A magnitude 7.7 earthquake affected Shan State, damaging buildings and infrastructure in Aungban and Nyaungshwe.</p>
+                                                </div>
+                                                <i class="bi bi-box-arrow-up-right text-muted fs-6 flex-shrink-0 mt-1"></i>
+                                            </div>
+                                        </a>
+                                        <a class="disaster-event-card" href="https://www.unescap.org/sites/default/files/publications/Ready_for_the_Dry_Years_Second_edition.pdf.pdf" target="_blank">
+                                            <div class="d-flex justify-content-between align-items-start gap-2">
+                                                <div>
+                                                    <strong class="text-dark d-block mb-1">2015 and 2020 Shan State Drought Conditions</strong>
+                                                    <p class="extra-small text-muted mb-0">UN research identified Shan State as a recurring drought hotspot, threatening rural agricultural livelihoods.</p>
+                                                </div>
+                                                <i class="bi bi-box-arrow-up-right text-muted fs-6 flex-shrink-0 mt-1"></i>
+                                            </div>
+                                        </a>
                                     </div>
                                 </div>
                             </div>
 
-                            <!-- Rakhine -->
-                            <div class="region-content" id="rakhine">
-                                <div class="row align-items-center g-4">
-                                    <div class="col-md-5">
-                                        <img src="./img/explore/Rakhine.jpg" alt="Rakhine State" class="region-image">
-                                    </div>
-                                    <div class="col-md-7">
-                                        <h3 class="h5 fw-bold text-danger">Rakhine State</h3>
-                                        <p class="region-description">
-                                            Rakhine State is particularly vulnerable to coastal flooding, storm surges and earthquakes because of its long coastline along the Bay of Bengal. Heavy rainfall and powerful cyclones have also affected coastal communities, homes and infrastructure. Some major recorded events include:
-                                        </p>
-                                        <div class="d-flex flex-column gap-2">
-                                            <a class="mb-0 text-decoration-none" href="https://agupubs.onlinelibrary.wiley.com/doi/abs/10.1002/jgrb.50121">
-                                                <strong>1762 Arakan Earthquake:</strong> A powerful historical earthquake struck the western Myanmar region. Geological evidence along the Rakhine coast indicates that the earthquake caused significant coastal uplift, raising parts of the coastline by several metres.
-                                            </a>
-                                            <a class="mb-0 text-decoration-none" href="https://go.ifrc.org/emergencies/6439/details">
-                                                <strong>14 May 2023 Cyclone Mocha Storm-Surge Flooding:</strong> Extremely severe Cyclone Mocha struck near Sittwe, bringing destructive winds, storm surges and heavy rainfall. Coastal communities across Rakhine State suffered extensive damage to homes, shelters and infrastructure.
-                                            </a>
-                                            <a class="mb-0 text-decoration-none" href="https://myanmar.un.org/en/279958-myanmar-flood-situation-report-3-27-september-2024">
-                                                <strong>September 2024 Rakhine Region Floods:</strong> Heavy monsoon rainfall caused widespread flooding in Minbya, Mrauk-U and Toungup townships. More than 42,000 people were estimated to be affected, including displaced communities.
-                                            </a>
-                                            <a class="mb-0 text-decoration-none" href="https://myanmar.un.org/en/319760-rakhine-state-western-myanmar-flood-situation-update-no1">
-                                                <strong>July 2026 Rakhine State Floods:</strong> Heavy rainfall and rising river levels caused severe flooding across 18 wards and 201 villages. Approximately 98,282 people were affected, with Buthidaung, Kyauktaw, Minbya, Mrauk-U and Ponnagyun among the worst-affected townships.
-                                            </a>
+                            <div class="row justify-content-center">
+                                <div class="col-12 col-md-10 col-lg-8">
+                                    <div class="region-stats-card p-4 rounded-3 bg-light border shadow-sm">
+                                        <h4 class="h5 fw-bold mb-4 text-dark d-flex align-items-center justify-content-center gap-2">
+                                            Region Risk Profile
+                                        </h4>
+                                        <div class="row g-3 text-center">
+                                            <div class="col-4">
+                                                <div class="p-3 rounded bg-white border h-100 d-flex flex-column justify-content-center">
+                                                    <span class="d-block small text-muted mb-1">Major Events</span>
+                                                    <strong class="fs-4 text-dark d-block">6 Recorded</strong>
+                                                </div>
+                                            </div>
+                                            <div class="col-4">
+                                                <div class="p-3 rounded bg-white border h-100 d-flex flex-column justify-content-center">
+                                                    <span class="d-block small text-muted mb-1">Main Threat</span>
+                                                    <strong class="fs-4 text-danger d-block">Flood / Earthquake</strong>
+                                                </div>
+                                            </div>
+                                            <div class="col-4">
+                                                <div class="p-3 rounded bg-white border h-100 d-flex flex-column justify-content-center">
+                                                    <span class="d-block small text-muted mb-1">Latest Event</span>
+                                                    <strong class="fs-4 text-primary d-block">Mar 2025</strong>
+                                                </div>
+                                            </div>
                                         </div>
                                     </div>
                                 </div>
                             </div>
+                        </div>
 
-                            <!-- Tanintharyi -->
-                            <div class="region-content" id="tanintharyi">
-                                <div class="row align-items-center g-4">
-                                    <div class="col-md-5">
-                                        <img src="./img/explore/Tanintharyi.jpg" alt="Tanintharyi Region" class="region-image">
-                                    </div>
-                                    <div class="col-md-7">
-                                        <h3 class="h5 fw-bold text-danger">Tanintharyi Region</h3>
-                                        <p class="region-description">
-                                            Tanintharyi Region has experienced natural disasters due to its coastal location, mountainous terrain and heavy monsoon rainfall. Rivers can overflow during prolonged rainfall, while steep hillsides are vulnerable to landslides. These disasters have affected communities, roads and livelihoods. Some major recorded events include:
-                                        </p>
-                                        <div class="d-flex flex-column gap-2">
-                                            <a class="mb-0 text-decoration-none" href="https://www.moi.gov.mm/moi:eng/news/14938">
-                                                <strong>July 2024 Tanintharyi River Floods:</strong> Heavy rainfall caused the Tanintharyi River to rise above its danger level and overflow into Tanintharyi Township. Between 25 and 28 July, 1,148 flood victims from 246 households were accommodated at relief camps and relatives' homes.
-                                            </a>
-                                            <a class="mb-0 text-decoration-none" href="https://www.themimu.info/news/mapping-flood-affected-villages-tanintharyi-region">
-                                                <strong>26 September 2024 Dawei–Launglon–Thayetchaung Floods:</strong> Heavy rainfall caused severe flooding across Launglon, Thayetchaung and Dawei townships. Several villages and roads were affected, while floodwaters disrupted transportation and damaged local infrastructure.
-                                            </a>
-                                            <a class="mb-0 text-decoration-none" href="https://www.themimu.info/news/landslide-launglon-township-and-after-satellite-map">
-                                                <strong>26–27 September 2024 Launglon Landslide:</strong> Torrential rainfall triggered a major landslide in Launglon Township. A debris flow travelled down a hillside and washed away buildings in nearby communities.
-                                            </a>
-                                        </div>
+                        <!-- Ayeyarwady -->
+                        <div class="region-content" id="ayeyarwady">
+                            <div class="row align-items-center g-4 mb-4">
+                                <div class="col-md-5">
+                                    <img src="./img/explore/Ayeyarwaddy.jpg" alt="Ayeyarwady Region" class="region-image img-fluid rounded">
+                                </div>
+                                <div class="col-md-7">
+                                    <h3 class="h5 fw-bold mb-2">Ayeyarwady Region</h3>
+                                    <p class="region-description mb-3">
+                                        Located in the low-lying Irrawaddy River Delta, coastal and riverside communities are vulnerable to flooding, storm surges, and droughts. Recorded events include:
+                                    </p>
+                                    <div class="region-events-list d-flex flex-column gap-2">
+                                        <a class="disaster-event-card" href="https://myanmar.un.org/en/21807-statement-united-nations-resident-and-humanitarian-coordinator-myanmar-knut-ostby-ten-years" target="_blank">
+                                            <div class="d-flex justify-content-between align-items-start gap-2">
+                                                <div>
+                                                    <strong class="text-dark d-block mb-1">2–3 May 2008 Cyclone Nargis Storm-Surge</strong>
+                                                    <p class="extra-small text-muted mb-0">Cyclone Nargis brought destructive winds, heavy rain, and storm surges. ~140,000 people died or went missing, and 2.4 million were affected.</p>
+                                                </div>
+                                                <i class="bi bi-box-arrow-up-right text-muted fs-6 flex-shrink-0 mt-1"></i>
+                                            </div>
+                                        </a>
+                                        <a class="disaster-event-card" href="https://themimu.info/emergencies/floods-2015-ayeyarwady" target="_blank">
+                                            <div class="d-flex justify-content-between align-items-start gap-2">
+                                                <div>
+                                                    <strong class="text-dark d-block mb-1">July–September 2015 Delta Floods</strong>
+                                                    <p class="extra-small text-muted mb-0">Monsoon rainfall caused widespread flooding across Pathein, Labutta, and Kyaiklat in the Ayeyarwady Delta.</p>
+                                                </div>
+                                                <i class="bi bi-box-arrow-up-right text-muted fs-6 flex-shrink-0 mt-1"></i>
+                                            </div>
+                                        </a>
+                                        <a class="disaster-event-card" href="https://documents1.worldbank.org/curated/en/142691554202690382/pdf/9960_Myanmar.pdf" target="_blank">
+                                            <div class="d-flex justify-content-between align-items-start gap-2">
+                                                <div>
+                                                    <strong class="text-dark d-block mb-1">2015–2016 El Niño-Related Drought</strong>
+                                                    <p class="extra-small text-muted mb-0">Prolonged dry conditions lowered groundwater levels, causing water shortages across 20 villages in Tharbaung Township.</p>
+                                                </div>
+                                                <i class="bi bi-box-arrow-up-right text-muted fs-6 flex-shrink-0 mt-1"></i>
+                                            </div>
+                                        </a>
+                                        <a class="disaster-event-card" href="https://www.adrc.asia/publications/disaster_report/pdf/2025/Myanmar_EQ_20250328_en_2026.pdf" target="_blank">
+                                            <div class="d-flex justify-content-between align-items-start gap-2">
+                                                <div>
+                                                    <strong class="text-dark d-block mb-1">24 August 1858 Pyay Earthquake</strong>
+                                                    <p class="extra-small text-muted mb-0">Historical records report collapsed houses and damaged pagodas in Pyay, Henzada (Hinthada), and Thayetmyo.</p>
+                                                </div>
+                                                <i class="bi bi-box-arrow-up-right text-muted fs-6 flex-shrink-0 mt-1"></i>
+                                            </div>
+                                        </a>
+                                        <a class="disaster-event-card" href="https://myanmar.un.org/en/320940-wfp-launches-emergency-flood-response-myanmar-monsoon-flooding-compounds-severe-humanitarian" target="_blank">
+                                            <div class="d-flex justify-content-between align-items-start gap-2">
+                                                <div>
+                                                    <strong class="text-dark d-block mb-1">30 July 2026 Laymyethna Floods</strong>
+                                                    <p class="extra-small text-muted mb-0">Heavy rain and an Ngawun River embankment breach caused severe flooding in Laymyethna, affecting 32,000+ people across 98 villages.</p>
+                                                </div>
+                                                <i class="bi bi-box-arrow-up-right text-muted fs-6 flex-shrink-0 mt-1"></i>
+                                            </div>
+                                        </a>
                                     </div>
                                 </div>
                             </div>
 
-                            <!-- Yangon -->
-                            <div class="region-content" id="yangon">
-                                <div class="row align-items-center g-4">
-                                    <div class="col-md-5">
-                                        <img src="./img/explore/Yangon.jpg" alt="Yangon Region" class="region-image">
-                                    </div>
-                                    <div class="col-md-7">
-                                        <h3 class="h5 fw-bold text-danger">Yangon Region</h3>
-                                        <p class="region-description">
-                                            Yangon Region is vulnerable to flooding because of its low-lying location in the Yangon River and delta system. Its dense population and extensive infrastructure can increase the impacts of natural disasters. The region has also experienced damaging historical earthquakes. Some major recorded events include:
-                                        </p>
-                                        <div class="d-flex flex-column gap-2">
-                                            <a class="mb-0 text-decoration-none" href="https://mdn.gov.mm/en/earthquake">
-                                                <strong>5 May 1930 Pegu (Bago) Earthquake:</strong> A magnitude 7.3 earthquake struck near Pegu (present-day Bago), causing serious damage in Rangoon (present-day Yangon). Buildings collapsed and fires broke out, with approximately 50 people killed in Yangon.
-                                            </a>
-                                            <a class="mb-0 text-decoration-none" href="https://science.nasa.gov/earth/earth-observatory/flooding-in-yangon-burma-myanmar-8729/">
-                                                <strong>7 May 2008 Cyclone Nargis Flooding:</strong> Following Cyclone Nargis, heavy rainfall and storm surges caused severe flooding in southern Yangon. Satellite images showed residential areas and agricultural fields submerged beneath floodwater.
-                                            </a>
-                                            <a class="mb-0 text-decoration-none" href="https://unosat.org/products/1001">
-                                                <strong>9 August 2015 Yangon Delta Floods:</strong> Heavy monsoon rainfall caused flooding in agricultural areas south of Yangon. Satellite analysis identified flood-affected land around Kawkhmu and Hlegu townships, with several roads potentially affected.
-                                            </a>
+                            <div class="row justify-content-center">
+                                <div class="col-12 col-md-10 col-lg-8">
+                                    <div class="region-stats-card p-4 rounded-3 bg-light border shadow-sm">
+                                        <h4 class="h5 fw-bold mb-4 text-dark d-flex align-items-center justify-content-center gap-2">
+                                            Region Risk Profile
+                                        </h4>
+                                        <div class="row g-3 text-center">
+                                            <div class="col-4">
+                                                <div class="p-3 rounded bg-white border">
+                                                    <span class="d-block small text-muted mb-1">Major Events</span>
+                                                    <strong class="fs-4 text-dark d-block">5 Recorded</strong>
+                                                </div>
+                                            </div>
+                                            <div class="col-4">
+                                                <div class="p-3 rounded bg-white border">
+                                                    <span class="d-block small text-muted mb-1">Main Threat</span>
+                                                    <strong class="fs-4 text-danger d-block">Flood</strong>
+                                                </div>
+                                            </div>
+                                            <div class="col-4">
+                                                <div class="p-3 rounded bg-white border">
+                                                    <span class="d-block small text-muted mb-1">Latest Event</span>
+                                                    <strong class="fs-4 text-primary d-block">Jul 2026</strong>
+                                                </div>
+                                            </div>
                                         </div>
                                     </div>
                                 </div>
                             </div>
+                        </div>
 
-                            <!-- Naypyidaw  -->
-                            <div class="region-content" id="naypyidaw">
-                                <div class="row align-items-center g-4">
-                                    <div class="col-md-5">
-                                        <img src="./img/explore/Naypyidaw.jpg" alt="Naypyidaw Union Territory" class="region-image">
+                        <!-- Chin -->
+                        <div class="region-content" id="chin">
+                            <div class="row align-items-center g-4 mb-4">
+                                <div class="col-md-5">
+                                    <img src="./img/explore/Chin.jpg" alt="Chin State" class="region-image img-fluid rounded">
+                                </div>
+                                <div class="col-md-7">
+                                    <h3 class="h5 fw-bold mb-2">Chin State</h3>
+                                    <p class="region-description mb-3">
+                                        Chin State has experienced natural disasters due to mountainous terrain and heavy monsoon rainfall, impacting homes, agriculture, and roads. Recorded events include:
+                                    </p>
+                                    <div class="region-events-list d-flex flex-column gap-2">
+                                        <a class="disaster-event-card" href="https://documents1.worldbank.org/curated/en/646661467990966084/pdf/103631-WP-P157276-PUBLIC-PFLNA-Report-2016.pdf" target="_blank">
+                                            <div class="d-flex justify-content-between align-items-start gap-2">
+                                                <div>
+                                                    <strong class="text-dark d-block mb-1">July–August 2015 Chin State Monsoon Floods</strong>
+                                                    <p class="extra-small text-muted mb-0">Torrential monsoon rain and Cyclone Komen affected 9 townships, damaging homes and farmland.</p>
+                                                </div>
+                                                <i class="bi bi-box-arrow-up-right text-muted fs-6 flex-shrink-0 mt-1"></i>
+                                            </div>
+                                        </a>
+                                        <a class="disaster-event-card" href="https://www.csds-chula.org/water-security-in-hakha" target="_blank">
+                                            <div class="d-flex justify-content-between align-items-start gap-2">
+                                                <div>
+                                                    <strong class="text-dark d-block mb-1">July 2015 Hakha Landslides</strong>
+                                                    <p class="extra-small text-muted mb-0">Heavy rainfall triggered major landslides in Hakha Township, destroying homes and roads, and displacing 4,000+ residents.</p>
+                                                </div>
+                                                <i class="bi bi-box-arrow-up-right text-muted fs-6 flex-shrink-0 mt-1"></i>
+                                            </div>
+                                        </a>
+                                        <a class="disaster-event-card" href="https://lib.icimod.org/records/f7f75-v2x40" target="_blank">
+                                            <div class="d-flex justify-content-between align-items-start gap-2">
+                                                <div>
+                                                    <strong class="text-dark d-block mb-1">16 July 2015 Hangken Village Landslide</strong>
+                                                    <p class="extra-small text-muted mb-0">~480 mm of rain triggered a massive landslide near Hangken Village, blocking the Tui Lam Lui River and creating a dangerous landslide lake.</p>
+                                                </div>
+                                                <i class="bi bi-box-arrow-up-right text-muted fs-6 flex-shrink-0 mt-1"></i>
+                                            </div>
+                                        </a>
+                                        <a class="disaster-event-card" href="https://www.xinhuanet.com/english/2020-04/16/c_138982760.htm" target="_blank">
+                                            <div class="d-flex justify-content-between align-items-start gap-2">
+                                                <div>
+                                                    <strong class="text-dark d-block mb-1">16 April 2020 Falam Earthquake</strong>
+                                                    <p class="extra-small text-muted mb-0">A magnitude 6.1 earthquake struck southeast of Falam Township, felt across Falam, Hakha, and other Myanmar cities.</p>
+                                                </div>
+                                                <i class="bi bi-box-arrow-up-right text-muted fs-6 flex-shrink-0 mt-1"></i>
+                                            </div>
+                                        </a>
+                                        <a class="disaster-event-card" href="https://myanmar.un.org/en/231626-unicef-myanmar-humanitarian-situation-report-no-2-cyclone-mocha-15-may-2023" target="_blank">
+                                            <div class="d-flex justify-content-between align-items-start gap-2">
+                                                <div>
+                                                    <strong class="text-dark d-block mb-1">14 May 2023 Cyclone Mocha Flooding</strong>
+                                                    <p class="extra-small text-muted mb-0">Cyclone Mocha brought heavy rainfall and flooding to townships including Paletwa, Hakha, Matupi, and Tedim.</p>
+                                                </div>
+                                                <i class="bi bi-box-arrow-up-right text-muted fs-6 flex-shrink-0 mt-1"></i>
+                                            </div>
+                                        </a>
                                     </div>
-                                    <div class="col-md-7">
-                                        <h3 class="h5 fw-bold text-danger">Naypyidaw Union Territory</h3>
-                                        <p class="region-description">
-                                            Naypyidaw has experienced natural disasters that have affected its communities, government facilities and infrastructure. Heavy rainfall can cause nearby rivers and creeks to overflow, while earthquakes can damage buildings and essential services. Some major recorded events include:
-                                        </p>
-                                        <div class="d-flex flex-column gap-2">
-                                            <a class="mb-0 text-decoration-none" href="https://www.moi.gov.mm/moi:eng/news/15401">
-                                                <strong>10–13 September 2024 Naypyidaw Floods:</strong> Heavy rainfall associated with Typhoon Yagi caused rivers and creeks to overflow in Pyinmana, Tatkon, Zeyathiri and Pobbathiri townships. Residents were evacuated to temporary flood relief camps, while roads, houses and other infrastructure were damaged.
-                                            </a>
-                                            <a class="mb-0 text-decoration-none" href="https://www.moi.gov.mm/moi:eng/index.php/earthquake-news/17807">
-                                                <strong>28 March 2025 Central Myanmar Earthquake:</strong> A powerful magnitude 7.7 earthquake struck central Myanmar near Sagaing and Mandalay. The earthquake also severely damaged Naypyidaw's 300-bed People's Hospital, including medical wards, intensive care units and staff housing.
-                                            </a>
-                                            <a class="mb-0 text-decoration-none" href="https://www.who.int/myanmar/news/detail/03-04-2025-mobile-health-relief--who-delivers-lifesaving-emergency-medical-solutions-to-earthquake-hit-communities-in-myanmar">
-                                                <strong>28 March 2025 Naypyidaw Hospital Damage:</strong> The same earthquake severely damaged Naypyidaw's 1,000-bed General Hospital. The damage disrupted healthcare services and increased the need for emergency medical assistance and temporary facilities.
-                                            </a>
+                                </div>
+                            </div>
+
+                            <div class="row justify-content-center">
+                                <div class="col-12 col-md-10 col-lg-8">
+                                    <div class="region-stats-card p-4 rounded-3 bg-light border shadow-sm">
+                                        <h4 class="h5 fw-bold mb-4 text-dark d-flex align-items-center justify-content-center gap-2">
+                                            Region Risk Profile
+                                        </h4>
+                                        <div class="row g-3 text-center">
+                                            <div class="col-4">
+                                                <div class="p-3 rounded bg-white border">
+                                                    <span class="d-block small text-muted mb-1">Major Events</span>
+                                                    <strong class="fs-4 text-dark d-block">5 Recorded</strong>
+                                                </div>
+                                            </div>
+                                            <div class="col-4">
+                                                <div class="p-3 rounded bg-white border">
+                                                    <span class="d-block small text-muted mb-1">Main Threat</span>
+                                                    <strong class="fs-4 text-danger d-block">Landslide</strong>
+                                                </div>
+                                            </div>
+                                            <div class="col-4">
+                                                <div class="p-3 rounded bg-white border">
+                                                    <span class="d-block small text-muted mb-1">Latest Event</span>
+                                                    <strong class="fs-4 text-primary d-block">May 2023</strong>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Kayah -->
+                        <div class="region-content" id="kayah">
+                            <div class="row align-items-center g-4 mb-4">
+                                <div class="col-md-5">
+                                    <img src="./img/explore/Kayah.jpg" alt="Kayah State" class="region-image img-fluid rounded">
+                                </div>
+                                <div class="col-md-7">
+                                    <h3 class="h5 fw-bold mb-2">Kayah State</h3>
+                                    <p class="region-description mb-3">
+                                        Kayah State has experienced natural disasters due to heavy monsoon rains and overflowing water systems, resulting in floods and landslides. Recorded events include:
+                                    </p>
+                                    <div class="region-events-list d-flex flex-column gap-2">
+                                        <a class="disaster-event-card" href="https://myanmar.un.org/en/278804-myanmar-flood-situation-report-16-september-2024" target="_blank">
+                                            <div class="d-flex justify-content-between align-items-start gap-2">
+                                                <div>
+                                                    <strong class="text-dark d-block mb-1">September 2024 Mobye Dam Floods</strong>
+                                                    <p class="extra-small text-muted mb-0">Excess water from Mobye Dam flooded 4 townships in Kayah State, affecting ~9,200 people and damaging farmland and property.</p>
+                                                </div>
+                                                <i class="bi bi-box-arrow-up-right text-muted fs-6 flex-shrink-0 mt-1"></i>
+                                            </div>
+                                        </a>
+                                        <a class="disaster-event-card" href="https://myanmar.un.org/en/279207-myanmar-flood-situation-report-2-20-september-2024" target="_blank">
+                                            <div class="d-flex justify-content-between align-items-start gap-2">
+                                                <div>
+                                                    <strong class="text-dark d-block mb-1">September 2024 Demoso–Hpruso Floods</strong>
+                                                    <p class="extra-small text-muted mb-0">Typhoon Yagi rainfall caused floods and landslides, affecting 6,500+ people and submerging 48,000+ acres of paddy and crops.</p>
+                                                </div>
+                                                <i class="bi bi-box-arrow-up-right text-muted fs-6 flex-shrink-0 mt-1"></i>
+                                            </div>
+                                        </a>
+                                        <a class="disaster-event-card" href="https://www.moi.gov.mm/moi:eng/news/15702" target="_blank">
+                                            <div class="d-flex justify-content-between align-items-start gap-2">
+                                                <div>
+                                                    <strong class="text-dark d-block mb-1">30 September 2024 Bilu Creek Flooding</strong>
+                                                    <p class="extra-small text-muted mb-0">Overflowing water from Bilu Creek flooded the No. 2 Biluchaung Hydropower Plant (Lawpita), prompting emergency operations.</p>
+                                                </div>
+                                                <i class="bi bi-box-arrow-up-right text-muted fs-6 flex-shrink-0 mt-1"></i>
+                                            </div>
+                                        </a>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="row justify-content-center">
+                                <div class="col-12 col-md-10 col-lg-8">
+                                    <div class="region-stats-card p-4 rounded-3 bg-light border shadow-sm">
+                                        <h4 class="h5 fw-bold mb-4 text-dark d-flex align-items-center justify-content-center gap-2">
+                                            Region Risk Profile
+                                        </h4>
+                                        <div class="row g-3 text-center">
+                                            <div class="col-4">
+                                                <div class="p-3 rounded bg-white border">
+                                                    <span class="d-block small text-muted mb-1">Major Events</span>
+                                                    <strong class="fs-4 text-dark d-block">3 Recorded</strong>
+                                                </div>
+                                            </div>
+                                            <div class="col-4">
+                                                <div class="p-3 rounded bg-white border">
+                                                    <span class="d-block small text-muted mb-1">Main Threat</span>
+                                                    <strong class="fs-4 text-danger d-block">Flood</strong>
+                                                </div>
+                                            </div>
+                                            <div class="col-4">
+                                                <div class="p-3 rounded bg-white border">
+                                                    <span class="d-block small text-muted mb-1">Latest Event</span>
+                                                    <strong class="fs-4 text-primary d-block">Sep 2024</strong>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Kayin -->
+                        <div class="region-content" id="kayin">
+                            <div class="row align-items-center g-4 mb-4">
+                                <div class="col-md-5">
+                                    <img src="./img/explore/Kayin.jpg" alt="Kayin State" class="region-image img-fluid rounded">
+                                </div>
+                                <div class="col-md-7">
+                                    <h3 class="h5 fw-bold mb-2">Kayin State</h3>
+                                    <p class="region-description mb-3">
+                                        Kayin State has experienced natural disasters due to heavy monsoon rain, river systems, and mountainous terrain. Recorded events include:
+                                    </p>
+                                    <div class="region-events-list d-flex flex-column gap-2">
+                                        <a class="disaster-event-card" href="https://www.moi.gov.mm/moi:eng/index.php/news/14941" target="_blank">
+                                            <div class="d-flex justify-content-between align-items-start gap-2">
+                                                <div>
+                                                    <strong class="text-dark d-block mb-1">27–29 July 2024 Hpa-an Floods</strong>
+                                                    <p class="extra-small text-muted mb-0">The Thanlwin River exceeded critical flood levels, inundating low-lying areas of Hpa-an and displacing 5,000+ residents to relief camps.</p>
+                                                </div>
+                                                <i class="bi bi-box-arrow-up-right text-muted fs-6 flex-shrink-0 mt-1"></i>
+                                            </div>
+                                        </a>
+                                        <a class="disaster-event-card" href="https://www.moi.gov.mm/moi:eng/news/11365" target="_blank">
+                                            <div class="d-flex justify-content-between align-items-start gap-2">
+                                                <div>
+                                                    <strong class="text-dark d-block mb-1">6–7 August 2023 Kawkareik Landslides</strong>
+                                                    <p class="extra-small text-muted mb-0">Torrential rain triggered landslides near Tawnaw Waterfall along the Asian Highway, disrupting Myanmar-Thailand transit.</p>
+                                                </div>
+                                                <i class="bi bi-box-arrow-up-right text-muted fs-6 flex-shrink-0 mt-1"></i>
+                                            </div>
+                                        </a>
+                                        <a class="disaster-event-card" href="https://myanmar.un.org/en/278804-myanmar-flood-situation-report-16-september-2024" target="_blank">
+                                            <div class="d-flex justify-content-between align-items-start gap-2">
+                                                <div>
+                                                    <strong class="text-dark d-block mb-1">11 September 2024 Thandaunggyi Floods</strong>
+                                                    <p class="extra-small text-muted mb-0">Heavy rain caused flooding and landslides in Thandaunggyi Township, resulting in 5 deaths and 3 injuries.</p>
+                                                </div>
+                                                <i class="bi bi-box-arrow-up-right text-muted fs-6 flex-shrink-0 mt-1"></i>
+                                            </div>
+                                        </a>
+                                        <a class="disaster-event-card" href="https://myanmar.un.org/en/279207-myanmar-flood-situation-report-2-20-september-2024" target="_blank">
+                                            <div class="d-flex justify-content-between align-items-start gap-2">
+                                                <div>
+                                                    <strong class="text-dark d-block mb-1">September 2024 Typhoon Yagi Floods</strong>
+                                                    <p class="extra-small text-muted mb-0">Typhoon Yagi caused widespread flooding across Kayin State, affecting nearly 90,000 people across 4 townships.</p>
+                                                </div>
+                                                <i class="bi bi-box-arrow-up-right text-muted fs-6 flex-shrink-0 mt-1"></i>
+                                            </div>
+                                        </a>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="row justify-content-center">
+                                <div class="col-12 col-md-10 col-lg-8">
+                                    <div class="region-stats-card p-4 rounded-3 bg-light border shadow-sm">
+                                        <h4 class="h5 fw-bold mb-4 text-dark d-flex align-items-center justify-content-center gap-2">
+                                            Region Risk Profile
+                                        </h4>
+                                        <div class="row g-3 text-center">
+                                            <div class="col-4">
+                                                <div class="p-3 rounded bg-white border">
+                                                    <span class="d-block small text-muted mb-1">Major Events</span>
+                                                    <strong class="fs-4 text-dark d-block">4 Recorded</strong>
+                                                </div>
+                                            </div>
+                                            <div class="col-4">
+                                                <div class="p-3 rounded bg-white border">
+                                                    <span class="d-block small text-muted mb-1">Main Threat</span>
+                                                    <strong class="fs-4 text-danger d-block">Flood</strong>
+                                                </div>
+                                            </div>
+                                            <div class="col-4">
+                                                <div class="p-3 rounded bg-white border">
+                                                    <span class="d-block small text-muted mb-1">Latest Event</span>
+                                                    <strong class="fs-4 text-primary d-block">Sep 2024</strong>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Mon -->
+                        <div class="region-content" id="mon">
+                            <div class="row align-items-center g-4 mb-4">
+                                <div class="col-md-5">
+                                    <img src="./img/explore/Mon.jpg" alt="Mon State" class="region-image img-fluid rounded">
+                                </div>
+                                <div class="col-md-7">
+                                    <h3 class="h5 fw-bold mb-2">Mon State</h3>
+                                    <p class="region-description mb-3">
+                                        Mon State has experienced natural disasters due to its coastal location, rivers, and hilly terrain. Recorded events include:
+                                    </p>
+                                    <div class="region-events-list d-flex flex-column gap-2">
+                                        <a class="disaster-event-card" href="https://www.moi.gov.mm/moi:eng/news/4195" target="_blank">
+                                            <div class="d-flex justify-content-between align-items-start gap-2">
+                                                <div>
+                                                    <strong class="text-dark d-block mb-1">July 2021 Kyaikmaraw Floods</strong>
+                                                    <p class="extra-small text-muted mb-0">Heavy rain caused the Attaran River to overflow, submerging 450 houses in Kyaikmaraw Township and prompting evacuations.</p>
+                                                </div>
+                                                <i class="bi bi-box-arrow-up-right text-muted fs-6 flex-shrink-0 mt-1"></i>
+                                            </div>
+                                        </a>
+                                        <a class="disaster-event-card" href="https://www.moi.gov.mm/moi:eng/news/11770" target="_blank">
+                                            <div class="d-flex justify-content-between align-items-start gap-2">
+                                                <div>
+                                                    <strong class="text-dark d-block mb-1">8 October 2023 Kyaikto Floods</strong>
+                                                    <p class="extra-small text-muted mb-0">Heavy rain caused flooding in Kawsannaing Ward of Kyaikto Township, leading to local rescue and evacuation efforts.</p>
+                                                </div>
+                                                <i class="bi bi-box-arrow-up-right text-muted fs-6 flex-shrink-0 mt-1"></i>
+                                            </div>
+                                        </a>
+                                        <a class="disaster-event-card" href="https://www.moi.gov.mm/moi:eng/news/14667" target="_blank">
+                                            <div class="d-flex justify-content-between align-items-start gap-2">
+                                                <div>
+                                                    <strong class="text-dark d-block mb-1">Early 2024 Kyaiktiyo Mountain Landslides</strong>
+                                                    <p class="extra-small text-muted mb-0">Monsoon rainfall triggered two mountain collapses along the uphill road to Kyaiktiyo Pagoda, requiring debris clearance.</p>
+                                                </div>
+                                                <i class="bi bi-box-arrow-up-right text-muted fs-6 flex-shrink-0 mt-1"></i>
+                                            </div>
+                                        </a>
+                                        <a class="disaster-event-card" href="https://myanmar.un.org/en/278804-myanmar-flood-situation-report-16-september-2024" target="_blank">
+                                            <div class="d-flex justify-content-between align-items-start gap-2">
+                                                <div>
+                                                    <strong class="text-dark d-block mb-1">September 2024 Bilin–Kyaikhto Floods</strong>
+                                                    <p class="extra-small text-muted mb-0">Rising Bilin River levels flooded communities in Bilin and Kyaikhto, temporarily relocating over 900 people to relief centres.</p>
+                                                </div>
+                                                <i class="bi bi-box-arrow-up-right text-muted fs-6 flex-shrink-0 mt-1"></i>
+                                            </div>
+                                        </a>
+                                        <a class="disaster-event-card" href="https://myanmar.un.org/en/321949-myanmar-health-cluster-bulletin-august-2026" target="_blank">
+                                            <div class="d-flex justify-content-between align-items-start gap-2">
+                                                <div>
+                                                    <strong class="text-dark d-block mb-1">August 2026 Mon State Monsoon Floods</strong>
+                                                    <p class="extra-small text-muted mb-0">Heavy monsoon rainfall caused severe flooding, increasing public health risks and water-related disease concerns.</p>
+                                                </div>
+                                                <i class="bi bi-box-arrow-up-right text-muted fs-6 flex-shrink-0 mt-1"></i>
+                                            </div>
+                                        </a>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="row justify-content-center">
+                                <div class="col-12 col-md-10 col-lg-8">
+                                    <div class="region-stats-card p-4 rounded-3 bg-light border shadow-sm">
+                                        <h4 class="h5 fw-bold mb-4 text-dark d-flex align-items-center justify-content-center gap-2">
+                                            Region Risk Profile
+                                        </h4>
+                                        <div class="row g-3 text-center">
+                                            <div class="col-4">
+                                                <div class="p-3 rounded bg-white border">
+                                                    <span class="d-block small text-muted mb-1">Major Events</span>
+                                                    <strong class="fs-4 text-dark d-block">5 Recorded</strong>
+                                                </div>
+                                            </div>
+                                            <div class="col-4">
+                                                <div class="p-3 rounded bg-white border">
+                                                    <span class="d-block small text-muted mb-1">Main Threat</span>
+                                                    <strong class="fs-4 text-danger d-block">Flood</strong>
+                                                </div>
+                                            </div>
+                                            <div class="col-4">
+                                                <div class="p-3 rounded bg-white border">
+                                                    <span class="d-block small text-muted mb-1">Latest Event</span>
+                                                    <strong class="fs-4 text-primary d-block">Aug 2026</strong>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Rakhine -->
+                        <div class="region-content" id="rakhine">
+                            <div class="row align-items-center g-4 mb-4">
+                                <div class="col-md-5">
+                                    <img src="./img/explore/Rakhine.jpg" alt="Rakhine State" class="region-image img-fluid rounded">
+                                </div>
+                                <div class="col-md-7">
+                                    <h3 class="h5 fw-bold mb-2">Rakhine State</h3>
+                                    <p class="region-description mb-3">
+                                        Rakhine State is vulnerable to coastal flooding, storm surges, and earthquakes due to its Bay of Bengal coastline. Recorded events include:
+                                    </p>
+                                    <div class="region-events-list d-flex flex-column gap-2">
+                                        <a class="disaster-event-card" href="https://agupubs.onlinelibrary.wiley.com/doi/abs/10.1002/jgrb.50121" target="_blank">
+                                            <div class="d-flex justify-content-between align-items-start gap-2">
+                                                <div>
+                                                    <strong class="text-dark d-block mb-1">1762 Arakan Earthquake</strong>
+                                                    <p class="extra-small text-muted mb-0">A powerful historical earthquake caused significant coastal uplift along the Rakhine coast, raising parts by several metres.</p>
+                                                </div>
+                                                <i class="bi bi-box-arrow-up-right text-muted fs-6 flex-shrink-0 mt-1"></i>
+                                            </div>
+                                        </a>
+                                        <a class="disaster-event-card" href="https://go.ifrc.org/emergencies/6439/details" target="_blank">
+                                            <div class="d-flex justify-content-between align-items-start gap-2">
+                                                <div>
+                                                    <strong class="text-dark d-block mb-1">14 May 2023 Cyclone Mocha Storm-Surge</strong>
+                                                    <p class="extra-small text-muted mb-0">Cyclone Mocha struck near Sittwe, bringing destructive winds and storm surges that devastated coastal homes and shelters.</p>
+                                                </div>
+                                                <i class="bi bi-box-arrow-up-right text-muted fs-6 flex-shrink-0 mt-1"></i>
+                                            </div>
+                                        </a>
+                                        <a class="disaster-event-card" href="https://myanmar.un.org/en/279958-myanmar-flood-situation-report-3-27-september-2024" target="_blank">
+                                            <div class="d-flex justify-content-between align-items-start gap-2">
+                                                <div>
+                                                    <strong class="text-dark d-block mb-1">September 2024 Rakhine Region Floods</strong>
+                                                    <p class="extra-small text-muted mb-0">Monsoon rain caused flooding in Minbya, Mrauk-U, and Toungup, affecting 42,000+ people including displaced populations.</p>
+                                                </div>
+                                                <i class="bi bi-box-arrow-up-right text-muted fs-6 flex-shrink-0 mt-1"></i>
+                                            </div>
+                                        </a>
+                                        <a class="disaster-event-card" href="https://myanmar.un.org/en/319760-rakhine-state-western-myanmar-flood-situation-update-no1" target="_blank">
+                                            <div class="d-flex justify-content-between align-items-start gap-2">
+                                                <div>
+                                                    <strong class="text-dark d-block mb-1">July 2026 Rakhine State Floods</strong>
+                                                    <p class="extra-small text-muted mb-0">Heavy rain and rising rivers flooded 18 wards and 201 villages, affecting 98,282 people across Buthidaung, Kyauktaw, and Mrauk-U.</p>
+                                                </div>
+                                                <i class="bi bi-box-arrow-up-right text-muted fs-6 flex-shrink-0 mt-1"></i>
+                                            </div>
+                                        </a>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="row justify-content-center">
+                                <div class="col-12 col-md-10 col-lg-8">
+                                    <div class="region-stats-card p-4 rounded-3 bg-light border shadow-sm">
+                                        <h4 class="h5 fw-bold mb-4 text-dark d-flex align-items-center justify-content-center gap-2">
+                                            Region Risk Profile
+                                        </h4>
+                                        <div class="row g-3 text-center">
+                                            <div class="col-4">
+                                                <div class="p-3 rounded bg-white border">
+                                                    <span class="d-block small text-muted mb-1">Major Events</span>
+                                                    <strong class="fs-4 text-dark d-block">4 Recorded</strong>
+                                                </div>
+                                            </div>
+                                            <div class="col-4">
+                                                <div class="p-3 rounded bg-white border">
+                                                    <span class="d-block small text-muted mb-1">Main Threat</span>
+                                                    <strong class="fs-4 text-danger d-block">Flood</strong>
+                                                </div>
+                                            </div>
+                                            <div class="col-4">
+                                                <div class="p-3 rounded bg-white border">
+                                                    <span class="d-block small text-muted mb-1">Latest Event</span>
+                                                    <strong class="fs-4 text-primary d-block">Jul 2026</strong>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Tanintharyi -->
+                        <div class="region-content" id="tanintharyi">
+                            <div class="row align-items-center g-4 mb-4">
+                                <div class="col-md-5">
+                                    <img src="./img/explore/Tanintharyi.jpg" alt="Tanintharyi Region" class="region-image img-fluid rounded">
+                                </div>
+                                <div class="col-md-7">
+                                    <h3 class="h5 fw-bold mb-2">Tanintharyi Region</h3>
+                                    <p class="region-description mb-3">
+                                        Tanintharyi Region experiences natural disasters due to its coastal location, mountainous terrain, and heavy monsoon rains. Recorded events include:
+                                    </p>
+                                    <div class="region-events-list d-flex flex-column gap-2">
+                                        <a class="disaster-event-card" href="https://www.moi.gov.mm/moi:eng/news/14938" target="_blank">
+                                            <div class="d-flex justify-content-between align-items-start gap-2">
+                                                <div>
+                                                    <strong class="text-dark d-block mb-1">July 2024 Tanintharyi River Floods</strong>
+                                                    <p class="extra-small text-muted mb-0">Heavy rain caused the Tanintharyi River to overflow into Tanintharyi Township, housing 1,148 victims in relief camps.</p>
+                                                </div>
+                                                <i class="bi bi-box-arrow-up-right text-muted fs-6 flex-shrink-0 mt-1"></i>
+                                            </div>
+                                        </a>
+                                        <a class="disaster-event-card" href="https://www.themimu.info/news/mapping-flood-affected-villages-tanintharyi-region" target="_blank">
+                                            <div class="d-flex justify-content-between align-items-start gap-2">
+                                                <div>
+                                                    <strong class="text-dark d-block mb-1">26 September 2024 Dawei–Launglon Floods</strong>
+                                                    <p class="extra-small text-muted mb-0">Heavy rain caused severe flooding across Launglon, Thayetchaung and Dawei townships, disrupting transportation.</p>
+                                                </div>
+                                                <i class="bi bi-box-arrow-up-right text-muted fs-6 flex-shrink-0 mt-1"></i>
+                                            </div>
+                                        </a>
+                                        <a class="disaster-event-card" href="https://www.themimu.info/news/landslide-launglon-township-and-after-satellite-map" target="_blank">
+                                            <div class="d-flex justify-content-between align-items-start gap-2">
+                                                <div>
+                                                    <strong class="text-dark d-block mb-1">26–27 September 2024 Launglon Landslide</strong>
+                                                    <p class="extra-small text-muted mb-0">Torrential rain triggered a major landslide in Launglon Township, sending debris down hillsides and washing away buildings.</p>
+                                                </div>
+                                                <i class="bi bi-box-arrow-up-right text-muted fs-6 flex-shrink-0 mt-1"></i>
+                                            </div>
+                                        </a>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="row justify-content-center">
+                                <div class="col-12 col-md-10 col-lg-8">
+                                    <div class="region-stats-card p-4 rounded-3 bg-light border shadow-sm">
+                                        <h4 class="h5 fw-bold mb-4 text-dark d-flex align-items-center justify-content-center gap-2">
+                                            Region Risk Profile
+                                        </h4>
+                                        <div class="row g-3 text-center">
+                                            <div class="col-4">
+                                                <div class="p-3 rounded bg-white border">
+                                                    <span class="d-block small text-muted mb-1">Major Events</span>
+                                                    <strong class="fs-4 text-dark d-block">3 Recorded</strong>
+                                                </div>
+                                            </div>
+                                            <div class="col-4">
+                                                <div class="p-3 rounded bg-white border">
+                                                    <span class="d-block small text-muted mb-1">Main Threat</span>
+                                                    <strong class="fs-4 text-danger d-block">Flood</strong>
+                                                </div>
+                                            </div>
+                                            <div class="col-4">
+                                                <div class="p-3 rounded bg-white border">
+                                                    <span class="d-block small text-muted mb-1">Latest Event</span>
+                                                    <strong class="fs-4 text-primary d-block">Sep 2024</strong>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Yangon -->
+                        <div class="region-content" id="yangon">
+                            <div class="row align-items-center g-4 mb-4">
+                                <div class="col-md-5">
+                                    <img src="./img/explore/Yangon.jpg" alt="Yangon Region" class="region-image img-fluid rounded">
+                                </div>
+                                <div class="col-md-7">
+                                    <h3 class="h5 fw-bold mb-2">Yangon Region</h3>
+                                    <p class="region-description mb-3">
+                                        Yangon Region is vulnerable to flooding due to its low-lying delta location and river system. Its dense population increases disaster impact. Recorded events include:
+                                    </p>
+                                    <div class="region-events-list d-flex flex-column gap-2">
+                                        <a class="disaster-event-card" href="https://mdn.gov.mm/en/earthquake" target="_blank">
+                                            <div class="d-flex justify-content-between align-items-start gap-2">
+                                                <div>
+                                                    <strong class="text-dark d-block mb-1">5 May 1930 Pegu (Bago) Earthquake</strong>
+                                                    <p class="extra-small text-muted mb-0">A magnitude 7.3 earthquake struck near Pegu, causing serious damage in Rangoon (Yangon), building collapses, and fires.</p>
+                                                </div>
+                                                <i class="bi bi-box-arrow-up-right text-muted fs-6 flex-shrink-0 mt-1"></i>
+                                            </div>
+                                        </a>
+                                        <a class="disaster-event-card" href="https://science.nasa.gov/earth/earth-observatory/flooding-in-yangon-burma-myanmar-8729/" target="_blank">
+                                            <div class="d-flex justify-content-between align-items-start gap-2">
+                                                <div>
+                                                    <strong class="text-dark d-block mb-1">7 May 2008 Cyclone Nargis Flooding</strong>
+                                                    <p class="extra-small text-muted mb-0">Following Cyclone Nargis, heavy rain and storm surges caused severe flooding across southern Yangon residential and farming areas.</p>
+                                                </div>
+                                                <i class="bi bi-box-arrow-up-right text-muted fs-6 flex-shrink-0 mt-1"></i>
+                                            </div>
+                                        </a>
+                                        <a class="disaster-event-card" href="https://unosat.org/products/1001" target="_blank">
+                                            <div class="d-flex justify-content-between align-items-start gap-2">
+                                                <div>
+                                                    <strong class="text-dark d-block mb-1">9 August 2015 Yangon Delta Floods</strong>
+                                                    <p class="extra-small text-muted mb-0">Monsoon rain caused flooding in agricultural areas south of Yangon, including Kawkhmu and Hlegu townships.</p>
+                                                </div>
+                                                <i class="bi bi-box-arrow-up-right text-muted fs-6 flex-shrink-0 mt-1"></i>
+                                            </div>
+                                        </a>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="row justify-content-center">
+                                <div class="col-12 col-md-10 col-lg-8">
+                                    <div class="region-stats-card p-4 rounded-3 bg-light border shadow-sm">
+                                        <h4 class="h5 fw-bold mb-4 text-dark d-flex align-items-center justify-content-center gap-2">
+                                            Region Risk Profile
+                                        </h4>
+                                        <div class="row g-3 text-center">
+                                            <div class="col-4">
+                                                <div class="p-3 rounded bg-white border">
+                                                    <span class="d-block small text-muted mb-1">Major Events</span>
+                                                    <strong class="fs-4 text-dark d-block">3 Recorded</strong>
+                                                </div>
+                                            </div>
+                                            <div class="col-4">
+                                                <div class="p-3 rounded bg-white border">
+                                                    <span class="d-block small text-muted mb-1">Main Threat</span>
+                                                    <strong class="fs-4 text-danger d-block">Flood</strong>
+                                                </div>
+                                            </div>
+                                            <div class="col-4">
+                                                <div class="p-3 rounded bg-white border">
+                                                    <span class="d-block small text-muted mb-1">Latest Event</span>
+                                                    <strong class="fs-4 text-primary d-block">Aug 2015</strong>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Naypyidaw -->
+                        <div class="region-content" id="naypyidaw">
+                            <div class="row align-items-center g-4 mb-4">
+                                <div class="col-md-5">
+                                    <img src="./img/explore/Naypyidaw.jpg" alt="Naypyidaw Union Territory" class="region-image img-fluid rounded">
+                                </div>
+                                <div class="col-md-7">
+                                    <h3 class="h5 fw-bold mb-2">Naypyidaw Union Territory</h3>
+                                    <p class="region-description mb-3">
+                                        Naypyidaw has experienced disasters affecting government facilities and infrastructure from overflowing creeks and earthquakes. Recorded events include:
+                                    </p>
+                                    <div class="region-events-list d-flex flex-column gap-2">
+                                        <a class="disaster-event-card" href="https://www.moi.gov.mm/moi:eng/news/15401" target="_blank">
+                                            <div class="d-flex justify-content-between align-items-start gap-2">
+                                                <div>
+                                                    <strong class="text-dark d-block mb-1">10–13 September 2024 Naypyidaw Floods</strong>
+                                                    <p class="extra-small text-muted mb-0">Typhoon Yagi caused rivers and creeks to overflow in Pyinmana, Tatkon, Zeyathiri and Pobbathiri, leading to evacuations.</p>
+                                                </div>
+                                                <i class="bi bi-box-arrow-up-right text-muted fs-6 flex-shrink-0 mt-1"></i>
+                                            </div>
+                                        </a>
+                                        <a class="disaster-event-card" href="https://www.moi.gov.mm/moi:eng/index.php/earthquake-news/17807" target="_blank">
+                                            <div class="d-flex justify-content-between align-items-start gap-2">
+                                                <div>
+                                                    <strong class="text-dark d-block mb-1">28 March 2025 Central Myanmar Earthquake</strong>
+                                                    <p class="extra-small text-muted mb-0">A magnitude 7.7 earthquake severely damaged Naypyidaw's 300-bed People's Hospital and medical facilities.</p>
+                                                </div>
+                                                <i class="bi bi-box-arrow-up-right text-muted fs-6 flex-shrink-0 mt-1"></i>
+                                            </div>
+                                        </a>
+                                        <a class="disaster-event-card" href="https://www.who.int/myanmar/news/detail/03-04-2025-mobile-health-relief--who-delivers-lifesaving-emergency-medical-solutions-to-earthquake-hit-communities-in-myanmar" target="_blank">
+                                            <div class="d-flex justify-content-between align-items-start gap-2">
+                                                <div>
+                                                    <strong class="text-dark d-block mb-1">28 March 2025 General Hospital Damage</strong>
+                                                    <p class="extra-small text-muted mb-0">The same earthquake severely damaged Naypyidaw's 1,000-bed General Hospital, disrupting healthcare and prompting relief.</p>
+                                                </div>
+                                                <i class="bi bi-box-arrow-up-right text-muted fs-6 flex-shrink-0 mt-1"></i>
+                                            </div>
+                                        </a>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="row justify-content-center">
+                                <div class="col-12 col-md-10 col-lg-8">
+                                    <div class="region-stats-card p-4 rounded-3 bg-light border shadow-sm">
+                                        <h4 class="h5 fw-bold mb-4 text-dark d-flex align-items-center justify-content-center gap-2">
+                                            Region Risk Profile
+                                        </h4>
+                                        <div class="row g-3 text-center">
+                                            <div class="col-4">
+                                                <div class="p-3 rounded bg-white border h-100 d-flex flex-column justify-content-center">
+                                                    <span class="d-block small text-muted mb-1">Major Events</span>
+                                                    <strong class="fs-4 text-dark d-block">3 Recorded</strong>
+                                                </div>
+                                            </div>
+                                            
+                                            <div class="col-4">
+                                                <div class="p-3 rounded bg-white border h-100 d-flex flex-column justify-content-center">
+                                                    <span class="d-block small text-muted mb-1">Main Threat</span>
+                                                    <strong class="fs-4 text-danger d-block">Earthquake / Flood</strong>
+                                                </div>
+                                            </div>
+                                            
+                                            <div class="col-4">
+                                                <div class="p-3 rounded bg-white border h-100 d-flex flex-column justify-content-center">
+                                                    <span class="d-block small text-muted mb-1">Latest Event</span>
+                                                    <strong class="fs-4 text-primary d-block">Mar 2025</strong>
+                                                </div>
+                                            </div>
+
                                         </div>
                                     </div>
                                 </div>
@@ -1097,30 +1839,25 @@
                     </div>
                 </div>
             </div>
-        </section>
+        </div>
+    </section>
 
     <!-- Footer -->
     <footer>
         <div class="container">
             <div class="row g-5">
-
                 <div class="col-lg-6">
                     <div class="footer-brand">
                         <img src="./img/Logo.png" alt="TERRAFIRM Logo">
                         <h4>TERRAFIRM</h4>
                     </div>
-
                     <p class="footer-text">
-                        Helping communities understand disasters,
-                        stay informed, prepare for risks and build
-                        a safer and more resilient future.
+                        Helping communities understand disasters, stay informed, prepare for risks and build a safer and more resilient future.
                     </p>
-
                     <div class="footer-slogan">
                         Awareness today. Safety tomorrow.
                     </div>
                 </div>
-
                 <div class="col-6 col-lg-3">
                     <h5>Quick Links</h5>
                     <a href="./index.html">Home</a>
@@ -1128,21 +1865,15 @@
                     <a href="./explore.html">Explore Disaster</a>
                     <a href="./contactUs.html">Contact Us</a>
                 </div>
-
                 <div class="col-6 col-lg-3">
-                    <h5>
-                        <a href="./explore.html">Explore</a>
-                    </h5>
+                    <h5><a href="./explore.html">Explore</a></h5>
                     <a href="./flood.html">Flood</a>
                     <a href="./earthquake.html">Earthquake</a>
                     <a href="./landslide.html">Landslide</a>
                     <a href="./drought.html">Drought</a>
                 </div>
-
             </div>
-
             <hr>
-
             <div class="footer-bottom">
                 <p>© 2026 Trinity. All rights reserved.</p>
                 <p>Awareness • Preparedness • Safety</p>
@@ -1151,11 +1882,13 @@
     </footer>
 
     <script>
+        // Highlight its map dot
         function showRegion(region) {
             document.querySelectorAll('.region-content').forEach(content => {
                 content.classList.remove('active');
             });
 
+            // Target region doesn't exist
             const selectedRegion = document.getElementById(region);
             if (!selectedRegion) return;
             selectedRegion.classList.add('active');
@@ -1165,11 +1898,82 @@
                 dot.setAttribute('aria-pressed', 'false');
             });
 
+            // Highlight the selected region's map dot
             const selectedDot = document.querySelector('.' + region + '-dot');
             if (selectedDot) {
                 selectedDot.classList.add('active');
                 selectedDot.setAttribute('aria-pressed', 'true');
             }
+
+            resetCardFilters(selectedRegion);
+        }
+
+        // Reset all cards to default
+        function resetCardFilters(container) {
+            container.querySelectorAll('.disaster-event-card').forEach(card => {
+                card.style.display = 'block';
+                card.style.borderColor = '#e9ecef';
+                card.style.backgroundColor = '#f8f9fa';
+            });
+        }
+
+        // Search
+        document.getElementById('regionSearchInput').addEventListener('input', function(e) {
+            const term = e.target.value.toLowerCase().trim();
+            const regions = ['mandalay', 'sagaing', 'magway', 'bago', 'shan', 'ayeyarwady', 'chin', 'kachin', 'kayah', 'kayin', 'mon', 'rakhine', 'tanintharyi', 'yangon', 'naypyidaw'];
+
+            // If empty reset cards
+            if (!term) {
+                const activeRegion = document.querySelector('.region-content.active');
+                if (activeRegion) resetCardFilters(activeRegion);
+                return;
+            }
+
+            const matchedRegion = regions.find(r => r.includes(term));
+            if (matchedRegion) {
+                showRegion(matchedRegion);
+                filterCardsInActiveRegion(term);
+                return;
+            }
+
+            for (let regionName of regions) {
+                const regionEl = document.getElementById(regionName);
+                if (!regionEl) continue;
+
+                const cards = regionEl.querySelectorAll('.disaster-event-card');
+                let matchFoundInRegion = false;
+
+                cards.forEach(card => {
+                    const text = card.innerText.toLowerCase();
+                    if (text.includes(term)) {
+                        matchFoundInRegion = true;
+                    }
+                });
+
+                if (matchFoundInRegion) {
+                    showRegion(regionName);
+                    filterCardsInActiveRegion(term);
+                    break;
+                }
+            }
+        });
+
+        // Show hide cards
+        function filterCardsInActiveRegion(term) {
+            const activeContent = document.querySelector('.region-content.active');
+            if (!activeContent) return;
+
+            const cards = activeContent.querySelectorAll('.disaster-event-card');
+            cards.forEach(card => {
+                const text = card.innerText.toLowerCase();
+                if (text.includes(term)) {
+                    card.style.display = 'block';
+                    card.style.borderColor = '#0d6efd';
+                    card.style.backgroundColor = '#f8fbff';
+                } else {
+                    card.style.display = 'none';
+                }
+            });
         }
     </script>
 

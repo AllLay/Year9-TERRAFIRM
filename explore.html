@@ -1,0 +1,2460 @@
+<!DOCTYPE html>
+    <html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Explore Disaster - TERRAFIRM</title>
+        <link rel="icon" type="image/x-icon" href="./img/Logo.png">
+        <!-- Bootstrap 5 CSS -->
+        <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+        <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
+        <link rel="stylesheet" href="style.css">
+        <style>
+            .image-box {
+                width: 100%;
+                height: 180px;
+                overflow: hidden;
+            }
+
+            .image-box img {
+                width: 100%;
+                height: 100%;
+                object-fit: cover;
+                object-position: center;
+                display: block;
+            }
+
+            /* Disaster Background */
+            .flood-section {
+                background-color: #BCE1FF;
+            }
+
+            .landslide-section {
+                background-color: #e8f5e9;
+            }
+
+            .earthquake-section {
+                background-color: #fce4ec;
+            }
+
+            .drought-section {
+                background-color: #fff8e1;
+            }
+
+            /* Map */
+            .map-card {
+                min-height: 100%;
+            }
+
+            .map-container {
+                position: relative;
+                width: 100%;
+                min-height: 650px;
+                height: 100%;
+                overflow: hidden;
+                background-color: #f8f9fa;
+                display: flex;
+                align-items: center;
+                justify-content: center;
+            }
+
+            .myanmar-map {
+                width: 100%;
+                height: 100%;
+                object-fit: contain;
+                position: absolute;
+                inset: 0;
+            }
+
+            /* Map Dots */
+            .map-dot {
+                position: absolute;
+                width: 13px;
+                height: 13px;
+                padding: 0;
+                border: 2px solid white;
+                border-radius: 50%;
+                z-index: 2;
+                cursor: pointer;
+                transition: transform 0.2s ease, outline 0.2s ease;
+                box-shadow: 0 1px 5px rgba(0, 0, 0, 0.4);
+            }
+
+            .map-dot:hover {
+                transform: scale(1.5);
+            }
+
+            .map-dot.active {
+                transform: scale(1.5);
+                outline: 3px solid rgba(21, 50, 66, 0.3);
+                z-index: 3;
+            }
+
+            /* Dots color */
+            .mandalay-dot, .mandalay-color { 
+                background-color: red; 
+            }
+
+            .sagaing-dot, .sagaing-color { 
+                background-color: blue; 
+            }
+
+            .magway-dot, .magway-color { 
+                background-color: brown; 
+            }
+            
+            .bago-dot, .bago-color { 
+                background-color: green; 
+            }
+            
+            .shan-dot, .shan-color { 
+                background-color: black; 
+            }
+
+            .ayeyarwady-dot, .ayeyarwady-color { 
+                background-color: purple; 
+            }
+
+            .chin-dot, .chin-color { 
+                background-color: teal; 
+            }
+            
+            .kachin-dot, .kachin-color { 
+                background-color: orange; 
+            }
+            
+            .kayah-dot, .kayah-color { 
+                background-color: pink; 
+            }
+            
+            .kayin-dot, .kayin-color { 
+                background-color: navy; 
+            }
+            
+            .mon-dot, .mon-color { 
+                background-color: maroon; 
+            }
+            
+            .rakhine-dot, .rakhine-color { 
+                background-color: cyan; 
+            }
+            
+            .tanintharyi-dot, .tanintharyi-color { 
+                background-color: indigo; 
+            }
+            
+            .yangon-dot, .yangon-color { 
+                background-color: gold; 
+            }
+            
+            .naypyidaw-dot, .naypyidaw-color { 
+                background-color: gray; 
+            }
+
+            /* Dot Positions */
+            .sagaing-dot { 
+                top: 30%;
+                left: 40%; 
+            }
+            
+            .mandalay-dot { 
+                top: 40%;
+                left: 46%; 
+            }
+            
+            .magway-dot { 
+                top: 46%;
+                left: 37%; 
+            }
+
+            .bago-dot { 
+                top: 55%;
+                left: 48%; 
+            }
+            
+            .shan-dot { 
+                top: 38%;
+                left: 63%; 
+            }
+            .ayeyarwady-dot { 
+                top: 57%; 
+                left: 38%; 
+            }
+            
+            .chin-dot { 
+                top: 38%;
+                left: 27%; 
+            }
+            
+            .kachin-dot { 
+                top: 18%;
+                left: 49%; 
+            }
+            
+            .kayah-dot { 
+                top: 50%;
+                left: 55%; 
+            }
+            
+            .kayin-dot { 
+                top: 57%;
+                left: 57%; 
+            }
+            
+            .mon-dot { 
+                top: 66%;
+                left: 57%; 
+            }
+            .rakhine-dot { 
+                top: 48%; 
+                left: 33%; 
+            }
+            
+            .tanintharyi-dot { 
+                top: 80%;
+                left: 66%; 
+            }
+
+            .yangon-dot { 
+                top: 58%;
+                left: 45%; 
+            }
+            
+            .naypyidaw-dot { 
+                top: 44%;
+                left: 46%; 
+            }
+
+            /* Region content */
+            .region-content {
+                display: none;
+                animation: regionFade 0.35s ease;
+            }
+
+            .region-content.active {
+                display: block;
+            }
+
+            .region-image {
+                height: 220px;
+                width: 100%;
+                object-fit: cover;
+                border-radius: 12px;
+            }
+
+            .region-content .region-description {
+                color: #60736b;
+                line-height: 1.7;
+            }
+
+            /* Enhanced Event List & Cards */
+            .region-events-list {
+                max-height: 420px;
+                overflow-y: auto;
+                padding-right: 4px;
+            }
+
+            .region-events-list::-webkit-scrollbar {
+                width: 6px;
+            }
+
+            .region-events-list::-webkit-scrollbar-track {
+                background: #f1f1f1;
+                border-radius: 4px;
+            }
+
+            .region-events-list::-webkit-scrollbar-thumb {
+                background: #ccc;
+                border-radius: 4px;
+            }
+
+            .region-events-list::-webkit-scrollbar-thumb:hover {
+                background: #aaa;
+            }
+
+            .disaster-event-card {
+                background-color: #f8f9fa;
+                border: 1px solid #e9ecef;
+                border-radius: 10px;
+                padding: 12px 16px;
+                transition: all 0.2s ease;
+                display: block;
+                text-decoration: none;
+                color: inherit;
+            }
+
+            .disaster-event-card:hover {
+                background-color: #ffffff;
+                border-color: #ced4da;
+                transform: translateY(-2px);
+                box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
+                color: inherit;
+            }
+
+            @media (max-width: 768px) {
+                .map-container {
+                    min-height: 400px;
+                }
+
+                .map-dot {
+                    width: 12px;
+                    height: 12px;
+                }
+
+                .region-image {
+                    height: 190px;
+                }
+            }
+        </style>
+    </head>
+
+    <body class="d-flex flex-column min-vh-100">
+        <!-- Navbar -->
+        <nav class="navbar navbar-expand-lg navbar-dark">
+            <div class="container">
+                <a class="navbar-brand d-flex align-items-center" href="./index.html">
+                    <img src="./img/Logo.png" alt="TERRAFIRM Logo" class="logo">
+                    <span class="brand-name">TERRAFIRM</span>
+                </a>
+
+                <!-- Burger -->
+                <button class="navbar-toggler border-0 shadow-none" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+
+                <div class="collapse navbar-collapse" id="navbarNav">
+                    <ul class="navbar-nav ms-auto align-items-lg-center gap-lg-2">
+                        <li class="nav-item">
+                            <a class="nav-link" href="./index.html">Home</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="./aboutUs.html">About Us</a>
+                        </li>
+
+                        <!-- Disaster Dropdown -->
+                        <li class="nav-item dropdown">
+                            <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                                Disaster List
+                            </a>
+                            <ul class="dropdown-menu">
+                                <li><a class="dropdown-item" href="./flood.html"><i class="bi bi-water me-2"></i>Flood</a></li>
+                                <li><a class="dropdown-item" href="./earthquake.html"><i class="bi bi-globe-americas me-2"></i>Earthquake</a></li>
+                                <li><a class="dropdown-item" href="./landslide.html"><i class="bi bi-tree me-2"></i>Landslide</a></li>
+                                <li><a class="dropdown-item" href="./drought.html"><i class="bi bi-brightness-high me-2"></i>Drought</a></li>
+                            </ul>
+                        </li>
+
+                        <li class="nav-item">
+                            <a class="nav-link active" href="./explore.html">Explore Disaster</a>
+                        </li>
+
+                        <li class="nav-item">
+                            <a class="nav-link contact-link" href="./contactUs.html">Contact Us</a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </nav>
+
+        <!-- Section 1 -->
+        <section class="py-5 flex-fill" style="background-color: #f7f3e8;">
+            <div class="container-fluid px-3 px-sm-4">
+                <div class="row mb-4">
+                    <div class="col-12 text-center">
+                        <h2 class="h1 fw-bold mb-0">Natural Disaster Types Overview</h2>
+                    </div>
+                </div>
+
+                <div class="row g-4">
+                    <!-- Left -->
+                    <div class="col-lg-6 d-flex flex-column gap-4">
+                        <!-- Environmental Risk -->
+                        <div class="p-3 p-sm-4 rounded-4 shadow-sm bg-success-subtle border-0 flex-fill">
+                            <h3 class="h6 fw-bold text-success mb-3">Environmental Risk</h3>
+                            <div class="row row-cols-2 row-cols-sm-3 row-cols-md-5 g-2 g-sm-3 text-center">
+                                <div class="col">
+                                    <div class="py-2 px-1 border rounded bg-light mb-2 extra-small fw-bold">Habitat</div>
+                                    <p class="extra-small mb-0">Habitat loss and biodiversity decline</p>
+                                </div>
+                                <div class="col">
+                                    <div class="py-2 px-1 border rounded bg-light mb-2 extra-small fw-bold">Soil</div>
+                                    <p class="extra-small mb-0">Soil erosion and land degradation</p>
+                                </div>
+                                <div class="col">
+                                    <div class="py-2 px-1 border rounded bg-light mb-2 extra-small fw-bold">Water</div>
+                                    <p class="extra-small mb-0">Water pollution and scarcity</p>
+                                </div>
+                                <div class="col">
+                                    <div class="py-2 px-1 border rounded bg-light mb-2 extra-small fw-bold">Forests</div>
+                                    <p class="extra-small mb-0">Deforestation and vegetation damage</p>
+                                </div>
+                                <div class="col">
+                                    <div class="py-2 px-1 border rounded bg-light mb-2 extra-small fw-bold">Climate</div>
+                                    <p class="extra-small mb-0">Disrupted ecosystems and climate stress</p>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Human Risk -->
+                        <div class="p-3 p-sm-4 rounded-4 shadow-sm bg-danger-subtle border-0 flex-fill">
+                            <h3 class="h6 fw-bold text-danger mb-3">Human Risk</h3>
+                            <div class="row row-cols-2 row-cols-sm-3 row-cols-md-5 g-2 g-sm-3 text-center">
+                                <div class="col">
+                                    <div class="py-2 px-1 border rounded bg-light mb-2 extra-small fw-bold">Health</div>
+                                    <p class="extra-small mb-0">Disease outbreaks and injury risks</p>
+                                </div>
+                                <div class="col">
+                                    <div class="py-2 px-1 border rounded bg-light mb-2 extra-small fw-bold">Shelter</div>
+                                    <p class="extra-small mb-0">Displacement and housing loss</p>
+                                </div>
+                                <div class="col">
+                                    <div class="py-2 px-1 border rounded bg-light mb-2 extra-small fw-bold">Safety</div>
+                                    <p class="extra-small mb-0">Livelihood disruption and danger</p>
+                                </div>
+                                <div class="col">
+                                    <div class="py-2 px-1 border rounded bg-light mb-2 extra-small fw-bold">Food</div>
+                                    <p class="extra-small mb-0">Shortages and supply chain failure</p>
+                                </div>
+                                <div class="col">
+                                    <div class="py-2 px-1 border rounded bg-light mb-2 extra-small fw-bold">Society</div>
+                                    <p class="extra-small mb-0">Community strain and economic stress</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="col-lg-6">
+                        <div id="disasterCarousel" class="carousel slide h-100" data-bs-ride="false">
+                            <div class="carousel-indicators mb-0">
+                                <button type="button" data-bs-target="#disasterCarousel" data-bs-slide-to="0" class="active" aria-current="true" aria-label="Floods"></button>
+                                <button type="button" data-bs-target="#disasterCarousel" data-bs-slide-to="1" aria-label="Landslides"></button>
+                                <button type="button" data-bs-target="#disasterCarousel" data-bs-slide-to="2" aria-label="Earthquakes"></button>
+                                <button type="button" data-bs-target="#disasterCarousel" data-bs-slide-to="3" aria-label="Droughts"></button>
+                            </div>
+
+                            <div class="carousel-inner h-100">
+                                <!-- FLOOD -->
+                                <div class="carousel-item active h-100">
+                                    <div class="flood-section h-100 p-4 rounded-4 shadow-sm border-0">
+                                        <a href="./flood.html" class="text-decoration-none text-reset">
+                                            <div class="d-flex align-items-center gap-2 mb-3 pb-2 border-bottom">
+                                                <i class="bi bi-water fs-5"></i>
+                                                <h3 class="h6 mb-0 fw-bold">Floods</h3>
+                                            </div>
+                                            <div class="image-box rounded mb-3 flex-grow-1 overflow-hidden d-flex align-items-center justify-content-center bg-light">
+                                                <img src="./img/explore/Flood.png" alt="Floods Image" class="img-fluid h-100 object-fit-cover w-100 rounded">
+                                            </div>
+                                            <p class="extra-small mb-0">
+                                                Heavy rainfall and river overflow can submerge communities, damage infrastructure, and disrupt ecosystems.
+                                            </p>
+                                        </a>
+                                    </div>
+                                </div>
+
+                                <!-- LANDSLIDE -->
+                                <div class="carousel-item h-100">
+                                    <div class="landslide-section h-100 p-4 rounded-4 shadow-sm border-0">
+                                        <a href="./landslide.html" class="text-decoration-none text-reset">
+                                            <div class="d-flex align-items-center gap-2 mb-3 pb-2 border-bottom">
+                                                <i class="bi bi-tree fs-5"></i>
+                                                <h3 class="h6 mb-0 fw-bold">Landslides</h3>
+                                            </div>
+                                            <div class="image-box rounded mb-3 flex-grow-1 overflow-hidden d-flex align-items-center justify-content-center bg-light">
+                                                <img src="./img/explore/Landslide.png" alt="Landslides Image" class="img-fluid h-100 object-fit-cover w-100 rounded">
+                                            </div>
+                                            <p class="extra-small mb-0">
+                                                Steep slopes and intense rainfall can trigger landslides, destroying land, property, and natural habitats.
+                                            </p>
+                                        </a>
+                                    </div>
+                                </div>
+
+                                <!-- EARTHQUAKE -->
+                                <div class="carousel-item h-100">
+                                    <div class="earthquake-section h-100 p-4 rounded-4 shadow-sm border-0">
+                                        <a href="./earthquake.html" class="text-decoration-none text-reset">
+                                            <div class="d-flex align-items-center gap-2 mb-3 pb-2 border-bottom">
+                                                <i class="bi bi-globe-americas fs-5 text-danger"></i>
+                                                <h3 class="h6 mb-0 fw-bold text-danger">Earthquakes</h3>
+                                            </div>
+                                            <div class="image-box rounded mb-3 flex-grow-1 overflow-hidden d-flex align-items-center justify-content-center bg-light">
+                                                <img src="./img/explore/Earthquake.png" alt="Earthquakes Image" class="img-fluid h-100 object-fit-cover w-100 rounded">
+                                            </div>
+                                            <p class="extra-small mb-0">
+                                                Tectonic activity can cause strong shaking, collapse buildings, and damage critical infrastructure.
+                                            </p>
+                                        </a>
+                                    </div>
+                                </div>
+
+                                <!-- DROUGHT -->
+                                <div class="carousel-item h-100">
+                                    <div class="drought-section h-100 p-4 rounded-4 shadow-sm border-0">
+                                        <a href="./drought.html" class="text-decoration-none text-reset">
+                                            <div class="d-flex align-items-center gap-2 mb-3 pb-2 border-bottom">
+                                                <i class="bi bi-brightness-high fs-5 text-warning"></i>
+                                                <h3 class="h6 mb-0 fw-bold text-warning">Droughts</h3>
+                                            </div>
+                                            <div class="image-box rounded mb-3 flex-grow-1 overflow-hidden d-flex align-items-center justify-content-center bg-light">
+                                                <img src="./img/explore/Drought.png" alt="Droughts Image" class="img-fluid h-100 object-fit-cover w-100 rounded">
+                                            </div>
+                                            <p class="extra-small mb-0">
+                                                Prolonged dry conditions reduce water availability, harm crops, and increase stress on communities.
+                                            </p>
+                                        </a>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <button class="carousel-control-prev" type="button" data-bs-target="#disasterCarousel" data-bs-slide="prev">
+                                <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                                <span class="visually-hidden">Previous</span>
+                            </button>
+                            <button class="carousel-control-next" type="button" data-bs-target="#disasterCarousel" data-bs-slide="next">
+                                <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                                <span class="visually-hidden">Next</span>
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Section 2 -->
+        <section class="py-5" style="background-color: #e9edde;">
+            <div class="container-fluid px-3 px-sm-4">
+                <div class="row g-4 align-items-stretch">
+                    <!-- Left Column -->
+                    <div class="col-lg-5 col-xl-4">
+                        <div class="p-3 shadow-sm border rounded-4 d-flex flex-column h-100" style="background-color: #f7f3e8;">
+                            <h1 class="h4 fw-bold text-dark mb-1">
+                                Explore Natural Disasters
+                            </h1>
+
+                            <p class="small mb-3">
+                                The Environmental and Human Impacts of Natural Disasters in Myanmar
+                                <br>
+                                <span class="fw-semibold">
+                                    Floods, Landslides, Earthquakes, and Droughts
+                                </span>
+                            </p>
+
+                            <!-- Search -->
+                            <div class="input-group mb-3">
+                                <span class="input-group-text bg-white border-end-0">
+                                    <i class="bi bi-search"></i>
+                                </span>
+                                <input type="text" id="regionSearchInput" class="form-control border-start-0 border-end-0" placeholder="Search disaster in specific region (e.g Flood)">
+                                <span class="input-group-text bg-white border-start-0">
+                                    <i class="bi bi-geo-alt"></i>
+                                </span>
+                            </div>
+
+                            <!-- Myanmar Map -->
+                            <div class="map-container flex-fill bg-light rounded border mb-3">
+                                <img src="./img/explore/MyanmarStateMap.png" alt="Map of Myanmar" class="myanmar-map">
+
+                                <button type="button" class="map-dot naypyidaw-dot active" onclick="showRegion('naypyidaw')" aria-label="Select Naypyidaw Union Territory" aria-pressed="true"></button>
+                                <button type="button" class="map-dot mandalay-dot" onclick="showRegion('mandalay')" aria-label="Select Mandalay" aria-pressed="false"></button>
+                                <button type="button" class="map-dot sagaing-dot" onclick="showRegion('sagaing')" aria-label="Select Sagaing" aria-pressed="false"></button>
+                                <button type="button" class="map-dot magway-dot" onclick="showRegion('magway')" aria-label="Select Magway" aria-pressed="false"></button>
+                                <button type="button" class="map-dot bago-dot" onclick="showRegion('bago')" aria-label="Select Bago" aria-pressed="false"></button>
+                                <button type="button" class="map-dot shan-dot" onclick="showRegion('shan')" aria-label="Select Shan State" aria-pressed="false"></button>
+                                <button type="button" class="map-dot ayeyarwady-dot" onclick="showRegion('ayeyarwady')" aria-label="Select Ayeyarwady Region" aria-pressed="false"></button>
+                                <button type="button" class="map-dot chin-dot" onclick="showRegion('chin')" aria-label="Select Chin State" aria-pressed="false"></button>
+                                <button type="button" class="map-dot kachin-dot" onclick="showRegion('kachin')" aria-label="Select Kachin State" aria-pressed="false"></button>
+                                <button type="button" class="map-dot kayah-dot" onclick="showRegion('kayah')" aria-label="Select Kayah State" aria-pressed="false"></button>
+                                <button type="button" class="map-dot kayin-dot" onclick="showRegion('kayin')" aria-label="Select Kayin State" aria-pressed="false"></button>
+                                <button type="button" class="map-dot mon-dot" onclick="showRegion('mon')" aria-label="Select Mon State" aria-pressed="false"></button>
+                                <button type="button" class="map-dot rakhine-dot" onclick="showRegion('rakhine')" aria-label="Select Rakhine State" aria-pressed="false"></button>
+                                <button type="button" class="map-dot tanintharyi-dot" onclick="showRegion('tanintharyi')" aria-label="Select Tanintharyi Region" aria-pressed="false"></button>
+                                <button type="button" class="map-dot yangon-dot" onclick="showRegion('yangon')" aria-label="Select Yangon Region" aria-pressed="false"></button>
+                            </div>
+
+                            <p class="extra-small mb-0 text-center">
+                                <i class="bi bi-cursor-fill me-1"></i>
+                                Click a colored dot to explore a region.
+                            </p>
+                        </div>
+                    </div>
+
+                    <!-- Right Column -->
+                    <div class="col-lg-7 col-xl-8">
+                        <div class="p-3 p-md-4 shadow-sm border rounded-4 h-100" style="background-color: #f7f3e8;">
+                            <div class="d-flex justify-content-between align-items-center flex-wrap gap-2 mb-3">
+                                <h2 class="h5 fw-bold mb-0">
+                                    Regional Examples
+                                </h2>
+                            </div>
+                            
+                            <!-- Kachin -->
+                            <div class="region-content" id="kachin">
+                                <div class="row align-items-stretch g-4 mb-4">
+                                    <div class="col-md-5">
+                                        <div class="d-flex flex-column justify-content-between h-100">
+                                            <div>
+                                                <h4 class="fw-bold fs-5 mb-2">Key Takeaways</h4>
+                                                <p class="small mb-3" style="line-height: 1.6;">
+                                                    Kachin State faces acute risks from monsoon river flooding and unstable terrain in jade and rare-earth mining zones.
+                                                </p>
+                                            </div>
+                                            <div class="my-3">
+                                                <img src="./img/explore/Kachin.jpg" alt="Kachin State" class="img-fluid rounded w-100 shadow-sm" style="max-height: 180px; object-fit: cover;">
+                                            </div>
+                                            <div class="bg-white p-3 rounded shadow-sm" style="border: 1px solid #000000;">
+                                                <span class="d-block fw-semibold text-uppercase text-dark" style="font-size: 0.75rem;">Latest Event</span>
+                                                <span class="small fw-bold text-dark">Kachin Upper Basin Flood Events</span>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="col-md-7">
+                                        <h3 class="h5 fw-bold mb-2">Kachin State</h3>
+                                        <p class="region-description mb-3">
+                                            Kachin State has experienced several natural disasters, particularly floods and landslides, affecting communities, infrastructure and mining areas. Some major recorded events include:
+                                        </p>
+                                        <div class="region-events-list d-flex flex-column gap-2">
+                                            <a class="disaster-event-card" href="https://www.adrc.asia/view_disaster_en.php?Key=2345&Lang=en" target="_blank">
+                                                <div class="d-flex justify-content-between align-items-start gap-2">
+                                                    <div>
+                                                        <strong class="text-dark d-block mb-1">13 July 2019 Kachin Monsoon Floods</strong>
+                                                        <p class="extra-small mb-0">Heavy monsoon rainfall caused rivers to overflow, resulting in flooding across Myitkyina, Bhamo and Shwegu townships. More than 6,200 people were evacuated.</p>
+                                                    </div>
+                                                    <i class="bi bi-box-arrow-up-right fs-6 flex-shrink-0 mt-1"></i>
+                                                </div>
+                                            </a>
+                                            <a class="disaster-event-card" href="https://www.rfa.org/english/news/myanmar/jade-12212021173345.html" target="_blank">
+                                                <div class="d-flex justify-content-between align-items-start gap-2">
+                                                    <div>
+                                                        <strong class="text-dark d-block mb-1">22 December 2021 Hpakant Landslide</strong>
+                                                        <p class="extra-small mb-0">A massive landslide at a jade mining site near Tharyargone village buried miners and swept people into a nearby lake. At least one person died and ~80 were missing.</p>
+                                                    </div>
+                                                    <i class="bi bi-box-arrow-up-right fs-6 flex-shrink-0 mt-1"></i>
+                                                </div>
+                                            </a>
+                                            <a class="disaster-event-card" href="https://www.irrawaddy.com/news/burma/at-least-seven-dead-10-missing-as-landslide-hits-mine-in-myanmars-kachin.html" target="_blank">
+                                                <div class="d-flex justify-content-between align-items-start gap-2">
+                                                    <div>
+                                                        <strong class="text-dark d-block mb-1">4 June 2024 Pang War Landslide</strong>
+                                                        <p class="extra-small mb-0">Heavy rainfall triggered a landslide at a rare-earth mining site in Pang War, Chipwi Township, killing at least 7 people with 10 others missing.</p>
+                                                    </div>
+                                                    <i class="bi bi-box-arrow-up-right fs-6 flex-shrink-0 mt-1"></i>
+                                                </div>
+                                            </a>
+                                            <a class="disaster-event-card" href="https://www.rfa.org/english/news/myanmar/myanmar-mine-collapse-06212024072910.html" target="_blank">
+                                                <div class="d-flex justify-content-between align-items-start gap-2">
+                                                    <div>
+                                                        <strong class="text-dark d-block mb-1">19 June 2024 Pang War Mine Landslide</strong>
+                                                        <p class="extra-small mb-0">A major collapse at a rare-earth mining site buried ~30 workers. At least 15 bodies were recovered.</p>
+                                                    </div>
+                                                    <i class="bi bi-box-arrow-up-right fs-6 flex-shrink-0 mt-1"></i>
+                                                </div>
+                                            </a>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <div class="row justify-content-center">
+                                    <div class="col-12 col-lg-11">
+                                        <div class="region-stats-card p-3 p-sm-4 rounded-3 bg-light border shadow-sm">
+                                            <h4 class="h5 fw-bold mb-3 mb-sm-4 text-dark d-flex align-items-center justify-content-center gap-2">
+                                                Region Risk Profile
+                                            </h4>
+                                            <div class="row row-cols-2 row-cols-sm-3 row-cols-lg-5 g-2 g-sm-3 text-center">
+                                                <div class="col">
+                                                    <div class="p-2 p-sm-3 rounded bg-white border h-100 d-flex flex-column justify-content-center">
+                                                        <span class="d-block small mb-1">Major Events</span>
+                                                        <strong class="stat-value text-dark d-block">4 Recorded</strong>
+                                                    </div>
+                                                </div>
+                                                <div class="col">
+                                                    <div class="p-2 p-sm-3 rounded bg-white border h-100 d-flex flex-column justify-content-center">
+                                                        <span class="d-block small mb-1">Main Threat</span>
+                                                        <strong class="stat-value text-dark d-block">Landslide</strong>
+                                                    </div>
+                                                </div>
+                                                <div class="col">
+                                                    <div class="p-2 p-sm-3 rounded bg-white border h-100 d-flex flex-column justify-content-center">
+                                                        <span class="d-block small mb-1">Latest Event</span>
+                                                        <strong class="stat-value text-dark d-block">Jun 2024</strong>
+                                                    </div>
+                                                </div>
+                                                <div class="col">
+                                                    <div class="p-2 p-sm-3 rounded bg-white border h-100 d-flex flex-column justify-content-center">
+                                                        <span class="d-block small mb-1">Total Affected</span>
+                                                        <strong class="stat-value text-dark d-block">~7,000+</strong>
+                                                    </div>
+                                                </div>
+                                                <div class="col">
+                                                    <div class="p-2 p-sm-3 rounded bg-white border h-100 d-flex flex-column justify-content-center">
+                                                        <span class="d-block small mb-1">Primary Trigger</span>
+                                                        <strong class="stat-value text-dark d-block">Heavy Rain</strong>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <!-- Mandalay -->
+                            <div class="region-content" id="mandalay">
+                                <div class="row align-items-stretch g-4 mb-4">
+                                    <div class="col-md-5">
+                                        <div class="d-flex flex-column justify-content-between h-100">
+                                            <div>
+                                                <h4 class="fw-bold fs-5 mb-2">Key Takeaways</h4>
+                                                <p class="small mb-3" style="line-height: 1.6;">
+                                                    Located along the active Sagaing Fault and the Central Dry Zone, Mandalay experiences devastating earthquakes alongside seasonal floods and droughts.
+                                                </p>
+                                            </div>
+                                            <div class="my-3">
+                                                <img src="./img/explore/Mandalay.jpg" alt="Mandalay" class="img-fluid rounded w-100 shadow-sm" style="max-height: 180px; object-fit: cover;">
+                                            </div>
+                                            <div class="bg-white p-3 rounded shadow-sm" style="border: 1px solid #000000;">
+                                                <span class="d-block fw-semibold text-uppercase text-dark" style="font-size: 0.75rem;">Latest Event</span>
+                                                <span class="small fw-bold text-dark">Mandalay Major Seismic Event</span>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="col-md-7">
+                                        <h3 class="h5 fw-bold mb-2">Mandalay Region</h3>
+                                        <p class="region-description mb-3">
+                                            Mandalay has experienced several natural disasters that have affected its communities, infrastructure and environment. Some major recorded events include:
+                                        </p>
+                                        <div class="region-events-list d-flex flex-column gap-2">
+                                            <a class="disaster-event-card" href="https://myanmar.un.org/en/291866-initial-situation-report-earthquake-central-myanmar-28-march-2025" target="_blank">
+                                                <div class="d-flex justify-content-between align-items-start gap-2">
+                                                    <div>
+                                                        <strong class="text-dark d-block mb-1">28 March 2025 Central Myanmar Earthquake</strong>
+                                                        <p class="extra-small mb-0">A powerful magnitude 7.7 earthquake struck central Myanmar, with its epicentre ~19 km northwest of Mandalay, causing widespread building collapses.</p>
+                                                    </div>
+                                                    <i class="bi bi-box-arrow-up-right fs-6 flex-shrink-0 mt-1"></i>
+                                                </div>
+                                            </a>
+                                            <a class="disaster-event-card" href="https://www.moi.gov.mm/nlm/sites/default/files/newspaper-pdf/2021-01/18_Jan_21_gnlm.pdf" target="_blank">
+                                                <div class="d-flex justify-content-between align-items-start gap-2">
+                                                    <div>
+                                                        <strong class="text-dark d-block mb-1">24 August 2016 Bagan Earthquake</strong>
+                                                        <p class="extra-small mb-0">A magnitude 6.8 earthquake struck central Myanmar, damaging almost 400 of Bagan's 3,252 pagodas and historical structures.</p>
+                                                    </div>
+                                                    <i class="bi bi-box-arrow-up-right fs-6 flex-shrink-0 mt-1"></i>
+                                                </div>
+                                            </a>
+                                            <a class="disaster-event-card" href="https://myanmar.un.org/en/278804-myanmar-flood-situation-report-16-september-2024" target="_blank">
+                                                <div class="d-flex justify-content-between align-items-start gap-2">
+                                                    <div>
+                                                        <strong class="text-dark d-block mb-1">September 2024 Mandalay Floods</strong>
+                                                        <p class="extra-small mb-0">Heavy monsoon rainfall and remnants of Typhoon Yagi caused severe flooding across Mandalay, affecting homes, farmland, and transport.</p>
+                                                    </div>
+                                                    <i class="bi bi-box-arrow-up-right fs-6 flex-shrink-0 mt-1"></i>
+                                                </div>
+                                            </a>
+                                            <a class="disaster-event-card" href="https://www.moi.gov.mm/moi:eng/news/15678" target="_blank">
+                                                <div class="d-flex justify-content-between align-items-start gap-2">
+                                                    <div>
+                                                        <strong class="text-dark d-block mb-1">1 October 2024 Myittha Floods</strong>
+                                                        <p class="extra-small mb-0">Heavy rainfall caused the Panlaung River to overflow in Myittha Township, flooding 15 villages and 6 wards, affecting 19,845 people.</p>
+                                                    </div>
+                                                    <i class="bi bi-box-arrow-up-right fs-6 flex-shrink-0 mt-1"></i>
+                                                </div>
+                                            </a>
+                                            <a class="disaster-event-card" href="https://api.erat.ahacentre.org/report/myanmar-landslide-in-mandalay-region-20210824" target="_blank">
+                                                <div class="d-flex justify-content-between align-items-start gap-2">
+                                                    <div>
+                                                        <strong class="text-dark d-block mb-1">24 August 2021 Mogok Landslide</strong>
+                                                        <p class="extra-small mb-0">Heavy rainfall triggered a landslide in Mogok Township, burying 4 houses, killing 11 people and injuring 3.</p>
+                                                    </div>
+                                                    <i class="bi bi-box-arrow-up-right fs-6 flex-shrink-0 mt-1"></i>
+                                                </div>
+                                            </a>
+                                            <a class="disaster-event-card" href="https://digitallibrary.un.org/record/3837376" target="_blank">
+                                                <div class="d-flex justify-content-between align-items-start gap-2">
+                                                    <div>
+                                                        <strong class="text-dark d-block mb-1">2014–2015 El Niño-Related Drought</strong>
+                                                        <p class="extra-small mb-0">Mandalay experienced severe drought and prolonged dry spells during El Niño, impacting agriculture and water availability.</p>
+                                                    </div>
+                                                    <i class="bi bi-box-arrow-up-right fs-6 flex-shrink-0 mt-1"></i>
+                                                </div>
+                                            </a>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <div class="row justify-content-center">
+                                    <div class="col-12 col-lg-11">
+                                        <div class="region-stats-card p-3 p-sm-4 rounded-3 bg-light border shadow-sm">
+                                            <h4 class="h5 fw-bold mb-3 mb-sm-4 text-dark d-flex align-items-center justify-content-center gap-2">
+                                                Region Risk Profile
+                                            </h4>
+                                            <div class="row row-cols-2 row-cols-sm-3 row-cols-lg-5 g-2 g-sm-3 text-center">
+                                                <div class="col">
+                                                    <div class="p-2 p-sm-3 rounded bg-white border h-100 d-flex flex-column justify-content-center">
+                                                        <span class="d-block small mb-1">Major Events</span>
+                                                        <strong class="stat-value text-dark d-block">6 Recorded</strong>
+                                                    </div>
+                                                </div>
+                                                <div class="col">
+                                                    <div class="p-2 p-sm-3 rounded bg-white border h-100 d-flex flex-column justify-content-center">
+                                                        <span class="d-block small mb-1">Main Threat</span>
+                                                        <strong class="stat-value text-dark d-block">Earthquake</strong>
+                                                    </div>
+                                                </div>
+                                                <div class="col">
+                                                    <div class="p-2 p-sm-3 rounded bg-white border h-100 d-flex flex-column justify-content-center">
+                                                        <span class="d-block small mb-1">Latest Event</span>
+                                                        <strong class="stat-value text-dark d-block">Mar 2025</strong>
+                                                    </div>
+                                                </div>
+                                                <div class="col">
+                                                    <div class="p-2 p-sm-3 rounded bg-white border h-100 d-flex flex-column justify-content-center">
+                                                        <span class="d-block small mb-1">Total Affected</span>
+                                                        <strong class="stat-value text-dark d-block">~25,000+</strong>
+                                                    </div>
+                                                </div>
+                                                <div class="col">
+                                                    <div class="p-2 p-sm-3 rounded bg-white border h-100 d-flex flex-column justify-content-center">
+                                                        <span class="d-block small mb-1">Primary Trigger</span>
+                                                        <strong class="stat-value text-dark d-block">Seismic Activity</strong>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <!-- Sagaing -->
+                            <div class="region-content" id="sagaing">
+                                <div class="row align-items-stretch g-4 mb-4">
+                                    <div class="col-md-5">
+                                        <div class="d-flex flex-column justify-content-between h-100">
+                                            <div>
+                                                <h4 class="fw-bold fs-5 mb-2">Key Takeaways</h4>
+                                                <p class="small mb-3" style="line-height: 1.6;">
+                                                    Sagaing faces compound hazards from Chindwin River monsoon flooding, severe seismic activity near Sagaing City, and recurring dry-zone droughts.
+                                                </p>
+                                            </div>
+                                            <div class="my-3">
+                                                <img src="./img/explore/Sagaing.jpg" alt="Sagaing" class="img-fluid rounded w-100 shadow-sm" style="max-height: 180px; object-fit: cover;">
+                                            </div>
+                                            <div class="bg-white p-3 rounded shadow-sm" style="border: 1px solid #000000;">
+                                                <span class="d-block fw-semibold text-uppercase text-dark" style="font-size: 0.75rem;">Latest Event</span>
+                                                <span class="small fw-bold text-dark">Sagaing Basin Floods & Fault Risks</span>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="col-md-7">
+                                        <h3 class="h5 fw-bold mb-2">Sagaing Region</h3>
+                                        <p class="region-description mb-3">
+                                            Sagaing has experienced several natural disasters that have affected its communities, infrastructure and environment. Some major recorded events include:
+                                        </p>
+                                        <div class="region-events-list d-flex flex-column gap-2">
+                                            <a class="disaster-event-card" href="https://myanmar.un.org/en/291866-initial-situation-report-earthquake-central-myanmar-28-march-2025" target="_blank">
+                                                <div class="d-flex justify-content-between align-items-start gap-2">
+                                                    <div>
+                                                        <strong class="text-dark d-block mb-1">28 March 2025 Central Myanmar Earthquake</strong>
+                                                        <p class="extra-small mb-0">A powerful magnitude 7.7 earthquake struck ~16 km northwest of Sagaing City, causing widespread building and infrastructure damage.</p>
+                                                    </div>
+                                                    <i class="bi bi-box-arrow-up-right fs-6 flex-shrink-0 mt-1"></i>
+                                                </div>
+                                            </a>
+                                            <a class="disaster-event-card" href="https://themimu.info/sites/themimu.info/files/documents/Flash_Update_No_2_Myanmar_Floods_Emergency_OCHA_03Aug2015.pdf" target="_blank">
+                                                <div class="d-flex justify-content-between align-items-start gap-2">
+                                                    <div>
+                                                        <strong class="text-dark d-block mb-1">July–August 2015 Kale Floods</strong>
+                                                        <p class="extra-small mb-0">Monsoon rainfall associated with Cyclone Komen caused severe flooding in Kale Township, affecting ~70,000 people.</p>
+                                                    </div>
+                                                    <i class="bi bi-box-arrow-up-right fs-6 flex-shrink-0 mt-1"></i>
+                                                </div>
+                                            </a>
+                                            <a class="disaster-event-card" href="https://www.moi.gov.mm/moi:eng/news/14579" target="_blank">
+                                                <div class="d-flex justify-content-between align-items-start gap-2">
+                                                    <div>
+                                                        <strong class="text-dark d-block mb-1">3 July 2024 Hkamti Floods</strong>
+                                                        <p class="extra-small mb-0">Heavy rainfall caused the Chindwin River to exceed its danger level, flooding several wards and villages in Hkamti Township.</p>
+                                                    </div>
+                                                    <i class="bi bi-box-arrow-up-right fs-6 flex-shrink-0 mt-1"></i>
+                                                </div>
+                                            </a>
+                                            <a class="disaster-event-card" href="https://myanmar.un.org/en/279207-myanmar-flood-situation-report-2-20-september-2024" target="_blank">
+                                                <div class="d-flex justify-content-between align-items-start gap-2">
+                                                    <div>
+                                                        <strong class="text-dark d-block mb-1">September 2024 Sagaing Region Floods</strong>
+                                                        <p class="extra-small mb-0">Heavy rainfall caused flooding in Chaung-U, Myaung and Myinmu townships, submerging farmland and damaging crops.</p>
+                                                    </div>
+                                                    <i class="bi bi-box-arrow-up-right fs-6 flex-shrink-0 mt-1"></i>
+                                                </div>
+                                            </a>
+                                            <a class="disaster-event-card" href="https://mdn.gov.mm/my/node/175500" target="_blank">
+                                                <div class="d-flex justify-content-between align-items-start gap-2">
+                                                    <div>
+                                                        <strong class="text-dark d-block mb-1">20 August 2024 Paungbyin Landslide</strong>
+                                                        <p class="extra-small mb-0">Heavy rainfall triggered a landslide in Paungbyin Township, destroying buildings and damaging a bridge over Nanmakhuin Creek.</p>
+                                                    </div>
+                                                    <i class="bi bi-box-arrow-up-right fs-6 flex-shrink-0 mt-1"></i>
+                                                </div>
+                                            </a>
+                                            <a class="disaster-event-card" href="https://www.adaptation-undp.org/projects/addressing-climate-change-risks-water-resources-and-food-security-dry-zone-myanmar" target="_blank">
+                                                <div class="d-flex justify-content-between align-items-start gap-2">
+                                                    <div>
+                                                        <strong class="text-dark d-block mb-1">Recurring Dry-Zone Droughts (Shwebo & Monywa)</strong>
+                                                        <p class="extra-small mb-0">Prolonged dry spells and recurring droughts caused water shortages in the Central Dry Zone, threatening agricultural production.</p>
+                                                    </div>
+                                                    <i class="bi bi-box-arrow-up-right fs-6 flex-shrink-0 mt-1"></i>
+                                                </div>
+                                            </a>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <div class="row justify-content-center">
+                                    <div class="col-12 col-lg-11">
+                                        <div class="region-stats-card p-3 p-sm-4 rounded-3 bg-light border shadow-sm">
+                                            <h4 class="h5 fw-bold mb-3 mb-sm-4 text-dark d-flex align-items-center justify-content-center gap-2">
+                                                Region Risk Profile
+                                            </h4>
+                                            <div class="row row-cols-2 row-cols-sm-3 row-cols-lg-5 g-2 g-sm-3 text-center">
+                                                <div class="col">
+                                                    <div class="p-2 p-sm-3 rounded bg-white border h-100 d-flex flex-column justify-content-center">
+                                                        <span class="d-block small mb-1">Major Events</span>
+                                                        <strong class="stat-value text-dark d-block">6 Recorded</strong>
+                                                    </div>
+                                                </div>
+                                                <div class="col">
+                                                    <div class="p-2 p-sm-3 rounded bg-white border h-100 d-flex flex-column justify-content-center">
+                                                        <span class="d-block small mb-1">Main Threat</span>
+                                                        <strong class="stat-value text-dark d-block">Flood</strong>
+                                                    </div>
+                                                </div>
+                                                <div class="col">
+                                                    <div class="p-2 p-sm-3 rounded bg-white border h-100 d-flex flex-column justify-content-center">
+                                                        <span class="d-block small mb-1">Latest Event</span>
+                                                        <strong class="stat-value text-dark d-block">Mar 2025</strong>
+                                                    </div>
+                                                </div>
+                                                <div class="col">
+                                                    <div class="p-2 p-sm-3 rounded bg-white border h-100 d-flex flex-column justify-content-center">
+                                                        <span class="d-block small mb-1">Total Affected</span>
+                                                        <strong class="stat-value text-dark d-block">~75,000+</strong>
+                                                    </div>
+                                                </div>
+                                                <div class="col">
+                                                    <div class="p-2 p-sm-3 rounded bg-white border h-100 d-flex flex-column justify-content-center">
+                                                        <span class="d-block small mb-1">Primary Trigger</span>
+                                                        <strong class="stat-value text-dark d-block">Monsoon Rains</strong>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <!-- Magway -->
+                            <div class="region-content" id="magway">
+                                <div class="row align-items-stretch g-4 mb-4">
+                                    <div class="col-md-5">
+                                        <div class="d-flex flex-column justify-content-between h-100">
+                                            <div>
+                                                <h4 class="fw-bold fs-5 mb-2">Key Takeaways</h4>
+                                                <p class="small mb-3" style="line-height: 1.6;">
+                                                    Situated in the Central Dry Zone along the Irrawaddy River, Magway alternates between severe agricultural droughts, riverbank erosion, and cyclonic floods.
+                                                </p>
+                                            </div>
+                                            <div class="my-3">
+                                                <img src="./img/explore/Magway.jpg" alt="Magway" class="img-fluid rounded w-100 shadow-sm" style="max-height: 180px; object-fit: cover;">
+                                            </div>
+                                            <div class="bg-white p-3 rounded shadow-sm" style="border: 1px solid #000000;">
+                                                <span class="d-block fw-semibold text-uppercase text-dark" style="font-size: 0.75rem;">Latest Event</span>
+                                                <span class="small fw-bold text-dark">Central Dry Zone Drought Cycle</span>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="col-md-7">
+                                        <h3 class="h5 fw-bold mb-2">Magway Region</h3>
+                                        <p class="region-description mb-3">
+                                            Magway has experienced natural disasters due to its location in Myanmar's Central Dry Zone and exposure to heavy monsoon rains. Some major recorded events include:
+                                        </p>
+                                        <div class="region-events-list d-flex flex-column gap-2">
+                                            <a class="disaster-event-card" href="https://unosat.org/products/999" target="_blank">
+                                                <div class="d-flex justify-content-between align-items-start gap-2">
+                                                    <div>
+                                                        <strong class="text-dark d-block mb-1">July–August 2015 Cyclone Komen Floods</strong>
+                                                        <p class="extra-small mb-0">Heavy rainfall from Cyclone Komen caused widespread flooding across Chauk, Pwintbyu, Yenangyaung, Magway and Sagu, inundating 60,000 hectares.</p>
+                                                    </div>
+                                                    <i class="bi bi-box-arrow-up-right fs-6 flex-shrink-0 mt-1"></i>
+                                                </div>
+                                            </a>
+                                            <a class="disaster-event-card" href="https://moezala.gov.mm/en/news/4965" target="_blank">
+                                                <div class="d-flex justify-content-between align-items-start gap-2">
+                                                    <div>
+                                                        <strong class="text-dark d-block mb-1">24 August 2016 Chauk Earthquake</strong>
+                                                        <p class="extra-small mb-0">A powerful magnitude 6.8 earthquake struck 12 miles west of Chauk, damaging buildings and historical structures.</p>
+                                                    </div>
+                                                    <i class="bi bi-box-arrow-up-right fs-6 flex-shrink-0 mt-1"></i>
+                                                </div>
+                                            </a>
+                                            <a class="disaster-event-card" href="https://www.moi.gov.mm/moi:eng/article/208" target="_blank">
+                                                <div class="d-flex justify-content-between align-items-start gap-2">
+                                                    <div>
+                                                        <strong class="text-dark d-block mb-1">2019 Early-Monsoon Drought</strong>
+                                                        <p class="extra-small mb-0">A month-long dry spell affected sesame and groundnut farmers in Magway, causing crop losses and drinking water shortages.</p>
+                                                    </div>
+                                                    <i class="bi bi-box-arrow-up-right fs-6 flex-shrink-0 mt-1"></i>
+                                                </div>
+                                            </a>
+                                            <a class="disaster-event-card" href="https://myanmar.un.org/en/279207-myanmar-flood-situation-report-2-20-september-2024" target="_blank">
+                                                <div class="d-flex justify-content-between align-items-start gap-2">
+                                                    <div>
+                                                        <strong class="text-dark d-block mb-1">September 2024 Magway Region Floods</strong>
+                                                        <p class="extra-small mb-0">Typhoon Yagi remnants caused severe flooding. Over 26,000 houses were damaged or washed away and 50,000 acres of farmland flooded.</p>
+                                                    </div>
+                                                    <i class="bi bi-box-arrow-up-right fs-6 flex-shrink-0 mt-1"></i>
+                                                </div>
+                                            </a>
+                                            <a class="disaster-event-card" href="https://myanmar.un.org/en/292274-ocha-myanmar-earthquake-response-situation-report-no-1" target="_blank">
+                                                <div class="d-flex justify-content-between align-items-start gap-2">
+                                                    <div>
+                                                        <strong class="text-dark d-block mb-1">28 March 2025 Central Myanmar Earthquake</strong>
+                                                        <p class="extra-small mb-0">Magnitudes 7.7 and 6.4 earthquakes struck central Myanmar, impacting Magway Region with shaking and infrastructure disruption.</p>
+                                                    </div>
+                                                    <i class="bi bi-box-arrow-up-right fs-6 flex-shrink-0 mt-1"></i>
+                                                </div>
+                                            </a>
+                                            <a class="disaster-event-card" href="https://mdn.gov.mm/en/four-villages-evacuated-due-riverbank-erosion-pakokku" target="_blank">
+                                                <div class="d-flex justify-content-between align-items-start gap-2">
+                                                    <div>
+                                                        <strong class="text-dark d-block mb-1">15 September 2025 Pakokku Landslides</strong>
+                                                        <p class="extra-small mb-0">Riverbank erosion and landslides along the Irrawaddy River threatened 4 villages in Pakokku, leading to the evacuation of 258 people.</p>
+                                                    </div>
+                                                    <i class="bi bi-box-arrow-up-right fs-6 flex-shrink-0 mt-1"></i>
+                                                </div>
+                                            </a>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <div class="row justify-content-center">
+                                    <div class="col-12 col-lg-11">
+                                        <div class="region-stats-card p-3 p-sm-4 rounded-3 bg-light border shadow-sm">
+                                            <h4 class="h5 fw-bold mb-3 mb-sm-4 text-dark d-flex align-items-center justify-content-center gap-2">
+                                                Region Risk Profile
+                                            </h4>
+                                            <div class="row row-cols-2 row-cols-sm-3 row-cols-lg-5 g-2 g-sm-3 text-center">
+                                                <div class="col">
+                                                    <div class="p-2 p-sm-3 rounded bg-white border h-100 d-flex flex-column justify-content-center">
+                                                        <span class="d-block small mb-1">Major Events</span>
+                                                        <strong class="stat-value text-dark d-block">6 Recorded</strong>
+                                                    </div>
+                                                </div>
+                                                <div class="col">
+                                                    <div class="p-2 p-sm-3 rounded bg-white border h-100 d-flex flex-column justify-content-center">
+                                                        <span class="d-block small mb-1">Main Threat</span>
+                                                        <strong class="stat-value text-dark d-block">Flood</strong>
+                                                    </div>
+                                                </div>
+                                                <div class="col">
+                                                    <div class="p-2 p-sm-3 rounded bg-white border h-100 d-flex flex-column justify-content-center">
+                                                        <span class="d-block small mb-1">Latest Event</span>
+                                                        <strong class="stat-value text-dark d-block">Sep 2025</strong>
+                                                    </div>
+                                                </div>
+                                                <div class="col">
+                                                    <div class="p-2 p-sm-3 rounded bg-white border h-100 d-flex flex-column justify-content-center">
+                                                        <span class="d-block small mb-1">Total Affected</span>
+                                                        <strong class="stat-value text-dark d-block">~60,000+</strong>
+                                                    </div>
+                                                </div>
+                                                <div class="col">
+                                                    <div class="p-2 p-sm-3 rounded bg-white border h-100 d-flex flex-column justify-content-center">
+                                                        <span class="d-block small mb-1">Primary Trigger</span>
+                                                        <strong class="stat-value text-dark d-block">Cyclonic Storms</strong>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <!-- Bago -->
+                            <div class="region-content" id="bago">
+                                <div class="row align-items-stretch g-4 mb-4">
+                                    <div class="col-md-5">
+                                        <div class="d-flex flex-column justify-content-between h-100">
+                                            <div>
+                                                <h4 class="fw-bold fs-5 mb-2">Key Takeaways</h4>
+                                                <p class="small mb-3" style="line-height: 1.6;">
+                                                    Low-lying plains along the Sittaung and Bago rivers make Bago highly prone to widespread monsoon flooding and major historical seismic events.
+                                                </p>
+                                            </div>
+                                            <div class="my-3">
+                                                <img src="./img/explore/Bago.jpg" alt="Bago" class="img-fluid rounded w-100 shadow-sm" style="max-height: 180px; object-fit: cover;">
+                                            </div>
+                                            <div class="bg-white p-3 rounded shadow-sm" style="border: 1px solid #000000;">
+                                                <span class="d-block fw-semibold text-uppercase text-dark" style="font-size: 0.75rem;">Latest Event</span>
+                                                <span class="small fw-bold text-dark">Bago Region Monsoon Floods</span>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="col-md-7">
+                                        <h3 class="h5 fw-bold mb-2">Bago Region</h3>
+                                        <p class="region-description mb-3">
+                                            Bago has experienced natural disasters affecting its communities, agriculture, and infrastructure, with many areas vulnerable to flooding along the Sittaung River. Recorded events include:
+                                        </p>
+                                        <div class="region-events-list d-flex flex-column gap-2">
+                                            <a class="disaster-event-card" href="https://www.moi.gov.mm/moi:eng/index.php/news/11233" target="_blank">
+                                                <div class="d-flex justify-content-between align-items-start gap-2">
+                                                    <div>
+                                                        <strong class="text-dark d-block mb-1">11 August 2023 Bago River Floods</strong>
+                                                        <p class="extra-small mb-0">Heavy rainfall caused the Bago River to exceed danger levels, flooding low-lying areas and sections of the Yangon-Mandalay Highway.</p>
+                                                    </div>
+                                                    <i class="bi bi-box-arrow-up-right fs-6 flex-shrink-0 mt-1"></i>
+                                                </div>
+                                            </a>
+                                            <a class="disaster-event-card" href="https://myanmar.un.org/en/280005-unhcr-flash-update-flooding-myanmar-28-september-2024" target="_blank">
+                                                <div class="d-flex justify-content-between align-items-start gap-2">
+                                                    <div>
+                                                        <strong class="text-dark d-block mb-1">September 2024 Bago Region Floods</strong>
+                                                        <p class="extra-small mb-0">Typhoon Yagi caused widespread flooding across Taungoo, Kyaukkyi and Shwegyin, submerging hundreds of villages and affecting 316,000+ people.</p>
+                                                    </div>
+                                                    <i class="bi bi-box-arrow-up-right fs-6 flex-shrink-0 mt-1"></i>
+                                                </div>
+                                            </a>
+                                            <a class="disaster-event-card" href="https://www.apterr.org/activities/455-apterr-tier-3-rice-contributed-by-korea-for-over-68%2C000-flood-and-landside-affected-people-in-bago%2C-myanmar" target="_blank">
+                                                <div class="d-flex justify-content-between align-items-start gap-2">
+                                                    <div>
+                                                        <strong class="text-dark d-block mb-1">September 2024 Bago Region Landslides</strong>
+                                                        <p class="extra-small mb-0">Monsoon rainfall and Typhoon Yagi triggered landslides and floods across Bago Region, affecting thousands of residents.</p>
+                                                    </div>
+                                                    <i class="bi bi-box-arrow-up-right fs-6 flex-shrink-0 mt-1"></i>
+                                                </div>
+                                            </a>
+                                            <a class="disaster-event-card" href="https://www.rrdmyanmar.gov.mm/wp-content/uploads/2013/08/Standing-Order-on-Natural-Disaster-management-in-Myanmar.pdf" target="_blank">
+                                                <div class="d-flex justify-content-between align-items-start gap-2">
+                                                    <div>
+                                                        <strong class="text-dark d-block mb-1">5 May 1930 Bago Earthquake</strong>
+                                                        <p class="extra-small mb-0">A powerful magnitude 7.3 earthquake struck Bago, destroying houses and damaging Shwemawdaw Pagoda. ~500 people were killed.</p>
+                                                    </div>
+                                                    <i class="bi bi-box-arrow-up-right fs-6 flex-shrink-0 mt-1"></i>
+                                                </div>
+                                            </a>
+                                            <a class="disaster-event-card" href="https://myanmar.un.org/en/291886-myanmar-earthquake-flash-update-2-31-march-2025" target="_blank">
+                                                <div class="d-flex justify-content-between align-items-start gap-2">
+                                                    <div>
+                                                        <strong class="text-dark d-block mb-1">28 March 2025 Central Myanmar Earthquake</strong>
+                                                        <p class="extra-small mb-0">A magnitude 7.7 earthquake struck central Myanmar, affecting Bago Region and causing damage to homes and schools.</p>
+                                                    </div>
+                                                    <i class="bi bi-box-arrow-up-right fs-6 flex-shrink-0 mt-1"></i>
+                                                </div>
+                                            </a>
+                                            <a class="disaster-event-card" href="https://gwpo-gwp.org/southeast-asia/wp-content/uploads/sites/15/2026/03/Drought-Conditions-and-Interventions-in-Southeast-Asia.pdf" target="_blank">
+                                                <div class="d-flex justify-content-between align-items-start gap-2">
+                                                    <div>
+                                                        <strong class="text-dark d-block mb-1">Drought Vulnerability in Bago Region</strong>
+                                                        <p class="extra-small mb-0">Bago has medium drought vulnerability due to irrigation dependence, threatening crops during prolonged dry periods.</p>
+                                                    </div>
+                                                    <i class="bi bi-box-arrow-up-right fs-6 flex-shrink-0 mt-1"></i>
+                                                </div>
+                                            </a>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <div class="row justify-content-center">
+                                    <div class="col-12 col-lg-11">
+                                        <div class="region-stats-card p-3 p-sm-4 rounded-3 bg-light border shadow-sm">
+                                            <h4 class="h5 fw-bold mb-3 mb-sm-4 text-dark d-flex align-items-center justify-content-center gap-2">
+                                                Region Risk Profile
+                                            </h4>
+                                            <div class="row row-cols-2 row-cols-sm-3 row-cols-lg-5 g-2 g-sm-3 text-center">
+                                                <div class="col">
+                                                    <div class="p-2 p-sm-3 rounded bg-white border h-100 d-flex flex-column justify-content-center">
+                                                        <span class="d-block small mb-1">Major Events</span>
+                                                        <strong class="stat-value text-dark d-block">6 Recorded</strong>
+                                                    </div>
+                                                </div>
+                                                <div class="col">
+                                                    <div class="p-2 p-sm-3 rounded bg-white border h-100 d-flex flex-column justify-content-center">
+                                                        <span class="d-block small mb-1">Main Threat</span>
+                                                        <strong class="stat-value text-dark d-block">Flood</strong>
+                                                    </div>
+                                                </div>
+                                                <div class="col">
+                                                    <div class="p-2 p-sm-3 rounded bg-white border h-100 d-flex flex-column justify-content-center">
+                                                        <span class="d-block small mb-1">Latest Event</span>
+                                                        <strong class="stat-value text-dark d-block">Mar 2025</strong>
+                                                    </div>
+                                                </div>
+                                                <div class="col">
+                                                    <div class="p-2 p-sm-3 rounded bg-white border h-100 d-flex flex-column justify-content-center">
+                                                        <span class="d-block small mb-1">Total Affected</span>
+                                                        <strong class="stat-value text-dark d-block">~320,000+</strong>
+                                                    </div>
+                                                </div>
+                                                <div class="col">
+                                                    <div class="p-2 p-sm-3 rounded bg-white border h-100 d-flex flex-column justify-content-center">
+                                                        <span class="d-block small mb-1">Primary Trigger</span>
+                                                        <strong class="stat-value text-dark d-block">Typhoon Yagi</strong>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <!-- Shan -->
+                            <div class="region-content" id="shan">
+                                <div class="row align-items-stretch g-4 mb-4">
+                                    <div class="col-md-5">
+                                        <div class="d-flex flex-column justify-content-between h-100">
+                                            <div>
+                                                <h4 class="fw-bold fs-5 mb-2">Key Takeaways</h4>
+                                                <p class="small mb-3" style="line-height: 1.6;">
+                                                    Steep highland topography and fault lines expose Shan State to flash floods, mountain landslides, earthquakes, and seasonal dry spells.
+                                                </p>
+                                            </div>
+                                            <div class="my-3">
+                                                <img src="./img/explore/Shan.jpg" alt="Shan State" class="img-fluid rounded w-100 shadow-sm" style="max-height: 180px; object-fit: cover;">
+                                            </div>
+                                            <div class="bg-white p-3 rounded shadow-sm" style="border: 1px solid #000000;">
+                                                <span class="d-block fw-semibold text-uppercase text-dark" style="font-size: 0.75rem;">Latest Event</span>
+                                                <span class="small fw-bold text-dark">Shan State Flash Floods</span>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="col-md-7">
+                                        <h3 class="h5 fw-bold mb-2">Shan State</h3>
+                                        <p class="region-description mb-3">
+                                            Shan State experiences natural disasters due to mountainous terrain, heavy monsoon rainfall, and seismic activity. Recorded events include:
+                                        </p>
+                                        <div class="region-events-list d-flex flex-column gap-2">
+                                            <a class="disaster-event-card" href="https://unhabitatmyanmar.org/wp-content/uploads/2015/03/Shelter-Assessment-Shan-State-Earthquake-Affected-Areas.pdf" target="_blank">
+                                                <div class="d-flex justify-content-between align-items-start gap-2">
+                                                    <div>
+                                                        <strong class="text-dark d-block mb-1">24 March 2011 Tarlay Earthquake</strong>
+                                                        <p class="extra-small mb-0">A magnitude 6.8 earthquake struck eastern Shan State near Tachileik, affecting ~18,000 people across 90 villages, killing 74.</p>
+                                                    </div>
+                                                    <i class="bi bi-box-arrow-up-right fs-6 flex-shrink-0 mt-1"></i>
+                                                </div>
+                                            </a>
+                                            <a class="disaster-event-card" href="https://myanmar.un.org/en/278804-myanmar-flood-situation-report-16-september-2024" target="_blank">
+                                                <div class="d-flex justify-content-between align-items-start gap-2">
+                                                    <div>
+                                                        <strong class="text-dark d-block mb-1">September 2024 Typhoon Yagi Floods</strong>
+                                                        <p class="extra-small mb-0">Heavy rain caused severe flooding across eastern/southern Shan. Over 80% of Nyaungshwe Township was submerged (74,000 affected).</p>
+                                                    </div>
+                                                    <i class="bi bi-box-arrow-up-right fs-6 flex-shrink-0 mt-1"></i>
+                                                </div>
+                                            </a>
+                                            <a class="disaster-event-card" href="https://www.moi.gov.mm/moi:eng/news/15540" target="_blank">
+                                                <div class="d-flex justify-content-between align-items-start gap-2">
+                                                    <div>
+                                                        <strong class="text-dark d-block mb-1">11 September 2024 Hopong Floods</strong>
+                                                        <p class="extra-small mb-0">Severe flooding in Sanphu Village, Hopong Township, destroyed 261 houses, partially damaged 336 houses, and caused 26 deaths.</p>
+                                                    </div>
+                                                    <i class="bi bi-box-arrow-up-right fs-6 flex-shrink-0 mt-1"></i>
+                                                </div>
+                                            </a>
+                                            <a class="disaster-event-card" href="https://myanmar.un.org/en/279207-myanmar-flood-situation-report-2-20-september-2024" target="_blank">
+                                                <div class="d-flex justify-content-between align-items-start gap-2">
+                                                    <div>
+                                                        <strong class="text-dark d-block mb-1">September 2024 Eastern/Southern Shan Landslides</strong>
+                                                        <p class="extra-small mb-0">Monsoon rainfall triggered landslides and floods across 26 townships, damaging homes and roads.</p>
+                                                    </div>
+                                                    <i class="bi bi-box-arrow-up-right fs-6 flex-shrink-0 mt-1"></i>
+                                                </div>
+                                            </a>
+                                            <a class="disaster-event-card" href="https://www.moi.gov.mm/moi%3Aeng/index.php/earthquake-news/17806" target="_blank">
+                                                <div class="d-flex justify-content-between align-items-start gap-2">
+                                                    <div>
+                                                        <strong class="text-dark d-block mb-1">28 March 2025 Central Myanmar Earthquake</strong>
+                                                        <p class="extra-small mb-0">A magnitude 7.7 earthquake affected Shan State, damaging buildings and infrastructure in Aungban and Nyaungshwe.</p>
+                                                    </div>
+                                                    <i class="bi bi-box-arrow-up-right fs-6 flex-shrink-0 mt-1"></i>
+                                                </div>
+                                            </a>
+                                            <a class="disaster-event-card" href="https://www.unescap.org/sites/default/files/publications/Ready_for_the_Dry_Years_Second_edition.pdf.pdf" target="_blank">
+                                                <div class="d-flex justify-content-between align-items-start gap-2">
+                                                    <div>
+                                                        <strong class="text-dark d-block mb-1">2015 and 2020 Shan State Drought Conditions</strong>
+                                                        <p class="extra-small mb-0">UN research identified Shan State as a recurring drought hotspot, threatening rural agricultural livelihoods.</p>
+                                                    </div>
+                                                    <i class="bi bi-box-arrow-up-right fs-6 flex-shrink-0 mt-1"></i>
+                                                </div>
+                                            </a>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <div class="row justify-content-center">
+                                    <div class="col-12 col-lg-11">
+                                        <div class="region-stats-card p-3 p-sm-4 rounded-3 bg-light border shadow-sm">
+                                            <h4 class="h5 fw-bold mb-3 mb-sm-4 text-dark d-flex align-items-center justify-content-center gap-2">
+                                                Region Risk Profile
+                                            </h4>
+                                            <div class="row row-cols-2 row-cols-sm-3 row-cols-lg-5 g-2 g-sm-3 text-center">
+                                                <div class="col">
+                                                    <div class="p-2 p-sm-3 rounded bg-white border h-100 d-flex flex-column justify-content-center">
+                                                        <span class="d-block small mb-1">Major Events</span>
+                                                        <strong class="stat-value text-dark d-block">6 Recorded</strong>
+                                                    </div>
+                                                </div>
+                                                <div class="col">
+                                                    <div class="p-2 p-sm-3 rounded bg-white border h-100 d-flex flex-column justify-content-center">
+                                                        <span class="d-block small mb-1">Main Threat</span>
+                                                        <strong class="stat-value text-dark d-block">Flood / Earthquake</strong>
+                                                    </div>
+                                                </div>
+                                                <div class="col">
+                                                    <div class="p-2 p-sm-3 rounded bg-white border h-100 d-flex flex-column justify-content-center">
+                                                        <span class="d-block small mb-1">Latest Event</span>
+                                                        <strong class="stat-value text-dark d-block">Mar 2025</strong>
+                                                    </div>
+                                                </div>
+                                                <div class="col">
+                                                    <div class="p-2 p-sm-3 rounded bg-white border h-100 d-flex flex-column justify-content-center">
+                                                        <span class="d-block small mb-1">Total Affected</span>
+                                                        <strong class="stat-value text-dark d-block">~100,000+</strong>
+                                                    </div>
+                                                </div>
+                                                <div class="col">
+                                                    <div class="p-2 p-sm-3 rounded bg-white border h-100 d-flex flex-column justify-content-center">
+                                                        <span class="d-block small mb-1">Primary Trigger</span>
+                                                        <strong class="stat-value text-dark d-block">Seismic/Rain</strong>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <!-- Ayeyarwady -->
+                            <div class="region-content" id="ayeyarwady">
+                                <div class="row align-items-stretch g-4 mb-4">
+                                    <div class="col-md-5">
+                                        <div class="d-flex flex-column justify-content-between h-100">
+                                            <div>
+                                                <h4 class="fw-bold fs-5 mb-2">Key Takeaways</h4>
+                                                <p class="small mb-3" style="line-height: 1.6;">
+                                                    As a low-lying coastal delta, Ayeyarwady faces catastrophic storm-surge risks during cyclones alongside river embankment breaches and dry-season water scarcity.
+                                                </p>
+                                            </div>
+                                            <div class="my-3">
+                                                <img src="./img/explore/Ayeyarwaddy.jpg" alt="Ayeyarwady Region" class="img-fluid rounded w-100 shadow-sm" style="max-height: 180px; object-fit: cover;">
+                                            </div>
+                                            <div class="bg-white p-3 rounded shadow-sm" style="border: 1px solid #000000;">
+                                                <span class="d-block fw-semibold text-uppercase text-dark" style="font-size: 0.75rem;">Latest Event</span>
+                                                <span class="small fw-bold text-dark">Ayeyarwady Monsoonal Inundation</span>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="col-md-7">
+                                        <h3 class="h5 fw-bold mb-2">Ayeyarwady Region</h3>
+                                        <p class="region-description mb-3">
+                                            Located in the low-lying Irrawaddy River Delta, coastal and riverside communities are vulnerable to flooding, storm surges, and droughts. Recorded events include:
+                                        </p>
+                                        <div class="region-events-list d-flex flex-column gap-2">
+                                            <a class="disaster-event-card" href="https://myanmar.un.org/en/21807-statement-united-nations-resident-and-humanitarian-coordinator-myanmar-knut-ostby-ten-years" target="_blank">
+                                                <div class="d-flex justify-content-between align-items-start gap-2">
+                                                    <div>
+                                                        <strong class="text-dark d-block mb-1">2–3 May 2008 Cyclone Nargis Storm-Surge</strong>
+                                                        <p class="extra-small mb-0">Cyclone Nargis brought destructive winds, heavy rain, and storm surges. ~140,000 people died or went missing, and 2.4 million were affected.</p>
+                                                    </div>
+                                                    <i class="bi bi-box-arrow-up-right fs-6 flex-shrink-0 mt-1"></i>
+                                                </div>
+                                            </a>
+                                            <a class="disaster-event-card" href="https://themimu.info/emergencies/floods-2015-ayeyarwady" target="_blank">
+                                                <div class="d-flex justify-content-between align-items-start gap-2">
+                                                    <div>
+                                                        <strong class="text-dark d-block mb-1">July–September 2015 Delta Floods</strong>
+                                                        <p class="extra-small mb-0">Monsoon rainfall caused widespread flooding across Pathein, Labutta, and Kyaiklat in the Ayeyarwady Delta.</p>
+                                                    </div>
+                                                    <i class="bi bi-box-arrow-up-right fs-6 flex-shrink-0 mt-1"></i>
+                                                </div>
+                                            </a>
+                                            <a class="disaster-event-card" href="https://documents1.worldbank.org/curated/en/142691554202690382/pdf/9960_Myanmar.pdf" target="_blank">
+                                                <div class="d-flex justify-content-between align-items-start gap-2">
+                                                    <div>
+                                                        <strong class="text-dark d-block mb-1">2015–2016 El Niño-Related Drought</strong>
+                                                        <p class="extra-small mb-0">Prolonged dry conditions lowered groundwater levels, causing water shortages across 20 villages in Tharbaung Township.</p>
+                                                    </div>
+                                                    <i class="bi bi-box-arrow-up-right fs-6 flex-shrink-0 mt-1"></i>
+                                                </div>
+                                            </a>
+                                            <a class="disaster-event-card" href="https://www.adrc.asia/publications/disaster_report/pdf/2025/Myanmar_EQ_20250328_en_2026.pdf" target="_blank">
+                                                <div class="d-flex justify-content-between align-items-start gap-2">
+                                                    <div>
+                                                        <strong class="text-dark d-block mb-1">24 August 1858 Pyay Earthquake</strong>
+                                                        <p class="extra-small mb-0">Historical records report collapsed houses and damaged pagodas in Pyay, Henzada (Hinthada), and Thayetmyo.</p>
+                                                    </div>
+                                                    <i class="bi bi-box-arrow-up-right fs-6 flex-shrink-0 mt-1"></i>
+                                                </div>
+                                            </a>
+                                            <a class="disaster-event-card" href="https://myanmar.un.org/en/320940-wfp-launches-emergency-flood-response-myanmar-monsoon-flooding-compounds-severe-humanitarian" target="_blank">
+                                                <div class="d-flex justify-content-between align-items-start gap-2">
+                                                    <div>
+                                                        <strong class="text-dark d-block mb-1">30 July 2026 Laymyethna Floods</strong>
+                                                        <p class="extra-small mb-0">Heavy rain and an Ngawun River embankment breach caused severe flooding in Laymyethna, affecting 32,000+ people across 98 villages.</p>
+                                                    </div>
+                                                    <i class="bi bi-box-arrow-up-right fs-6 flex-shrink-0 mt-1"></i>
+                                                </div>
+                                            </a>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <div class="row justify-content-center">
+                                    <div class="col-12 col-lg-11">
+                                        <div class="region-stats-card p-3 p-sm-4 rounded-3 bg-light border shadow-sm">
+                                            <h4 class="h5 fw-bold mb-3 mb-sm-4 text-dark d-flex align-items-center justify-content-center gap-2">
+                                                Region Risk Profile
+                                            </h4>
+                                            <div class="row row-cols-2 row-cols-sm-3 row-cols-lg-5 g-2 g-sm-3 text-center">
+                                                <div class="col">
+                                                    <div class="p-2 p-sm-3 rounded bg-white border h-100 d-flex flex-column justify-content-center">
+                                                        <span class="d-block small mb-1">Major Events</span>
+                                                        <strong class="stat-value text-dark d-block">5 Recorded</strong>
+                                                    </div>
+                                                </div>
+                                                <div class="col">
+                                                    <div class="p-2 p-sm-3 rounded bg-white border h-100 d-flex flex-column justify-content-center">
+                                                        <span class="d-block small mb-1">Main Threat</span>
+                                                        <strong class="stat-value text-dark d-block">Flood</strong>
+                                                    </div>
+                                                </div>
+                                                <div class="col">
+                                                    <div class="p-2 p-sm-3 rounded bg-white border h-100 d-flex flex-column justify-content-center">
+                                                        <span class="d-block small mb-1">Latest Event</span>
+                                                        <strong class="stat-value text-dark d-block">Jul 2026</strong>
+                                                    </div>
+                                                </div>
+                                                <div class="col">
+                                                    <div class="p-2 p-sm-3 rounded bg-white border h-100 d-flex flex-column justify-content-center">
+                                                        <span class="d-block small mb-1">Total Affected</span>
+                                                        <strong class="stat-value text-dark d-block">~2.4M+</strong>
+                                                    </div>
+                                                </div>
+                                                <div class="col">
+                                                    <div class="p-2 p-sm-3 rounded bg-white border h-100 d-flex flex-column justify-content-center">
+                                                        <span class="d-block small mb-1">Primary Trigger</span>
+                                                        <strong class="stat-value text-dark d-block">Storm Surges</strong>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <!-- Chin -->
+                            <div class="region-content" id="chin">
+                                <div class="row align-items-stretch g-4 mb-4">
+                                    <div class="col-md-5">
+                                        <div class="d-flex flex-column justify-content-between h-100">
+                                            <div>
+                                                <h4 class="fw-bold fs-5 mb-2">Key Takeaways</h4>
+                                                <p class="small mb-3" style="line-height: 1.6;">
+                                                    Steep slopes and torrential monsoon rainfall make Chin State highly susceptible to destructive landslides that sever critical mountain roads.
+                                                </p>
+                                            </div>
+                                            <div class="my-3">
+                                                <img src="./img/explore/Chin.jpg" alt="Chin State" class="img-fluid rounded w-100 shadow-sm" style="max-height: 180px; object-fit: cover;">
+                                            </div>
+                                            <div class="bg-white p-3 rounded shadow-sm" style="border: 1px solid #000000;">
+                                                <span class="d-block fw-semibold text-uppercase text-dark" style="font-size: 0.75rem;">Latest Event</span>
+                                                <span class="small fw-bold text-dark">Chin State Wet-Season Landslides</span>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="col-md-7">
+                                        <h3 class="h5 fw-bold mb-2">Chin State</h3>
+                                        <p class="region-description mb-3">
+                                            Chin State has experienced natural disasters due to mountainous terrain and heavy monsoon rainfall, impacting homes, agriculture, and roads. Recorded events include:
+                                        </p>
+                                        <div class="region-events-list d-flex flex-column gap-2">
+                                            <a class="disaster-event-card" href="https://documents1.worldbank.org/curated/en/646661467990966084/pdf/103631-WP-P157276-PUBLIC-PFLNA-Report-2016.pdf" target="_blank">
+                                                <div class="d-flex justify-content-between align-items-start gap-2">
+                                                    <div>
+                                                        <strong class="text-dark d-block mb-1">July–August 2015 Chin State Monsoon Floods</strong>
+                                                        <p class="extra-small mb-0">Torrential monsoon rain and Cyclone Komen affected 9 townships, damaging homes and farmland.</p>
+                                                    </div>
+                                                    <i class="bi bi-box-arrow-up-right fs-6 flex-shrink-0 mt-1"></i>
+                                                </div>
+                                            </a>
+                                            <a class="disaster-event-card" href="https://www.csds-chula.org/water-security-in-hakha" target="_blank">
+                                                <div class="d-flex justify-content-between align-items-start gap-2">
+                                                    <div>
+                                                        <strong class="text-dark d-block mb-1">July 2015 Hakha Landslides</strong>
+                                                        <p class="extra-small mb-0">Heavy rainfall triggered major landslides in Hakha Township, destroying homes and roads, and displacing 4,000+ residents.</p>
+                                                    </div>
+                                                    <i class="bi bi-box-arrow-up-right fs-6 flex-shrink-0 mt-1"></i>
+                                                </div>
+                                            </a>
+                                            <a class="disaster-event-card" href="https://lib.icimod.org/records/f7f75-v2x40" target="_blank">
+                                                <div class="d-flex justify-content-between align-items-start gap-2">
+                                                    <div>
+                                                        <strong class="text-dark d-block mb-1">16 July 2015 Hangken Village Landslide</strong>
+                                                        <p class="extra-small mb-0">~480 mm of rain triggered a massive landslide near Hangken Village, blocking the Tui Lam Lui River and creating a dangerous landslide lake.</p>
+                                                    </div>
+                                                    <i class="bi bi-box-arrow-up-right fs-6 flex-shrink-0 mt-1"></i>
+                                                </div>
+                                            </a>
+                                            <a class="disaster-event-card" href="https://www.xinhuanet.com/english/2020-04/16/c_138982760.htm" target="_blank">
+                                                <div class="d-flex justify-content-between align-items-start gap-2">
+                                                    <div>
+                                                        <strong class="text-dark d-block mb-1">16 April 2020 Falam Earthquake</strong>
+                                                        <p class="extra-small mb-0">A magnitude 6.1 earthquake struck southeast of Falam Township, felt across Falam, Hakha, and other Myanmar cities.</p>
+                                                    </div>
+                                                    <i class="bi bi-box-arrow-up-right fs-6 flex-shrink-0 mt-1"></i>
+                                                </div>
+                                            </a>
+                                            <a class="disaster-event-card" href="https://myanmar.un.org/en/231626-unicef-myanmar-humanitarian-situation-report-no-2-cyclone-mocha-15-may-2023" target="_blank">
+                                                <div class="d-flex justify-content-between align-items-start gap-2">
+                                                    <div>
+                                                        <strong class="text-dark d-block mb-1">14 May 2023 Cyclone Mocha Flooding</strong>
+                                                        <p class="extra-small mb-0">Cyclone Mocha brought heavy rainfall and flooding to townships including Paletwa, Hakha, Matupi, and Tedim.</p>
+                                                    </div>
+                                                    <i class="bi bi-box-arrow-up-right fs-6 flex-shrink-0 mt-1"></i>
+                                                </div>
+                                            </a>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <div class="row justify-content-center">
+                                    <div class="col-12 col-lg-11">
+                                        <div class="region-stats-card p-3 p-sm-4 rounded-3 bg-light border shadow-sm">
+                                            <h4 class="h5 fw-bold mb-3 mb-sm-4 text-dark d-flex align-items-center justify-content-center gap-2">
+                                                Region Risk Profile
+                                            </h4>
+                                            <div class="row row-cols-2 row-cols-sm-3 row-cols-lg-5 g-2 g-sm-3 text-center">
+                                                <div class="col">
+                                                    <div class="p-2 p-sm-3 rounded bg-white border h-100 d-flex flex-column justify-content-center">
+                                                        <span class="d-block small mb-1">Major Events</span>
+                                                        <strong class="stat-value text-dark d-block">5 Recorded</strong>
+                                                    </div>
+                                                </div>
+                                                <div class="col">
+                                                    <div class="p-2 p-sm-3 rounded bg-white border h-100 d-flex flex-column justify-content-center">
+                                                        <span class="d-block small mb-1">Main Threat</span>
+                                                        <strong class="stat-value text-dark d-block">Landslide</strong>
+                                                    </div>
+                                                </div>
+                                                <div class="col">
+                                                    <div class="p-2 p-sm-3 rounded bg-white border h-100 d-flex flex-column justify-content-center">
+                                                        <span class="d-block small mb-1">Latest Event</span>
+                                                        <strong class="stat-value text-dark d-block">May 2023</strong>
+                                                    </div>
+                                                </div>
+                                                <div class="col">
+                                                    <div class="p-2 p-sm-3 rounded bg-white border h-100 d-flex flex-column justify-content-center">
+                                                        <span class="d-block small mb-1">Total Affected</span>
+                                                        <strong class="stat-value text-dark d-block">~10,000+</strong>
+                                                    </div>
+                                                </div>
+                                                <div class="col">
+                                                    <div class="p-2 p-sm-3 rounded bg-white border h-100 d-flex flex-column justify-content-center">
+                                                        <span class="d-block small mb-1">Primary Trigger</span>
+                                                        <strong class="stat-value text-dark d-block">Torrential Rain</strong>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <!-- Kayah -->
+                            <div class="region-content" id="kayah">
+                                <div class="row align-items-stretch g-4 mb-4">
+                                    <div class="col-md-5">
+                                        <div class="d-flex flex-column justify-content-between h-100">
+                                            <div>
+                                                <h4 class="fw-bold fs-5 mb-2">Key Takeaways</h4>
+                                                <p class="small mb-3" style="line-height: 1.6;">
+                                                    Water discharge from dams and creeks during heavy storms threatens agricultural valleys and critical hydropower infrastructure in Kayah State.
+                                                </p>
+                                            </div>
+                                            <div class="my-3">
+                                                <img src="./img/explore/Kayah.jpg" alt="Kayah State" class="img-fluid rounded w-100 shadow-sm" style="max-height: 180px; object-fit: cover;">
+                                            </div>
+                                            <div class="bg-white p-3 rounded shadow-sm" style="border: 1px solid #000000;">
+                                                <span class="d-block fw-semibold text-uppercase text-dark" style="font-size: 0.75rem;">Latest Event</span>
+                                                <span class="small fw-bold text-dark">Kayah Seasonal Weather Extremes</span>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="col-md-7">
+                                        <h3 class="h5 fw-bold mb-2">Kayah State</h3>
+                                        <p class="region-description mb-3">
+                                            Kayah State has experienced natural disasters due to heavy monsoon rains and overflowing water systems, resulting in floods and landslides. Recorded events include:
+                                        </p>
+                                        <div class="region-events-list d-flex flex-column gap-2">
+                                            <a class="disaster-event-card" href="https://myanmar.un.org/en/278804-myanmar-flood-situation-report-16-september-2024" target="_blank">
+                                                <div class="d-flex justify-content-between align-items-start gap-2">
+                                                    <div>
+                                                        <strong class="text-dark d-block mb-1">September 2024 Mobye Dam Floods</strong>
+                                                        <p class="extra-small mb-0">Excess water from Mobye Dam flooded 4 townships in Kayah State, affecting ~9,200 people and damaging farmland and property.</p>
+                                                    </div>
+                                                    <i class="bi bi-box-arrow-up-right fs-6 flex-shrink-0 mt-1"></i>
+                                                </div>
+                                            </a>
+                                            <a class="disaster-event-card" href="https://myanmar.un.org/en/279207-myanmar-flood-situation-report-2-20-september-2024" target="_blank">
+                                                <div class="d-flex justify-content-between align-items-start gap-2">
+                                                    <div>
+                                                        <strong class="text-dark d-block mb-1">September 2024 Demoso–Hpruso Floods</strong>
+                                                        <p class="extra-small mb-0">Typhoon Yagi rainfall caused floods and landslides, affecting 6,500+ people and submerging 48,000+ acres of paddy and crops.</p>
+                                                    </div>
+                                                    <i class="bi bi-box-arrow-up-right fs-6 flex-shrink-0 mt-1"></i>
+                                                </div>
+                                            </a>
+                                            <a class="disaster-event-card" href="https://www.moi.gov.mm/moi:eng/news/15702" target="_blank">
+                                                <div class="d-flex justify-content-between align-items-start gap-2">
+                                                    <div>
+                                                        <strong class="text-dark d-block mb-1">30 September 2024 Bilu Creek Flooding</strong>
+                                                        <p class="extra-small mb-0">Overflowing water from Bilu Creek flooded the No. 2 Biluchaung Hydropower Plant (Lawpita), prompting emergency operations.</p>
+                                                    </div>
+                                                    <i class="bi bi-box-arrow-up-right fs-6 flex-shrink-0 mt-1"></i>
+                                                </div>
+                                            </a>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <div class="row justify-content-center">
+                                    <div class="col-12 col-lg-11">
+                                        <div class="region-stats-card p-3 p-sm-4 rounded-3 bg-light border shadow-sm">
+                                            <h4 class="h5 fw-bold mb-3 mb-sm-4 text-dark d-flex align-items-center justify-content-center gap-2">
+                                                Region Risk Profile
+                                            </h4>
+                                            <div class="row row-cols-2 row-cols-sm-3 row-cols-lg-5 g-2 g-sm-3 text-center">
+                                                <div class="col">
+                                                    <div class="p-2 p-sm-3 rounded bg-white border h-100 d-flex flex-column justify-content-center">
+                                                        <span class="d-block small mb-1">Major Events</span>
+                                                        <strong class="stat-value text-dark d-block">3 Recorded</strong>
+                                                    </div>
+                                                </div>
+                                                <div class="col">
+                                                    <div class="p-2 p-sm-3 rounded bg-white border h-100 d-flex flex-column justify-content-center">
+                                                        <span class="d-block small mb-1">Main Threat</span>
+                                                        <strong class="stat-value text-dark d-block">Flood</strong>
+                                                    </div>
+                                                </div>
+                                                <div class="col">
+                                                    <div class="p-2 p-sm-3 rounded bg-white border h-100 d-flex flex-column justify-content-center">
+                                                        <span class="d-block small mb-1">Latest Event</span>
+                                                        <strong class="stat-value text-dark d-block">Sep 2024</strong>
+                                                    </div>
+                                                </div>
+                                                <div class="col">
+                                                    <div class="p-2 p-sm-3 rounded bg-white border h-100 d-flex flex-column justify-content-center">
+                                                        <span class="d-block small mb-1">Total Affected</span>
+                                                        <strong class="stat-value text-dark d-block">~15,000+</strong>
+                                                    </div>
+                                                </div>
+                                                <div class="col">
+                                                    <div class="p-2 p-sm-3 rounded bg-white border h-100 d-flex flex-column justify-content-center">
+                                                        <span class="d-block small mb-1">Primary Trigger</span>
+                                                        <strong class="stat-value text-dark d-block">Dam Overflow</strong>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <!-- Kayin -->
+                            <div class="region-content" id="kayin">
+                                <div class="row align-items-stretch g-4 mb-4">
+                                    <div class="col-md-5">
+                                        <div class="d-flex flex-column justify-content-between h-100">
+                                            <div>
+                                                <h4 class="fw-bold fs-5 mb-2">Key Takeaways</h4>
+                                                <p class="small mb-3" style="line-height: 1.6;">
+                                                    Rising Thanlwin River levels and mountain landslides along border transit corridors pose recurring threats to communities and regional trade.
+                                                </p>
+                                            </div>
+                                            <div class="my-3">
+                                                <img src="./img/explore/Kayin.jpg" alt="Kayin State" class="img-fluid rounded w-100 shadow-sm" style="max-height: 180px; object-fit: cover;">
+                                            </div>
+                                            <div class="bg-white p-3 rounded shadow-sm" style="border: 1px solid #000000;">
+                                                <span class="d-block fw-semibold text-uppercase text-dark" style="font-size: 0.75rem;">Latest Event</span>
+                                                <span class="small fw-bold text-dark">Kayin Monsoon Flooding</span>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="col-md-7">
+                                        <h3 class="h5 fw-bold mb-2">Kayin State</h3>
+                                        <p class="region-description mb-3">
+                                            Kayin State has experienced natural disasters due to heavy monsoon rain, river systems, and mountainous terrain. Recorded events include:
+                                        </p>
+                                        <div class="region-events-list d-flex flex-column gap-2">
+                                            <a class="disaster-event-card" href="https://www.moi.gov.mm/moi:eng/index.php/news/14941" target="_blank">
+                                                <div class="d-flex justify-content-between align-items-start gap-2">
+                                                    <div>
+                                                        <strong class="text-dark d-block mb-1">27–29 July 2024 Hpa-an Floods</strong>
+                                                        <p class="extra-small mb-0">The Thanlwin River exceeded critical flood levels, inundating low-lying areas of Hpa-an and displacing 5,000+ residents to relief camps.</p>
+                                                    </div>
+                                                    <i class="bi bi-box-arrow-up-right fs-6 flex-shrink-0 mt-1"></i>
+                                                </div>
+                                            </a>
+                                            <a class="disaster-event-card" href="https://www.moi.gov.mm/moi:eng/news/11365" target="_blank">
+                                                <div class="d-flex justify-content-between align-items-start gap-2">
+                                                    <div>
+                                                        <strong class="text-dark d-block mb-1">6–7 August 2023 Kawkareik Landslides</strong>
+                                                        <p class="extra-small mb-0">Torrential rain triggered landslides near Tawnaw Waterfall along the Asian Highway, disrupting Myanmar-Thailand transit.</p>
+                                                    </div>
+                                                    <i class="bi bi-box-arrow-up-right fs-6 flex-shrink-0 mt-1"></i>
+                                                </div>
+                                            </a>
+                                            <a class="disaster-event-card" href="https://myanmar.un.org/en/278804-myanmar-flood-situation-report-16-september-2024" target="_blank">
+                                                <div class="d-flex justify-content-between align-items-start gap-2">
+                                                    <div>
+                                                        <strong class="text-dark d-block mb-1">11 September 2024 Thandaunggyi Floods</strong>
+                                                        <p class="extra-small mb-0">Heavy rain caused flooding and landslides in Thandaunggyi Township, resulting in 5 deaths and 3 injuries.</p>
+                                                    </div>
+                                                    <i class="bi bi-box-arrow-up-right fs-6 flex-shrink-0 mt-1"></i>
+                                                </div>
+                                            </a>
+                                            <a class="disaster-event-card" href="https://myanmar.un.org/en/279207-myanmar-flood-situation-report-2-20-september-2024" target="_blank">
+                                                <div class="d-flex justify-content-between align-items-start gap-2">
+                                                    <div>
+                                                        <strong class="text-dark d-block mb-1">September 2024 Typhoon Yagi Floods</strong>
+                                                        <p class="extra-small mb-0">Typhoon Yagi caused widespread flooding across Kayin State, affecting nearly 90,000 people across 4 townships.</p>
+                                                    </div>
+                                                    <i class="bi bi-box-arrow-up-right fs-6 flex-shrink-0 mt-1"></i>
+                                                </div>
+                                            </a>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <div class="row justify-content-center">
+                                    <div class="col-12 col-lg-11">
+                                        <div class="region-stats-card p-3 p-sm-4 rounded-3 bg-light border shadow-sm">
+                                            <h4 class="h5 fw-bold mb-3 mb-sm-4 text-dark d-flex align-items-center justify-content-center gap-2">
+                                                Region Risk Profile
+                                            </h4>
+                                            <div class="row row-cols-2 row-cols-sm-3 row-cols-lg-5 g-2 g-sm-3 text-center">
+                                                <div class="col">
+                                                    <div class="p-2 p-sm-3 rounded bg-white border h-100 d-flex flex-column justify-content-center">
+                                                        <span class="d-block small mb-1">Major Events</span>
+                                                        <strong class="stat-value text-dark d-block">4 Recorded</strong>
+                                                    </div>
+                                                </div>
+                                                <div class="col">
+                                                    <div class="p-2 p-sm-3 rounded bg-white border h-100 d-flex flex-column justify-content-center">
+                                                        <span class="d-block small mb-1">Main Threat</span>
+                                                        <strong class="stat-value text-dark d-block">Flood</strong>
+                                                    </div>
+                                                </div>
+                                                <div class="col">
+                                                    <div class="p-2 p-sm-3 rounded bg-white border h-100 d-flex flex-column justify-content-center">
+                                                        <span class="d-block small mb-1">Latest Event</span>
+                                                        <strong class="stat-value text-dark d-block">Sep 2024</strong>
+                                                    </div>
+                                                </div>
+                                                <div class="col">
+                                                    <div class="p-2 p-sm-3 rounded bg-white border h-100 d-flex flex-column justify-content-center">
+                                                        <span class="d-block small mb-1">Total Affected</span>
+                                                        <strong class="stat-value text-dark d-block">~95,000+</strong>
+                                                    </div>
+                                                </div>
+                                                <div class="col">
+                                                    <div class="p-2 p-sm-3 rounded bg-white border h-100 d-flex flex-column justify-content-center">
+                                                        <span class="d-block small mb-1">Primary Trigger</span>
+                                                        <strong class="stat-value text-dark d-block">River Overflow</strong>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <!-- Mon -->
+                            <div class="region-content" id="mon">
+                                <div class="row align-items-stretch g-4 mb-4">
+                                    <div class="col-md-5">
+                                        <div class="d-flex flex-column justify-content-between h-100">
+                                            <div>
+                                                <h4 class="fw-bold fs-5 mb-2">Key Takeaways</h4>
+                                                <p class="small mb-3" style="line-height: 1.6;">
+                                                    Intense coastal monsoons cause frequent Attaran and Bilin river overflows alongside hillside landslides along major pilgrimage routes.
+                                                </p>
+                                            </div>
+                                            <div class="my-3">
+                                                <img src="./img/explore/Mon.jpg" alt="Mon State" class="img-fluid rounded w-100 shadow-sm" style="max-height: 180px; object-fit: cover;">
+                                            </div>
+                                            <div class="bg-white p-3 rounded shadow-sm" style="border: 1px solid #000000;">
+                                                <span class="d-block fw-semibold text-uppercase text-dark" style="font-size: 0.75rem;">Latest Event</span>
+                                                <span class="small fw-bold text-dark">Mon State Coastal Inundation</span>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="col-md-7">
+                                        <h3 class="h5 fw-bold mb-2">Mon State</h3>
+                                        <p class="region-description mb-3">
+                                            Mon State has experienced natural disasters due to its coastal location, rivers, and hilly terrain. Recorded events include:
+                                        </p>
+                                        <div class="region-events-list d-flex flex-column gap-2">
+                                            <a class="disaster-event-card" href="https://www.moi.gov.mm/moi:eng/news/4195" target="_blank">
+                                                <div class="d-flex justify-content-between align-items-start gap-2">
+                                                    <div>
+                                                        <strong class="text-dark d-block mb-1">July 2021 Kyaikmaraw Floods</strong>
+                                                        <p class="extra-small mb-0">Heavy rain caused the Attaran River to overflow, submerging 450 houses in Kyaikmaraw Township and prompting evacuations.</p>
+                                                    </div>
+                                                    <i class="bi bi-box-arrow-up-right fs-6 flex-shrink-0 mt-1"></i>
+                                                </div>
+                                            </a>
+                                            <a class="disaster-event-card" href="https://www.moi.gov.mm/moi:eng/news/11770" target="_blank">
+                                                <div class="d-flex justify-content-between align-items-start gap-2">
+                                                    <div>
+                                                        <strong class="text-dark d-block mb-1">8 October 2023 Kyaikto Floods</strong>
+                                                        <p class="extra-small mb-0">Heavy rain caused flooding in Kawsannaing Ward of Kyaikto Township, leading to local rescue and evacuation efforts.</p>
+                                                    </div>
+                                                    <i class="bi bi-box-arrow-up-right fs-6 flex-shrink-0 mt-1"></i>
+                                                </div>
+                                            </a>
+                                            <a class="disaster-event-card" href="https://www.moi.gov.mm/moi:eng/news/14667" target="_blank">
+                                                <div class="d-flex justify-content-between align-items-start gap-2">
+                                                    <div>
+                                                        <strong class="text-dark d-block mb-1">Early 2024 Kyaiktiyo Mountain Landslides</strong>
+                                                        <p class="extra-small mb-0">Monsoon rainfall triggered two mountain collapses along the uphill road to Kyaiktiyo Pagoda, requiring debris clearance.</p>
+                                                    </div>
+                                                    <i class="bi bi-box-arrow-up-right fs-6 flex-shrink-0 mt-1"></i>
+                                                </div>
+                                            </a>
+                                            <a class="disaster-event-card" href="https://myanmar.un.org/en/278804-myanmar-flood-situation-report-16-september-2024" target="_blank">
+                                                <div class="d-flex justify-content-between align-items-start gap-2">
+                                                    <div>
+                                                        <strong class="text-dark d-block mb-1">September 2024 Bilin–Kyaikhto Floods</strong>
+                                                        <p class="extra-small mb-0">Rising Bilin River levels flooded communities in Bilin and Kyaikhto, temporarily relocating over 900 people to relief centres.</p>
+                                                    </div>
+                                                    <i class="bi bi-box-arrow-up-right fs-6 flex-shrink-0 mt-1"></i>
+                                                </div>
+                                            </a>
+                                            <a class="disaster-event-card" href="https://myanmar.un.org/en/321949-myanmar-health-cluster-bulletin-august-2026" target="_blank">
+                                                <div class="d-flex justify-content-between align-items-start gap-2">
+                                                    <div>
+                                                        <strong class="text-dark d-block mb-1">August 2026 Mon State Monsoon Floods</strong>
+                                                        <p class="extra-small mb-0">Heavy monsoon rainfall caused severe flooding, increasing public health risks and water-related disease concerns.</p>
+                                                    </div>
+                                                    <i class="bi bi-box-arrow-up-right fs-6 flex-shrink-0 mt-1"></i>
+                                                </div>
+                                            </a>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <div class="row justify-content-center">
+                                    <div class="col-12 col-lg-11">
+                                        <div class="region-stats-card p-3 p-sm-4 rounded-3 bg-light border shadow-sm">
+                                            <h4 class="h5 fw-bold mb-3 mb-sm-4 text-dark d-flex align-items-center justify-content-center gap-2">
+                                                Region Risk Profile
+                                            </h4>
+                                            <div class="row row-cols-2 row-cols-sm-3 row-cols-lg-5 g-2 g-sm-3 text-center">
+                                                <div class="col">
+                                                    <div class="p-2 p-sm-3 rounded bg-white border h-100 d-flex flex-column justify-content-center">
+                                                        <span class="d-block small mb-1">Major Events</span>
+                                                        <strong class="stat-value text-dark d-block">5 Recorded</strong>
+                                                    </div>
+                                                </div>
+                                                <div class="col">
+                                                    <div class="p-2 p-sm-3 rounded bg-white border h-100 d-flex flex-column justify-content-center">
+                                                        <span class="d-block small mb-1">Main Threat</span>
+                                                        <strong class="stat-value text-dark d-block">Flood</strong>
+                                                    </div>
+                                                </div>
+                                                <div class="col">
+                                                    <div class="p-2 p-sm-3 rounded bg-white border h-100 d-flex flex-column justify-content-center">
+                                                        <span class="d-block small mb-1">Latest Event</span>
+                                                        <strong class="stat-value text-dark d-block">Aug 2026</strong>
+                                                    </div>
+                                                </div>
+                                                <div class="col">
+                                                    <div class="p-2 p-sm-3 rounded bg-white border h-100 d-flex flex-column justify-content-center">
+                                                        <span class="d-block small mb-1">Total Affected</span>
+                                                        <strong class="stat-value text-dark d-block">~5,000+</strong>
+                                                    </div>
+                                                </div>
+                                                <div class="col">
+                                                    <div class="p-2 p-sm-3 rounded bg-white border h-100 d-flex flex-column justify-content-center">
+                                                        <span class="d-block small mb-1">Primary Trigger</span>
+                                                        <strong class="stat-value text-dark d-block">Monsoonal Rains</strong>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <!-- Rakhine -->
+                            <div class="region-content" id="rakhine">
+                                <div class="row align-items-stretch g-4 mb-4">
+                                    <div class="col-md-5">
+                                        <div class="d-flex flex-column justify-content-between h-100">
+                                            <div>
+                                                <h4 class="fw-bold fs-5 mb-2">Key Takeaways</h4>
+                                                <p class="small mb-3" style="line-height: 1.6;">
+                                                    Direct exposure to Bay of Bengal cyclones and coastal tectonic activity leaves Rakhine highly vulnerable to storm surges and widespread river flooding.
+                                                </p>
+                                            </div>
+                                            <div class="my-3">
+                                                <img src="./img/explore/Rakhine.jpg" alt="Rakhine State" class="img-fluid rounded w-100 shadow-sm" style="max-height: 180px; object-fit: cover;">
+                                            </div>
+                                            <div class="bg-white p-3 rounded shadow-sm" style="border: 1px solid #000000;">
+                                                <span class="d-block fw-semibold text-uppercase text-dark" style="font-size: 0.75rem;">Latest Event</span>
+                                                <span class="small fw-bold text-dark">Rakhine Monsoonal Storm Inundations & Cyclone Aftershocks</span>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="col-md-7">
+                                        <h3 class="h5 fw-bold mb-2">Rakhine State</h3>
+                                        <p class="region-description mb-3">
+                                            Rakhine State is vulnerable to coastal flooding, storm surges, and earthquakes due to its Bay of Bengal coastline. Recorded events include:
+                                        </p>
+                                        <div class="region-events-list d-flex flex-column gap-2">
+                                            <a class="disaster-event-card" href="https://agupubs.onlinelibrary.wiley.com/doi/abs/10.1002/jgrb.50121" target="_blank">
+                                                <div class="d-flex justify-content-between align-items-start gap-2">
+                                                    <div>
+                                                        <strong class="text-dark d-block mb-1">1762 Arakan Earthquake</strong>
+                                                        <p class="extra-small mb-0">A powerful historical earthquake caused significant coastal uplift along the Rakhine coast, raising parts by several metres.</p>
+                                                    </div>
+                                                    <i class="bi bi-box-arrow-up-right fs-6 flex-shrink-0 mt-1"></i>
+                                                </div>
+                                            </a>
+                                            <a class="disaster-event-card" href="https://go.ifrc.org/emergencies/6439/details" target="_blank">
+                                                <div class="d-flex justify-content-between align-items-start gap-2">
+                                                    <div>
+                                                        <strong class="text-dark d-block mb-1">14 May 2023 Cyclone Mocha Storm-Surge</strong>
+                                                        <p class="extra-small mb-0">Cyclone Mocha struck near Sittwe, bringing destructive winds and storm surges that devastated coastal homes and shelters.</p>
+                                                    </div>
+                                                    <i class="bi bi-box-arrow-up-right fs-6 flex-shrink-0 mt-1"></i>
+                                                </div>
+                                            </a>
+                                            <a class="disaster-event-card" href="https://myanmar.un.org/en/279958-myanmar-flood-situation-report-3-27-september-2024" target="_blank">
+                                                <div class="d-flex justify-content-between align-items-start gap-2">
+                                                    <div>
+                                                        <strong class="text-dark d-block mb-1">September 2024 Rakhine Region Floods</strong>
+                                                        <p class="extra-small mb-0">Monsoon rain caused flooding in Minbya, Mrauk-U, and Toungup, affecting 42,000+ people including displaced populations.</p>
+                                                    </div>
+                                                    <i class="bi bi-box-arrow-up-right fs-6 flex-shrink-0 mt-1"></i>
+                                                </div>
+                                            </a>
+                                            <a class="disaster-event-card" href="https://myanmar.un.org/en/319760-rakhine-state-western-myanmar-flood-situation-update-no1" target="_blank">
+                                                <div class="d-flex justify-content-between align-items-start gap-2">
+                                                    <div>
+                                                        <strong class="text-dark d-block mb-1">July 2026 Rakhine State Floods</strong>
+                                                        <p class="extra-small mb-0">Heavy rain and rising rivers flooded 18 wards and 201 villages, affecting 98,282 people across Buthidaung, Kyauktaw, and Mrauk-U.</p>
+                                                    </div>
+                                                    <i class="bi bi-box-arrow-up-right fs-6 flex-shrink-0 mt-1"></i>
+                                                </div>
+                                            </a>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <div class="row justify-content-center">
+                                    <div class="col-12 col-lg-11">
+                                        <div class="region-stats-card p-3 p-sm-4 rounded-3 bg-light border shadow-sm">
+                                            <h4 class="h5 fw-bold mb-3 mb-sm-4 text-dark d-flex align-items-center justify-content-center gap-2">
+                                                Region Risk Profile
+                                            </h4>
+                                            <div class="row row-cols-2 row-cols-sm-3 row-cols-lg-5 g-2 g-sm-3 text-center">
+                                                <div class="col">
+                                                    <div class="p-2 p-sm-3 rounded bg-white border h-100 d-flex flex-column justify-content-center">
+                                                        <span class="d-block small mb-1">Major Events</span>
+                                                        <strong class="stat-value text-dark d-block">4 Recorded</strong>
+                                                    </div>
+                                                </div>
+                                                <div class="col">
+                                                    <div class="p-2 p-sm-3 rounded bg-white border h-100 d-flex flex-column justify-content-center">
+                                                        <span class="d-block small mb-1">Main Threat</span>
+                                                        <strong class="stat-value text-dark d-block">Flood</strong>
+                                                    </div>
+                                                </div>
+                                                <div class="col">
+                                                    <div class="p-2 p-sm-3 rounded bg-white border h-100 d-flex flex-column justify-content-center">
+                                                        <span class="d-block small mb-1">Latest Event</span>
+                                                        <strong class="stat-value text-dark d-block">Jul 2026</strong>
+                                                    </div>
+                                                </div>
+                                                <div class="col">
+                                                    <div class="p-2 p-sm-3 rounded bg-white border h-100 d-flex flex-column justify-content-center">
+                                                        <span class="d-block small mb-1">Total Affected</span>
+                                                        <strong class="stat-value text-dark d-block">~140,000+</strong>
+                                                    </div>
+                                                </div>
+                                                <div class="col">
+                                                    <div class="p-2 p-sm-3 rounded bg-white border h-100 d-flex flex-column justify-content-center">
+                                                        <span class="d-block small mb-1">Primary Trigger</span>
+                                                        <strong class="stat-value text-dark d-block">Cyclones</strong>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <!-- Tanintharyi -->
+                            <div class="region-content" id="tanintharyi">
+                                <div class="row align-items-stretch g-4 mb-4">
+                                    <div class="col-md-5">
+                                        <div class="d-flex flex-column justify-content-between h-100">
+                                            <div>
+                                                <h4 class="fw-bold fs-5 mb-2">Key Takeaways</h4>
+                                                <p class="small mb-3" style="line-height: 1.6;">
+                                                    Narrow coastal plains backed by steep hills experience rapid river flooding and sudden landslides during intense southern monsoon downpours.
+                                                </p>
+                                            </div>
+                                            <div class="my-3">
+                                                <img src="./img/explore/Tanintharyi.jpg" alt="Tanintharyi Region" class="img-fluid rounded w-100 shadow-sm" style="max-height: 180px; object-fit: cover;">
+                                            </div>
+                                            <div class="bg-white p-3 rounded shadow-sm" style="border: 1px solid #000000;">
+                                                <span class="d-block fw-semibold text-uppercase text-dark" style="font-size: 0.75rem;">Latest Event</span>
+                                                <span class="small fw-bold text-dark">Tanintharyi Late-September Depression Floods & Landslides</span>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="col-md-7">
+                                        <h3 class="h5 fw-bold mb-2">Tanintharyi Region</h3>
+                                        <p class="region-description mb-3">
+                                            Tanintharyi Region experiences natural disasters due to its coastal location, mountainous terrain, and heavy monsoon rains. Recorded events include:
+                                        </p>
+                                        <div class="region-events-list d-flex flex-column gap-2">
+                                            <a class="disaster-event-card" href="https://www.moi.gov.mm/moi:eng/news/14938" target="_blank">
+                                                <div class="d-flex justify-content-between align-items-start gap-2">
+                                                    <div>
+                                                        <strong class="text-dark d-block mb-1">July 2024 Tanintharyi River Floods</strong>
+                                                        <p class="extra-small mb-0">Heavy rain caused the Tanintharyi River to overflow into Tanintharyi Township, housing 1,148 victims in relief camps.</p>
+                                                    </div>
+                                                    <i class="bi bi-box-arrow-up-right fs-6 flex-shrink-0 mt-1"></i>
+                                                </div>
+                                            </a>
+                                            <a class="disaster-event-card" href="https://www.themimu.info/news/mapping-flood-affected-villages-tanintharyi-region" target="_blank">
+                                                <div class="d-flex justify-content-between align-items-start gap-2">
+                                                    <div>
+                                                        <strong class="text-dark d-block mb-1">26 September 2024 Dawei–Launglon Floods</strong>
+                                                        <p class="extra-small mb-0">Heavy rain caused severe flooding across Launglon, Thayetchaung and Dawei townships, disrupting transportation.</p>
+                                                    </div>
+                                                    <i class="bi bi-box-arrow-up-right fs-6 flex-shrink-0 mt-1"></i>
+                                                </div>
+                                            </a>
+                                            <a class="disaster-event-card" href="https://www.themimu.info/news/landslide-launglon-township-and-after-satellite-map" target="_blank">
+                                                <div class="d-flex justify-content-between align-items-start gap-2">
+                                                    <div>
+                                                        <strong class="text-dark d-block mb-1">26–27 September 2024 Launglon Landslide</strong>
+                                                        <p class="extra-small mb-0">Torrential rain triggered a major landslide in Launglon Township, sending debris down hillsides and washing away buildings.</p>
+                                                    </div>
+                                                    <i class="bi bi-box-arrow-up-right fs-6 flex-shrink-0 mt-1"></i>
+                                                </div>
+                                            </a>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <div class="row justify-content-center">
+                                    <div class="col-12 col-lg-11">
+                                        <div class="region-stats-card p-3 p-sm-4 rounded-3 bg-light border shadow-sm">
+                                            <h4 class="h5 fw-bold mb-3 mb-sm-4 text-dark d-flex align-items-center justify-content-center gap-2">
+                                                Region Risk Profile
+                                            </h4>
+                                            <div class="row row-cols-2 row-cols-sm-3 row-cols-lg-5 g-2 g-sm-3 text-center">
+                                                <div class="col">
+                                                    <div class="p-2 p-sm-3 rounded bg-white border h-100 d-flex flex-column justify-content-center">
+                                                        <span class="d-block small mb-1">Major Events</span>
+                                                        <strong class="stat-value text-dark d-block">3 Recorded</strong>
+                                                    </div>
+                                                </div>
+                                                <div class="col">
+                                                    <div class="p-2 p-sm-3 rounded bg-white border h-100 d-flex flex-column justify-content-center">
+                                                        <span class="d-block small mb-1">Main Threat</span>
+                                                        <strong class="stat-value text-dark d-block">Flood</strong>
+                                                    </div>
+                                                </div>
+                                                <div class="col">
+                                                    <div class="p-2 p-sm-3 rounded bg-white border h-100 d-flex flex-column justify-content-center">
+                                                        <span class="d-block small mb-1">Latest Event</span>
+                                                        <strong class="stat-value text-dark d-block">Sep 2024</strong>
+                                                    </div>
+                                                </div>
+                                                <div class="col">
+                                                    <div class="p-2 p-sm-3 rounded bg-white border h-100 d-flex flex-column justify-content-center">
+                                                        <span class="d-block small mb-1">Total Affected</span>
+                                                        <strong class="stat-value text-dark d-block">~3,000+</strong>
+                                                    </div>
+                                                </div>
+                                                <div class="col">
+                                                    <div class="p-2 p-sm-3 rounded bg-white border h-100 d-flex flex-column justify-content-center">
+                                                        <span class="d-block small mb-1">Primary Trigger</span>
+                                                        <strong class="stat-value text-dark d-block">Heavy Rain</strong>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <!-- Yangon -->
+                            <div class="region-content" id="yangon">
+                                <div class="row align-items-stretch g-4 mb-4">
+                                    <div class="col-md-5">
+                                        <div class="d-flex flex-column justify-content-between h-100">
+                                            <div>
+                                                <h4 class="fw-bold fs-5 mb-2">Key Takeaways</h4>
+                                                <p class="small mb-3" style="line-height: 1.6;">
+                                                    High population density across low-lying delta waterways heightens urban flood exposure, storm-surge risks, and regional seismic impacts.
+                                                </p>
+                                            </div>
+                                            <div class="my-3">
+                                                <img src="./img/explore/Yangon.jpg" alt="Yangon Region" class="img-fluid rounded w-100 shadow-sm" style="max-height: 180px; object-fit: cover;">
+                                            </div>
+                                            <div class="bg-white p-3 rounded shadow-sm" style="border: 1px solid #000000;">
+                                                <span class="d-block fw-semibold text-uppercase text-dark" style="font-size: 0.75rem;">Latest Event</span>
+                                                <span class="small fw-bold text-dark">Yangon Monsoonal Urban Inundation</span>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="col-md-7">
+                                        <h3 class="h5 fw-bold mb-2">Yangon Region</h3>
+                                        <p class="region-description mb-3">
+                                            Yangon Region is vulnerable to flooding due to its low-lying delta location and river system. Its dense population increases disaster impact. Recorded events include:
+                                        </p>
+                                        <div class="region-events-list d-flex flex-column gap-2">
+                                            <a class="disaster-event-card" href="https://mdn.gov.mm/en/earthquake" target="_blank">
+                                                <div class="d-flex justify-content-between align-items-start gap-2">
+                                                    <div>
+                                                        <strong class="text-dark d-block mb-1">5 May 1930 Pegu (Bago) Earthquake</strong>
+                                                        <p class="extra-small mb-0">A magnitude 7.3 earthquake struck near Pegu, causing serious damage in Rangoon (Yangon), building collapses, and fires.</p>
+                                                    </div>
+                                                    <i class="bi bi-box-arrow-up-right fs-6 flex-shrink-0 mt-1"></i>
+                                                </div>
+                                            </a>
+                                            <a class="disaster-event-card" href="https://science.nasa.gov/earth/earth-observatory/flooding-in-yangon-burma-myanmar-8729/" target="_blank">
+                                                <div class="d-flex justify-content-between align-items-start gap-2">
+                                                    <div>
+                                                        <strong class="text-dark d-block mb-1">7 May 2008 Cyclone Nargis Flooding</strong>
+                                                        <p class="extra-small mb-0">Following Cyclone Nargis, heavy rain and storm surges caused severe flooding across southern Yangon residential and farming areas.</p>
+                                                    </div>
+                                                    <i class="bi bi-box-arrow-up-right fs-6 flex-shrink-0 mt-1"></i>
+                                                </div>
+                                            </a>
+                                            <a class="disaster-event-card" href="https://unosat.org/products/1001" target="_blank">
+                                                <div class="d-flex justify-content-between align-items-start gap-2">
+                                                    <div>
+                                                        <strong class="text-dark d-block mb-1">9 August 2015 Yangon Delta Floods</strong>
+                                                        <p class="extra-small mb-0">Monsoon rain caused flooding in agricultural areas south of Yangon, including Kawkhmu and Hlegu townships.</p>
+                                                    </div>
+                                                    <i class="bi bi-box-arrow-up-right fs-6 flex-shrink-0 mt-1"></i>
+                                                </div>
+                                            </a>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <div class="row justify-content-center">
+                                    <div class="col-12 col-lg-11">
+                                        <div class="region-stats-card p-3 p-sm-4 rounded-3 bg-light border shadow-sm">
+                                            <h4 class="h5 fw-bold mb-3 mb-sm-4 text-dark d-flex align-items-center justify-content-center gap-2">
+                                                Region Risk Profile
+                                            </h4>
+                                            <div class="row row-cols-2 row-cols-sm-3 row-cols-lg-5 g-2 g-sm-3 text-center">
+                                                <div class="col">
+                                                    <div class="p-2 p-sm-3 rounded bg-white border h-100 d-flex flex-column justify-content-center">
+                                                        <span class="d-block small mb-1">Major Events</span>
+                                                        <strong class="stat-value text-dark d-block">3 Recorded</strong>
+                                                    </div>
+                                                </div>
+                                                <div class="col">
+                                                    <div class="p-2 p-sm-3 rounded bg-white border h-100 d-flex flex-column justify-content-center">
+                                                        <span class="d-block small mb-1">Main Threat</span>
+                                                        <strong class="stat-value text-dark d-block">Flood</strong>
+                                                    </div>
+                                                </div>
+                                                <div class="col">
+                                                    <div class="p-2 p-sm-3 rounded bg-white border h-100 d-flex flex-column justify-content-center">
+                                                        <span class="d-block small mb-1">Latest Event</span>
+                                                        <strong class="stat-value text-dark d-block">Aug 2015</strong>
+                                                    </div>
+                                                </div>
+                                                <div class="col">
+                                                    <div class="p-2 p-sm-3 rounded bg-white border h-100 d-flex flex-column justify-content-center">
+                                                        <span class="d-block small mb-1">Total Affected</span>
+                                                        <strong class="stat-value text-dark d-block">~10,000+</strong>
+                                                    </div>
+                                                </div>
+                                                <div class="col">
+                                                    <div class="p-2 p-sm-3 rounded bg-white border h-100 d-flex flex-column justify-content-center">
+                                                        <span class="d-block small mb-1">Primary Trigger</span>
+                                                        <strong class="stat-value text-dark d-block">Storm Surges</strong>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <!-- Naypyidaw -->
+                            <div class="region-content active" id="naypyidaw">
+                                <div class="row align-items-stretch g-4 mb-4">
+                                    <div class="col-md-5">
+                                        <!-- Key Takeaways Card with Image in the middle -->
+                                        <div class="d-flex flex-column justify-content-between h-100">
+                                            <div>
+                                                <h4 class="fw-bold fs-5 mb-2">Key Takeaways</h4>
+                                                <p class="small mb-3" style="line-height: 1.6;">
+                                                    Infrastructure resilience in Naypyidaw faces critical challenges from seasonal monsoon flooding and sudden seismic activity along local fault lines.
+                                                </p>
+                                            </div>
+
+                                            <!-- Image placed between description and Latest Event -->
+                                            <div class="my-3">
+                                                <img src="./img/explore/Naypyidaw.jpg" alt="Naypyidaw Union Territory" class="img-fluid rounded w-100 shadow-sm" style="max-height: 180px; object-fit: cover;">
+                                            </div>
+
+                                            <div class="bg-white p-3 rounded shadow-sm" style="border: 1px solid #000000;">
+                                                <span class="d-block fw-semibold text-uppercase text-dark" style="font-size: 0.75rem;">Latest Event</span>
+                                                <span class="small fw-bold text-dark">Recovery & Reconstruction Ongoing</span>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="col-md-7">
+                                        <h3 class="h5 fw-bold mb-2">Naypyidaw Union Territory</h3>
+                                        <p class="region-description mb-3">
+                                            Naypyidaw has experienced disasters affecting government facilities and infrastructure from overflowing creeks and earthquakes. Recorded events include:
+                                        </p>
+                                        <div class="region-events-list d-flex flex-column gap-2">
+                                            <a class="disaster-event-card" href="https://www.moi.gov.mm/moi:eng/news/15401" target="_blank">
+                                                <div class="d-flex justify-content-between align-items-start gap-2">
+                                                    <div>
+                                                        <strong class="text-dark d-block mb-1">10–13 September 2024 Naypyidaw Floods</strong>
+                                                        <p class="extra-small mb-0">Typhoon Yagi caused rivers and creeks to overflow in Pyinmana, Tatkon, Zeyathiri and Pobbathiri, leading to evacuations.</p>
+                                                    </div>
+                                                    <i class="bi bi-box-arrow-up-right fs-6 flex-shrink-0 mt-1"></i>
+                                                </div>
+                                            </a>
+                                            <a class="disaster-event-card" href="https://www.moi.gov.mm/moi:eng/index.php/earthquake-news/17807" target="_blank">
+                                                <div class="d-flex justify-content-between align-items-start gap-2">
+                                                    <div>
+                                                        <strong class="text-dark d-block mb-1">28 March 2025 Central Myanmar Earthquake</strong>
+                                                        <p class="extra-small mb-0">A magnitude 7.7 earthquake severely damaged Naypyidaw's 300-bed People's Hospital and medical facilities.</p>
+                                                    </div>
+                                                    <i class="bi bi-box-arrow-up-right fs-6 flex-shrink-0 mt-1"></i>
+                                                </div>
+                                            </a>
+                                            <a class="disaster-event-card" href="https://www.who.int/myanmar/news/detail/03-04-2025-mobile-health-relief--who-delivers-lifesaving-emergency-medical-solutions-to-earthquake-hit-communities-in-myanmar" target="_blank">
+                                                <div class="d-flex justify-content-between align-items-start gap-2">
+                                                    <div>
+                                                        <strong class="text-dark d-block mb-1">28 March 2025 General Hospital Damage</strong>
+                                                        <p class="extra-small mb-0">The same earthquake severely damaged Naypyidaw's 1,000-bed General Hospital, disrupting healthcare and prompting relief.</p>
+                                                    </div>
+                                                    <i class="bi bi-box-arrow-up-right fs-6 flex-shrink-0 mt-1"></i>
+                                                </div>
+                                            </a>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <div class="row justify-content-center">
+                                    <div class="col-12 col-lg-11">
+                                        <div class="region-stats-card p-3 p-sm-4 rounded-3 bg-light border shadow-sm">
+                                            <h4 class="h5 fw-bold mb-3 mb-sm-4 text-dark d-flex align-items-center justify-content-center gap-2">
+                                                Region Risk Profile
+                                            </h4>
+                                            <div class="row row-cols-2 row-cols-sm-3 row-cols-lg-5 g-2 g-sm-3 text-center">
+                                                <div class="col">
+                                                    <div class="p-2 p-sm-3 rounded bg-white border h-100 d-flex flex-column justify-content-center">
+                                                        <span class="d-block small mb-1">Major Events</span>
+                                                        <strong class="stat-value text-dark d-block">3 Recorded</strong>
+                                                    </div>
+                                                </div>
+                                                <div class="col">
+                                                    <div class="p-2 p-sm-3 rounded bg-white border h-100 d-flex flex-column justify-content-center">
+                                                        <span class="d-block small mb-1">Main Threat</span>
+                                                        <strong class="stat-value text-dark d-block">Earthquake / Flood</strong>
+                                                    </div>
+                                                </div>
+                                                <div class="col">
+                                                    <div class="p-2 p-sm-3 rounded bg-white border h-100 d-flex flex-column justify-content-center">
+                                                        <span class="d-block small mb-1">Latest Event</span>
+                                                        <strong class="stat-value text-dark d-block">Mar 2025</strong>
+                                                    </div>
+                                                </div>
+                                                <div class="col">
+                                                    <div class="p-2 p-sm-3 rounded bg-white border h-100 d-flex flex-column justify-content-center">
+                                                        <span class="d-block small mb-1">Total Affected</span>
+                                                        <strong class="stat-value text-dark d-block">~12,000+</strong>
+                                                    </div>
+                                                </div>
+                                                <div class="col">
+                                                    <div class="p-2 p-sm-3 rounded bg-white border h-100 d-flex flex-column justify-content-center">
+                                                        <span class="d-block small mb-1">Primary Trigger</span>
+                                                        <strong class="stat-value text-dark d-block">Creek Overflow</strong>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Footer -->
+        <footer>
+            <div class="container">
+                <div class="row g-5">
+                    <div class="col-lg-6">
+                        <div class="footer-brand">
+                            <img src="./img/Logo.png" alt="TERRAFIRM Logo">
+                            <h4>TERRAFIRM</h4>
+                        </div>
+
+                        <p class="footer-text">
+                            Helping communities understand disasters,
+                            stay informed, prepare for risks and build
+                            a safer and more resilient future.
+                        </p>
+
+                        <div class="footer-slogan">
+                            Awareness today. Safety tomorrow.
+                        </div>
+                    </div>
+
+                    <div class="col-6 col-lg-3">
+                        <h5>Quick Links</h5>
+
+                        <a href="./index.html">Home</a>
+                        <a href="./aboutUs.html">About Us</a>
+                        <a href="./explore.html">Explore Disaster</a>
+                        <a href="./contactUs.html">Contact Us</a>
+                        <a href="./FAQ.html">FAQ</a>
+                    </div>
+
+                    <div class="col-6 col-lg-3">
+                        <h5> <a href="./explore.html">Explore</a> </h5>
+
+                        <a href="./flood.html">Flood</a>
+                        <a href="./earthquake.html">Earthquake</a>
+                        <a href="./landslide.html">Landslide</a>
+                        <a href="./drought.html">Drought</a>
+                        <a href="./reference.html">Reference</a>
+                    </div>
+                </div>
+
+                <hr>
+
+                <div class="footer-bottom">
+                    <p>
+                        © 2026 Trinity. All rights reserved.
+                    </p>
+
+                    <p>
+                        Awareness • Preparedness • Safety
+                    </p>
+                </div>
+            </div>
+        </footer>
+
+        <script>
+            // Highlight its map dot
+            function showRegion(region) {
+                document.querySelectorAll('.region-content').forEach(content => {
+                    content.classList.remove('active');
+                });
+
+                const selectedRegion = document.getElementById(region);
+                if (!selectedRegion) return;
+                selectedRegion.classList.add('active');
+
+                document.querySelectorAll('.map-dot').forEach(dot => {
+                    dot.classList.remove('active');
+                    dot.setAttribute('aria-pressed', 'false');
+                });
+
+                const selectedDot = document.querySelector('.' + region + '-dot');
+                if (selectedDot) {
+                    selectedDot.classList.add('active');
+                    selectedDot.setAttribute('aria-pressed', 'true');
+                }
+
+                resetCardFilters(selectedRegion);
+            }
+
+            // Reset all cards to default
+            function resetCardFilters(container) {
+                container.querySelectorAll('.disaster-event-card').forEach(card => {
+                    card.style.display = 'block';
+                    card.style.borderColor = '#e9ecef';
+                    card.style.backgroundColor = '#f8f9fa';
+                });
+            }
+
+            // Search
+            document.getElementById('regionSearchInput').addEventListener('input', function(e) {
+                const term = e.target.value.toLowerCase().trim();
+                const regions = ['mandalay', 'sagaing', 'magway', 'bago', 'shan', 'ayeyarwady', 'chin', 'kachin', 'kayah', 'kayin', 'mon', 'rakhine', 'tanintharyi', 'yangon', 'naypyidaw'];
+
+                if (!term) {
+                    const activeRegion = document.querySelector('.region-content.active');
+                    if (activeRegion) resetCardFilters(activeRegion);
+                    return;
+                }
+
+                for (let regionName of regions) {
+                    const regionEl = document.getElementById(regionName);
+                    if (!regionEl) continue;
+
+                    const cards = regionEl.querySelectorAll('.disaster-event-card');
+                    let matchFoundInRegion = false;
+
+                    cards.forEach(card => {
+                        const text = card.innerText.toLowerCase();
+                        if (text.includes(term)) {
+                            matchFoundInRegion = true;
+                        }
+                    });
+
+                    if (matchFoundInRegion) {
+                        showRegion(regionName);
+                        filterCardsInActiveRegion(term);
+                        break;
+                    }
+                }
+            });
+
+            // Show/Hide cards
+            function filterCardsInActiveRegion(term) {
+                const activeContent = document.querySelector('.region-content.active');
+                if (!activeContent) return;
+
+                const cards = activeContent.querySelectorAll('.disaster-event-card');
+                cards.forEach(card => {
+                    const text = card.innerText.toLowerCase();
+                    if (text.includes(term)) {
+                        card.style.display = 'block';
+                        card.style.borderColor = '#0d6efd';
+                        card.style.backgroundColor = '#f8fbff';
+                    } else {
+                        card.style.display = 'none';
+                    }
+                });
+            }
+        </script>
+
+        <!-- Bootstrap 5 JS -->
+        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+    </body>
+    </html>
